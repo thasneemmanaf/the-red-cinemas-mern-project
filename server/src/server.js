@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
-
 const pino = require('pino');
 const expressLogger = require('express-pino-logger');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
-app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/user', userRoutes);
 
 app.get('/', (req, res) => {
   logger.debug('hi there');
