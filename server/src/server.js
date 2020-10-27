@@ -13,8 +13,14 @@ if (['development', 'production'].includes(process.env.NODE_ENV)) {
   app.use(expressLogger({ logger }));
 }
 
+// Middlewares
 app.use(express.json());
+
+// Implement cors
 app.use(cors());
+
+// Routes
+app.use('/api/v1/users', userRoutes);
 
 app.get('/', (req, res) => {
   logger.debug('hi there');
