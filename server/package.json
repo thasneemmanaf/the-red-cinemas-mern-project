@@ -1,0 +1,27 @@
+{
+  "name": "mern-starter-kit",
+  "version": "1.0.0",
+  "description": "This is a boiler plate starter kit for mern projects",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/**/*.js"
+  },
+  "author": "Thasneem Manaf",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-pino-logger": "^5.0.0",
+    "mongoose": "^5.10.10",
+    "pino": "^6.7.0",
+    "pino-http": "^5.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "pino-pretty": "^4.3.0"
+  }
+}
