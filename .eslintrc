@@ -37,6 +37,7 @@
       {
         "devDependencies": true
       }
-    ]
+    ],
+    "func-names": ["error", "never"]
   }
 }

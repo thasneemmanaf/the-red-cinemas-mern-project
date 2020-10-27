@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const bcrypt = require('bcryptjs');
 
 // User Schema
 const userSchema = new mongoose.Schema({
@@ -23,6 +24,18 @@ const userSchema = new mongoose.Schema({
     minlength: 7,
     select: false
   },
+  confirmPassword: {
+    type: String,
+    required: [true, 'Please confirm the password'],
+    trim: true,
+    select: false,
+    validate: {
+      validator(el) {
+        return el === this.password;
+      },
+      message: 'Passwords do not match'
+    }
+  },
   phoneNumber: {
     type: String,
     required: [true, 'Please provide your phone number'],
@@ -36,6 +49,14 @@ const userSchema = new mongoose.Schema({
   userImage: {
     type: String
   }
+});
+
+// To encrypt password
+userSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) return next();
+  this.password = await bcrypt.hash(this.password, 12);
+  this.confirmPassword = undefined;
+  return next();
 });
 
 // User model
