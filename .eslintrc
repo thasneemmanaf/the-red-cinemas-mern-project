@@ -12,6 +12,7 @@
     "SharedArrayBuffer": "readonly",
     "logger": true
   },
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2018
   },
@@ -38,6 +39,7 @@
         "devDependencies": true
       }
     ],
-    "func-names": ["error", "never"]
+    "func-names": ["error", "never"],
+    "no-param-reassign": 0
   }
 }

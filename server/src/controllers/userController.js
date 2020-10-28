@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const AppError = require('../utils/appError');
 
 // To generate token
 const generateToken = (id) =>
@@ -14,9 +15,8 @@ exports.signUpUser = async (req, res, next) => {
     const newUser = await User.create(req.body);
     const token = generateToken(newUser._id);
     res.status(200).json({ user: newUser, token });
-  } catch (error) {
-    res.status(401).json(error);
-    console.log(error);
+  } catch {
+    next(new AppError('Unable to Signup at the moment', 400));
   }
 };
 
@@ -26,23 +26,20 @@ exports.signInUser = async (req, res, next) => {
   try {
     // Check if email and password is supplied
     if (!emailId || !password) {
-      res.status(401).json({ message: 'Please provide email and password' });
-      return next();
+      return next(new AppError('Please provide email and password', 401));
     }
 
     const user = await User.findOne({ emailId }).select('+password');
 
     // Check if user exists and if password is correct
-
     if (!user || !(await user.verifyPassword(password, user.password))) {
-      console.log('email or password is incorrect');
-      throw new Error('ok');
+      return next(new AppError('Email or password is incorrect', 401));
     }
 
     // If everything is ok, generate token
     const token = generateToken(user._id);
-    res.status(200).json({ status: 'success', token });
-  } catch (err) {
-    console.log(err);
+    return res.status(200).json({ status: 'success', token });
+  } catch {
+    return next(new AppError('Unable to Signin at the moment', 400));
   }
 };

@@ -3,6 +3,8 @@ const cors = require('cors');
 const pino = require('pino');
 const expressLogger = require('express-pino-logger');
 const userRoutes = require('./routes/userRoutes');
+const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();
 
@@ -29,4 +31,11 @@ app.get('/', (req, res) => {
   });
 });
 
+// Handle all unhandled routes
+app.use('*', (req, res, next) => {
+  next(new AppError(`Requested url ${req.originalUrl} doesn't exist`, 404));
+});
+
+// Global error handling middleware
+app.use(globalErrorHandler);
 module.exports = app;
