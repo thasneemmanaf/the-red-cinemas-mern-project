@@ -3,6 +3,7 @@ const cors = require('cors');
 const pino = require('pino');
 const expressLogger = require('express-pino-logger');
 const userRoutes = require('./routes/userRoutes');
+const movieRoutes = require('./routes/movieRoutes');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
@@ -23,6 +24,7 @@ app.use(cors());
 
 // Routes
 app.use('/api/v1/user', userRoutes);
+app.use('/api/v1/movie', movieRoutes);
 
 app.get('/', (req, res) => {
   logger.debug('hi there');
