@@ -9,12 +9,30 @@ const generateToken = (id) =>
     expiresIn: process.env.JWT_EXPIRES_IN
   });
 
+// Generate and send token
+const sendToken = (user, res, statusCode) => {
+  const token = generateToken(user._id);
+
+  const cookieOptions = {
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+    ),
+    secure: false,
+    httpOnly: true
+  };
+
+  if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
+  res.cookie('jwt', token, cookieOptions);
+  // To remove password from response
+  user.password = undefined;
+  res.status(statusCode).json({ user });
+};
+
 // To signup a user
 exports.signUpUser = async (req, res, next) => {
   try {
     const newUser = await User.create(req.body);
-    const token = generateToken(newUser._id);
-    res.status(200).json({ user: newUser, token });
+    sendToken(newUser, res, 201);
   } catch {
     next(new AppError('Unable to Signup at the moment', 400));
   }
@@ -36,9 +54,8 @@ exports.signInUser = async (req, res, next) => {
       return next(new AppError('Email or password is incorrect', 401));
     }
 
-    // If everything is ok, generate token
-    const token = generateToken(user._id);
-    return res.status(200).json({ status: 'success', token });
+    // If above validations are passed, send token
+    return sendToken(user, res, 200);
   } catch {
     return next(new AppError('Unable to Signin at the moment', 400));
   }
