@@ -7,7 +7,11 @@ const movieSchema = new mongoose.Schema({
     required: [true, 'Please provide movie title'],
     trim: true
   },
-  image: {
+  posterImage: {
+    type: String,
+    required: [true, 'Please provide movie image']
+  },
+  bannerImage: {
     type: String,
     required: [true, 'Please provide movie image']
   },
