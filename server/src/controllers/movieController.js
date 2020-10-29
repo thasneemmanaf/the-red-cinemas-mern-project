@@ -7,8 +7,7 @@ exports.addMovie = async (req, res, next) => {
     const movie = new Movie(req.body);
     await movie.save();
     res.status(201).json({
-      status: 'success',
-      movie
+      status: 'success'
     });
   } catch {
     next(new AppError('Unable to create movie at the moment', 400));
