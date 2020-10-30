@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from '../../axios';
 import './Row.css';
 
-function Row() {
+function Row({ title }) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get('/movie');
-      console.log(response.data.movies);
       setMovies(response.data.movies);
       return response;
     }
@@ -17,7 +16,7 @@ function Row() {
 
   return (
     <div className="row">
-      <h2>Playing Now</h2>
+      <h2 className="row_title">{title}</h2>
       <div className="row_posters">
         {movies.map((movie) => {
           return (
@@ -30,6 +29,9 @@ function Row() {
           );
         })}
       </div>
+      <button type="button" className="explore_button ">
+        Explore All
+      </button>
     </div>
   );
 }

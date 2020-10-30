@@ -19,9 +19,9 @@ export default function Banner() {
   }, []);
 
   // To truncate movie description in the banner
-  //   function truncate(str, n) {
-  //     return str.length > n ? `${str.substr(0, n - 1)}...` : str;
-  //   }
+  function truncate(str, n) {
+    return str.length > n ? `${str.substr(0, n - 1)}...` : str;
+  }
   return (
     <header
       className="banner"
@@ -36,15 +36,15 @@ export default function Banner() {
         <h1 className="banner_title">{movie.title}</h1>
         <div className="banner_buttons">
           <button className="banner_button" type="button">
-            Play
+            Info
           </button>
           <button className="banner_button" type="button">
-            My List
+            Book Now
           </button>
         </div>
-        {/* <h1 className="banner_description">
-          {truncate(movie.description, 150)}
-        </h1> */}
+        <h1 className="banner_description">
+          {movie.description && truncate(movie.description.en, 150)}
+        </h1>
       </div>
       <div className="banner_fadeBottom" />
     </header>

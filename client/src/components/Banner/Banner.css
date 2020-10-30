@@ -22,6 +22,7 @@
   font-size: 0.8rem;
   max-width: 360px;
   height: 80px;
+  text-align: justify;
 }
 
 .banner_button {
@@ -29,12 +30,9 @@
   color: white;
   outline: none;
   border: none;
-  font-weight: 700;
+  font-weight: bolder;
   border-radius: 0.2vw;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 2rem;
   margin-right: 1rem;
   background-color: rgb(51, 51, 51, 0.5);
 }

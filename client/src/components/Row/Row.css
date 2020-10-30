@@ -1,17 +1,17 @@
 .row {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   color: #fff;
 }
 
 .row_posters {
   display: grid;
   width: 80vw;
-  max-width: 1170px;
+  max-width: 1200px;
   margin: 2rem auto;
   align-items: center;
   justify-items: center;
   gap: 2rem 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(181px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(186px, 1fr));
 }
 
 .row_poster {
@@ -22,4 +22,30 @@
 
 .row_poster:hover {
   transform: scale(1.04);
+}
+
+.explore_button {
+  cursor: pointer;
+  color: white;
+  outline: none;
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.2vw;
+  padding: 0.5rem 2rem;
+  display: block;
+  margin: 0 auto;
+  background-color: rgb(51, 51, 51, 0.5);
+}
+
+.explore_button:hover {
+  color: #000;
+  background-color: #e6e6e6;
+  transition: all 0.2s;
+}
+
+@media screen and (max-width: 380px) {
+  .row_title {
+    text-align: center;
+  }
 }
