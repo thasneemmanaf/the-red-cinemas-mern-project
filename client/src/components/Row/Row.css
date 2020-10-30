@@ -1,0 +1,25 @@
+.row {
+  padding: 1rem;
+  color: #fff;
+}
+
+.row_posters {
+  display: grid;
+  width: 80vw;
+  max-width: 1170px;
+  margin: 2rem auto;
+  align-items: center;
+  justify-items: center;
+  gap: 2rem 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(181px, 1fr));
+}
+
+.row_poster {
+  max-height: 300px;
+  object-fit: contain;
+  transition: transform 450ms;
+}
+
+.row_poster:hover {
+  transform: scale(1.04);
+}
