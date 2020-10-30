@@ -36,10 +36,10 @@ export default function Banner() {
         <h1 className="banner_title">{movie.title}</h1>
         <div className="banner_buttons">
           <button className="banner_button" type="button">
-            Info
+            INFO
           </button>
           <button className="banner_button" type="button">
-            Book Now
+            BOOK NOW
           </button>
         </div>
         <h1 className="banner_description">

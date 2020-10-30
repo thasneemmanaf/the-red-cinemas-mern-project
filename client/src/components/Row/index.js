@@ -23,15 +23,19 @@ function Row({ title }) {
             <div className="poster_container" key={movie._id}>
               <img
                 className="row_poster"
-                src={movie.posterImage}
+                src={movie.bannerImage}
                 alt={movie.name}
               />
+              <div className="movie_info">
+                <h3>TITANIC</h3>
+                <h4>ENGLISH . ROMANTIC</h4>
+              </div>
               <div className="poster_actions">
                 <button type="button" className="book_btn">
                   BOOK NOW
                 </button>
                 <button type="button" className="play_btn">
-                  TRAILER
+                  PLAY TRAILER
                 </button>
               </div>
             </div>

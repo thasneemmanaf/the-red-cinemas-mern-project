@@ -9,8 +9,8 @@ function App() {
     <div className="app">
       <NavBar />
       <Banner />
-      <Row title="Now Playing" />
-      <Row title="Coming Soon" />
+      <Row title="NOW PLAYING" />
+      <Row title="COMING SOON" />
     </div>
   );
 }
