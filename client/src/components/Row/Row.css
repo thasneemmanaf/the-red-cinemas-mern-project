@@ -14,14 +14,63 @@
   grid-template-columns: repeat(auto-fill, minmax(186px, 1fr));
 }
 
+.poster_container {
+  max-height: 300px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
 .row_poster {
+  width: 100%;
   max-height: 300px;
   object-fit: contain;
   transition: transform 450ms;
 }
 
+.poster_actions {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: -5rem;
+  width: 100%;
+  transition: all 450ms ease-in;
+  visibility: hidden;
+}
+
+.poster_container:hover .poster_actions {
+  visibility: visible;
+  bottom: 1rem;
+}
+
+.play_btn {
+  cursor: pointer;
+  color: #000;
+  outline: none;
+  border: none;
+  font-size: xx-small;
+  font-weight: bolder;
+  border-radius: 0.2vw;
+  padding: 0.5rem 1rem;
+  width: calc(100% / 2);
+  background-color: #e6e6e6;
+}
+
+.book_btn {
+  cursor: pointer;
+  color: #000;
+  outline: none;
+  border: none;
+  font-size: xx-small;
+  font-weight: bolder;
+  border-radius: 0.2vw;
+  padding: 0.5rem 1rem;
+  width: calc((100% - 10px) / 2);
+  background-color: #e6e6e6;
+}
+
 .row_poster:hover {
-  transform: scale(1.04);
+  transform: scale(1.2);
 }
 
 .explore_button {
