@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Navbar.css';
 
 function Navbar() {
   const [show, handleshow] = useState(false);
 
+  const handleScroll = useCallback(() => {
+    if (window.scrollY > 100) {
+      handleshow(true);
+    } else handleshow(false);
+  }, []);
+
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        handleshow(true);
-      } else handleshow(false);
-    });
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll');
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 

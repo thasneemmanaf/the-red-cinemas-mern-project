@@ -71,9 +71,9 @@
   font-size: xx-small;
   font-weight: bolder;
   border-radius: 0.2vw;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1rem;
   width: calc((100% - 3rem) / 2);
-  background-color: #e6e6e6;
+  background-color: #fff;
 }
 
 .book_btn {
@@ -84,9 +84,9 @@
   font-size: xx-small;
   font-weight: bolder;
   border-radius: 0.2vw;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1rem;
   width: calc((100% - 3rem) / 2);
-  background-color: #e6e6e6;
+  background-color: #fff;
 }
 
 .row_poster:hover {

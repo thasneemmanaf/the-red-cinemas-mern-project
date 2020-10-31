@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import axios from '../../axios';
 import './Row.css';
 
@@ -42,9 +44,11 @@ function Row({ title }) {
           );
         })}
       </div>
-      <button type="button" className="explore_button ">
-        Explore All
-      </button>
+      <Link to={`/${title}`}>
+        <button type="button" className="explore_button ">
+          Explore All
+        </button>
+      </Link>
     </div>
   );
 }
