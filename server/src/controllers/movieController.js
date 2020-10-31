@@ -17,7 +17,7 @@ exports.addMovie = async (req, res, next) => {
 // To get all movies
 exports.getMovies = async (req, res, next) => {
   try {
-    const movies = await Movie.find({});
+    const movies = await Movie.find({}).limit(8);
     res.status(200).json({
       status: 'success',
       movies

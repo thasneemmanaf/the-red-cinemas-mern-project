@@ -11,7 +11,7 @@
   align-items: center;
   justify-items: center;
   gap: 2rem 0.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(294px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 }
 
 .poster_container {
@@ -23,8 +23,8 @@
 
 .row_poster {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: 200px;
+  object-fit: cover;
   transition: transform 450ms;
 }
 .movie_info {

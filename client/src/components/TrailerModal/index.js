@@ -22,7 +22,7 @@ const TrailerModal = ({ trailerUrl, setTrailerUrl }) => {
       onClick={() => setTrailerUrl('')}>
       <div className={classes.modalContainerFixed}>
         <div className={classes.modalContainer}>
-          <div style={{ margin: 'auto', maxHeight: '440px' }}>
+          <div style={{ padding: '2px', margin: 'auto', maxHeight: '440px' }}>
             {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />}
           </div>
         </div>
