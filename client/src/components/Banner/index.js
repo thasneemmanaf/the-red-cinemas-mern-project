@@ -28,7 +28,7 @@ export default function Banner() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 200000,
+    speed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -36,44 +36,40 @@ export default function Banner() {
     cssEase: 'ease-in-out',
     initialSlide: 4,
     pauseOnDotsHover: true,
-    appendDots: (dots) => (
-      <div
-        style={{
-          backgroundColor: '#fff',
-          borderRadius: '10px',
-          padding: '10px',
-          maxWidth: '50%'
-        }}>
-        <ul style={{ margin: '0px', backgroundColor: '#fff' }}>{dots}</ul>
-      </div>
-    )
+    dotsClass: 'button__bar'
   };
   return (
     <>
       <Slider {...settings}>
         {movies.map((movie) => {
           return (
-            <div className="banner" key={movie._id}>
-              <img
-                src={movie.bannerImage}
-                alt={movie.name}
-                style={{ width: '100%', maxHeight: '100%' }}
-              />
-              <div className="banner_contents ">
-                <h1 className="banner_title">{movie.title}</h1>
-                <div className="banner_buttons">
-                  <button className="banner_button" type="button">
-                    INFO
-                  </button>
-                  <button className="banner_button" type="button">
-                    BOOK NOW
-                  </button>
+            <div>
+              <div
+                className="banner"
+                key={movie._id}
+                style={{
+                  backgroundSize: 'cover',
+                  backgroundImage: `url(
+        ${movie.bannerImage}
+        )`,
+                  backgroundPosition: 'center cover'
+                }}>
+                <div className="banner_contents ">
+                  <h1 className="banner_title">{movie.title}</h1>
+                  <div className="banner_buttons">
+                    <button className="banner_button" type="button">
+                      INFO
+                    </button>
+                    <button className="banner_button" type="button">
+                      BOOK NOW
+                    </button>
+                  </div>
+                  <h1 className="banner_description">
+                    {movie.description && truncate(movie.description.en, 150)}
+                  </h1>
                 </div>
-                <h1 className="banner_description">
-                  {movie.description && truncate(movie.description.en, 150)}
-                </h1>
+                <div className="banner_fadeBottom" />
               </div>
-              <div className="banner_fadeBottom" />
             </div>
           );
         })}

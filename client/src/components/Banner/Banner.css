@@ -6,7 +6,6 @@
 }
 
 .banner_contents {
-  position: absolute;
   top: 0;
   margin-left: 30px;
   padding-top: 140px;
@@ -47,7 +46,6 @@
 }
 
 .banner_fadeBottom {
-  z-index: 1001;
   height: 7.4rem;
   background-image: linear-gradient(
     180deg,
@@ -55,4 +53,38 @@
     rgba(37, 37, 37, 0.61),
     #111
   );
+}
+
+/* Styling for Slick */
+.button__bar {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+}
+
+.button__bar li {
+  display: inline;
+  cursor: pointer;
+  margin: 0 3px;
+  padding: 0;
+}
+
+.button__bar li button {
+  border: none;
+  background: #808080;
+  color: transparent;
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  border-radius: 7.5px;
+}
+
+.button__bar li.slick-active button {
+  background-color: #fff;
+}
+
+.button__bar li button:hover,
+.button__bar li button:focus {
+  background: rgba(247, 34, 34, 0.8);
+  outline: 0;
 }
