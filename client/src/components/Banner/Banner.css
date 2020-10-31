@@ -1,10 +1,13 @@
 .banner {
   color: white;
   object-fit: contain;
+  /* position: relative; */
   height: 448px;
 }
 
 .banner_contents {
+  position: absolute;
+  top: 0;
   margin-left: 30px;
   padding-top: 140px;
   height: 190px;
@@ -44,6 +47,7 @@
 }
 
 .banner_fadeBottom {
+  z-index: 1001;
   height: 7.4rem;
   background-image: linear-gradient(
     180deg,
