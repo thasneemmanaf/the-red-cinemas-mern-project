@@ -6,6 +6,7 @@ import Banner from './components/Banner';
 import './App.css';
 import Row from './components/Row';
 import PlayingNow from './components/PlayingNow';
+import ComingSoon from './components/ComingSoon';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         />
         <Switch>
           <Route path="/playing-now" exact component={PlayingNow} />
+          <Route path="/coming-soon" exact component={ComingSoon} />
         </Switch>
         {/* <NavBar />
         <Banner />
