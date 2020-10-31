@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import movieTrailer from 'movie-trailer';
 
 import axios from '../../axios';
 import classes from './playingNow.module.css';
 import NavBar from '../NavBar';
+import TrailerModal from '../TrailerModal';
 
 function PlayingNow() {
   const [movies, setMovies] = useState([]);
+  const [trailerUrl, setTrailerUrl] = useState('');
 
   useEffect(() => {
     async function fetchData() {
@@ -16,6 +19,26 @@ function PlayingNow() {
     fetchData();
   }, []);
 
+  // To play trailer
+  const handlePlayTrailer = (movie) => {
+    if (trailerUrl) {
+      setTrailerUrl('');
+    } else {
+      movieTrailer(movie.title || '')
+        .then((url) => {
+          const urlParams = new URLSearchParams(new URL(url).search);
+          setTrailerUrl(urlParams.get('v'));
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
+  let trailerModal = null;
+  if (trailerUrl) {
+    trailerModal = (
+      <TrailerModal trailerUrl={trailerUrl} setTrailerUrl={setTrailerUrl} />
+    );
+  }
   return (
     <>
       <NavBar />
@@ -38,7 +61,10 @@ function PlayingNow() {
                   <button type="button" className={classes.book_btn}>
                     BOOK NOW
                   </button>
-                  <button type="button" className={classes.play_btn}>
+                  <button
+                    type="button"
+                    className={classes.play_btn}
+                    onClick={() => handlePlayTrailer(movie)}>
                     PLAY TRAILER
                   </button>
                 </div>
@@ -47,6 +73,7 @@ function PlayingNow() {
           })}
         </div>
       </div>
+      {trailerModal}
     </>
   );
 }
