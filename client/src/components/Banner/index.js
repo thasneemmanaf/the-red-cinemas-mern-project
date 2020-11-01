@@ -11,7 +11,9 @@ export default function Banner() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get('/movie');
+      const response = await axios.get('/movie', {
+        params: { type: 'playingnow', limit: 8 }
+      });
       setMovies(response.data.movies);
       return response;
     }
@@ -23,8 +25,7 @@ export default function Banner() {
     return str.length > n ? `${str.substr(0, n - 1)}...` : str;
   }
 
-  console.log(movies);
-
+  // Slick settings
   const settings = {
     dots: true,
     infinite: true,
@@ -34,7 +35,7 @@ export default function Banner() {
     autoplay: true,
     autoplaySpeed: 2000,
     cssEase: 'ease-in-out',
-    initialSlide: 4,
+    initialSlide: 0,
     pauseOnDotsHover: true,
     pauseOnHover: false,
     dotsClass: 'button__bar'
@@ -44,10 +45,9 @@ export default function Banner() {
       <Slider {...settings}>
         {movies.map((movie) => {
           return (
-            <div>
+            <div key={movie._id}>
               <div
                 className="banner"
-                key={movie._id}
                 style={{
                   backgroundSize: 'cover',
                   backgroundImage: `url(

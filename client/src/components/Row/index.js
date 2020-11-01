@@ -4,21 +4,23 @@ import { Link } from 'react-router-dom';
 import axios from '../../axios';
 import './Row.css';
 
-function Row({ title }) {
+function Row({ type }) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get('/movie');
+      const response = await axios.get('/movie', {
+        params: { type, limit: 8 }
+      });
       setMovies(response.data.movies);
       return response;
     }
     fetchData();
-  }, []);
+  }, [type]);
 
   return (
     <div className="row">
-      <h2 className="row_title">{title}</h2>
+      <h2 className="row_title">{type}</h2>
       <div className="row_posters">
         {movies.map((movie) => {
           return (
@@ -44,7 +46,7 @@ function Row({ title }) {
           );
         })}
       </div>
-      <Link to={`/${title}`}>
+      <Link to={`/${type}`}>
         <button type="button" className="explore_button ">
           Explore All
         </button>

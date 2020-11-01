@@ -14,7 +14,7 @@ exports.addMovie = async (req, res, next) => {
   }
 };
 
-// To get all movies
+// To get movies
 exports.getMovies = async (req, res, next) => {
   try {
     let movies;

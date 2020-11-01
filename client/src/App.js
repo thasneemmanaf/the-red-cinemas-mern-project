@@ -5,8 +5,7 @@ import NavBar from './components/NavBar';
 import Banner from './components/Banner';
 import './App.css';
 import Row from './components/Row';
-import PlayingNow from './components/PlayingNow';
-import ComingSoon from './components/ComingSoon';
+import ExploreAll from './components/ExploreAll';
 
 function App() {
   return (
@@ -17,21 +16,17 @@ function App() {
         <Route
           path="/"
           exact
-          render={(props) => <Row {...props} title="playing-now" />}
+          render={(props) => <Row {...props} type="playingnow" />}
         />
         <Route
           path="/"
           exact
-          render={(props) => <Row {...props} title="coming-soon" />}
+          render={(props) => <Row {...props} type="comingsoon" />}
         />
         <Switch>
-          <Route path="/playing-now" exact component={PlayingNow} />
-          <Route path="/coming-soon" exact component={ComingSoon} />
+          <Route path="/playingnow" exact component={ExploreAll} />
+          <Route path="/comingsoon" exact component={ExploreAll} />
         </Switch>
-        {/* <NavBar />
-        <Banner />
-        <Row title="playing-now" />
-        <Row title="coming-soon" /> */}
       </div>
     </BrowserRouter>
   );

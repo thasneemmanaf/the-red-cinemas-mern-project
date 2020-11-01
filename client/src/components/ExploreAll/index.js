@@ -2,22 +2,25 @@ import React, { useState, useEffect } from 'react';
 import movieTrailer from 'movie-trailer';
 
 import axios from '../../axios';
-import classes from './playingNow.module.css';
+import classes from './exploreAll.module.css';
 import NavBar from '../NavBar';
 import TrailerModal from '../TrailerModal';
 
-function PlayingNow() {
+function ExploreAll(props) {
+  const type = props.match.path.replace('/', '');
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get('/movie');
+      const response = await axios.get('/movie', {
+        params: { type, limit: 16 }
+      });
       setMovies(response.data.movies);
       return response;
     }
     fetchData();
-  }, []);
+  }, [type]);
 
   // To play trailer
   const handlePlayTrailer = (movie) => {
@@ -78,4 +81,4 @@ function PlayingNow() {
   );
 }
 
-export default PlayingNow;
+export default ExploreAll;
