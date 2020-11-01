@@ -36,6 +36,7 @@ export default function Banner() {
     cssEase: 'ease-in-out',
     initialSlide: 4,
     pauseOnDotsHover: true,
+    pauseOnHover: false,
     dotsClass: 'button__bar'
   };
   return (

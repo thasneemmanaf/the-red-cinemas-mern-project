@@ -17,7 +17,21 @@ exports.addMovie = async (req, res, next) => {
 // To get all movies
 exports.getMovies = async (req, res, next) => {
   try {
-    const movies = await Movie.find({}).limit(8);
+    let movies;
+    const { limit, type } = req.query;
+
+    // Fetch Coming Soon movies and Currently showing movies based on type
+    if (type === 'comingsoon') {
+      movies = await Movie.find({
+        releaseDate: { $gt: new Date() }
+      }).limit(parseInt(limit));
+    } else if (type === 'playingnow') {
+      movies = await Movie.find({
+        releaseDate: { $lte: new Date() },
+        endDate: { $gte: new Date() }
+      }).limit(parseInt(limit));
+    }
+
     res.status(200).json({
       status: 'success',
       movies

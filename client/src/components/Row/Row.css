@@ -20,7 +20,7 @@
 
 .poster_container {
   max-height: 280px;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   position: relative;
 }
@@ -74,7 +74,7 @@
   border: none;
   font-size: xx-small;
   font-weight: bolder;
-  border-radius: 0.2vw;
+  border-radius: 0.4vw;
   padding: 0.7rem 1rem;
   width: calc((100% - 3rem) / 2);
   background-color: #fff;
@@ -87,7 +87,7 @@
   border: none;
   font-size: xx-small;
   font-weight: bolder;
-  border-radius: 0.2vw;
+  border-radius: 0.4vw;
   padding: 0.7rem 1rem;
   width: calc((100% - 3rem) / 2);
   background-color: #fff;
