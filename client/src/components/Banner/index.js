@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import NavBar from '../NavBar';
 import handlePlayTrailer from '../../utils/playTrailer';
 import TrailerModal from '../TrailerModal';
 import axios from '../../axios';
@@ -55,6 +57,7 @@ export default function Banner() {
 
   return (
     <>
+      <NavBar />
       <Slider {...settings}>
         {movies.map((movie) => {
           return (
@@ -79,9 +82,11 @@ export default function Banner() {
                       }>
                       PLAY
                     </button>
-                    <button className="banner_button" type="button">
-                      BOOK NOW
-                    </button>
+                    <Link to="/booking">
+                      <button className="banner_button" type="button">
+                        BOOK NOW
+                      </button>
+                    </Link>
                   </div>
                   <h1 className="banner_description">
                     {movie.description && truncate(movie.description.en, 150)}

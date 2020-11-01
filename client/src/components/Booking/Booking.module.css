@@ -1,0 +1,51 @@
+.container {
+  padding: 1rem, 0;
+}
+
+.movie_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container_center {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 1rem auto;
+  display: grid;
+  row-gap: 1rem;
+  align-items: center;
+  justify-items: center;
+}
+
+@media screen and (min-width: 1170px) {
+  .container_center {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 0.5rem;
+    grid-template-rows: repeat(5, 100px);
+    grid-template-areas:
+      'a b b c'
+      'a d d f'
+      'e d d f'
+      'e d d f'
+      'g h h i';
+  }
+  .movie_image {
+    grid-area: a;
+  }
+  .movie_info {
+    grid-area: e;
+  }
+  .booking_form {
+    grid-area: b;
+  }
+  .seat_layout {
+    grid-area: d;
+  }
+  .ticket_info {
+    grid-area: f;
+  }
+  .checkout_panel {
+    grid-area: h;
+  }
+}
