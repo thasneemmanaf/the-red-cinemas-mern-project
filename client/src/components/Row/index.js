@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import handlePlayTrailer from '../../utils/playTrailer';
+import TrailerModal from '../TrailerModal';
+
 import axios from '../../axios';
 import './Row.css';
 
 function Row({ type }) {
   const [movies, setMovies] = useState([]);
+  const [trailerUrl, setTrailerUrl] = useState('');
 
   useEffect(() => {
     async function fetchData() {
@@ -17,6 +21,14 @@ function Row({ type }) {
     }
     fetchData();
   }, [type]);
+
+  // Conditionally render TrailerModal
+  let trailerModal = null;
+  if (trailerUrl) {
+    trailerModal = (
+      <TrailerModal trailerUrl={trailerUrl} setTrailerUrl={setTrailerUrl} />
+    );
+  }
 
   return (
     <div className="row">
@@ -35,11 +47,16 @@ function Row({ type }) {
                 <h4>ENGLISH . ROMANTIC</h4>
               </div>
               <div className="poster_actions">
+                <button
+                  type="button"
+                  className="play_btn"
+                  onClick={() =>
+                    handlePlayTrailer(movie, trailerUrl, setTrailerUrl)
+                  }>
+                  PLAY
+                </button>
                 <button type="button" className="book_btn">
                   BOOK NOW
-                </button>
-                <button type="button" className="play_btn">
-                  PLAY TRAILER
                 </button>
               </div>
             </div>
@@ -51,6 +68,7 @@ function Row({ type }) {
           Explore All
         </button>
       </Link>
+      {trailerModal}
     </div>
   );
 }

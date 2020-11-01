@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import movieTrailer from 'movie-trailer';
 
+import handlePlayTrailer from '../../utils/playTrailer';
 import axios from '../../axios';
 import classes from './exploreAll.module.css';
 import NavBar from '../NavBar';
@@ -22,20 +22,7 @@ function ExploreAll(props) {
     fetchData();
   }, [type]);
 
-  // To play trailer
-  const handlePlayTrailer = (movie) => {
-    if (trailerUrl) {
-      setTrailerUrl('');
-    } else {
-      movieTrailer(movie.title || '')
-        .then((url) => {
-          const urlParams = new URLSearchParams(new URL(url).search);
-          setTrailerUrl(urlParams.get('v'));
-        })
-        .catch((err) => console.log(err));
-    }
-  };
-
+  // Conditionally render TrailerModal
   let trailerModal = null;
   if (trailerUrl) {
     trailerModal = (
@@ -61,14 +48,16 @@ function ExploreAll(props) {
                   <h4>ENGLISH . ROMANTIC</h4>
                 </div>
                 <div className={classes.poster_actions}>
-                  <button type="button" className={classes.book_btn}>
-                    BOOK NOW
-                  </button>
                   <button
                     type="button"
                     className={classes.play_btn}
-                    onClick={() => handlePlayTrailer(movie)}>
-                    PLAY TRAILER
+                    onClick={() =>
+                      handlePlayTrailer(movie, trailerUrl, setTrailerUrl)
+                    }>
+                    PLAY
+                  </button>
+                  <button type="button" className={classes.book_btn}>
+                    BOOK NOW
                   </button>
                 </div>
               </div>

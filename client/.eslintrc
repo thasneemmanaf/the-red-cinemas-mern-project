@@ -38,6 +38,7 @@
     "react/destructuring-assignment": [0],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-curly-newline": 0,
 
     "react/jsx-closing-bracket-location": [
       1,

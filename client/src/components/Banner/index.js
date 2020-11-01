@@ -4,8 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import movieTrailer from 'movie-trailer';
-
+import handlePlayTrailer from '../../utils/playTrailer';
 import TrailerModal from '../TrailerModal';
 import axios from '../../axios';
 import './Banner.css';
@@ -46,20 +45,7 @@ export default function Banner() {
     dotsClass: 'button__bar'
   };
 
-  // To play trailer
-  const handlePlayTrailer = (movie) => {
-    if (trailerUrl) {
-      setTrailerUrl('');
-    } else {
-      movieTrailer(movie.title || '')
-        .then((url) => {
-          const urlParams = new URLSearchParams(new URL(url).search);
-          setTrailerUrl(urlParams.get('v'));
-        })
-        .catch((err) => console.log(err));
-    }
-  };
-
+  // Conditionally render TrailerModal
   let trailerModal = null;
   if (trailerUrl) {
     trailerModal = (
@@ -88,7 +74,9 @@ export default function Banner() {
                     <button
                       className="banner_button"
                       type="button"
-                      onClick={() => handlePlayTrailer(movie)}>
+                      onClick={() =>
+                        handlePlayTrailer(movie, trailerUrl, setTrailerUrl)
+                      }>
                       PLAY
                     </button>
                     <button className="banner_button" type="button">
