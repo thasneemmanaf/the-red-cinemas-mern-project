@@ -7,12 +7,14 @@ function BookingCheckout() {
   return (
     <div className={classes.checkout}>
       <div className={classes.checkout_buttons}>
-        <button className={classes.checkout_button} type="button">
-          CANCEL
-        </button>
+        <Link to="/">
+          <button className={classes.checkout_button} type="button">
+            CANCEL
+          </button>
+        </Link>
         <Link to="/booking">
           <button className={classes.checkout_button} type="button">
-            CHECK OUT
+            CHECKOUT
           </button>
         </Link>
       </div>

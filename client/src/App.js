@@ -6,33 +6,31 @@ import './App.css';
 import Row from './components/Row';
 import ExploreAll from './components/ExploreAll';
 import Booking from './components/Booking';
+import ReservationProvider from './Store/ReservationProvider';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="app">
-        <Route path="/" exact component={Banner} />
-        <Route
-          path="/"
-          exact
-          render={(props) => <Row {...props} type="playingnow" />}
-        />
-        <Route
-          path="/"
-          exact
-          render={(props) => <Row {...props} type="comingsoon" />}
-        />
-        <Switch>
-          <Route path="/playingnow" exact component={ExploreAll} />
-          <Route path="/comingsoon" exact component={ExploreAll} />
-          <Route path="/booking" exact component={Booking} />
-          {/* <Route
-            path="/booking"
+      <ReservationProvider>
+        <div className="app">
+          <Route path="/" exact component={Banner} />
+          <Route
+            path="/"
             exact
-            render={(props) => <Booking {...props} type="comingsoon" />}
-          /> */}
-        </Switch>
-      </div>
+            render={(props) => <Row {...props} type="playingnow" />}
+          />
+          <Route
+            path="/"
+            exact
+            render={(props) => <Row {...props} type="comingsoon" />}
+          />
+          <Switch>
+            <Route path="/playingnow" exact component={ExploreAll} />
+            <Route path="/comingsoon" exact component={ExploreAll} />
+            <Route path="/booking" exact component={Booking} />
+          </Switch>
+        </div>
+      </ReservationProvider>
     </BrowserRouter>
   );
 }

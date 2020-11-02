@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Slider from 'react-slick';
@@ -10,10 +10,12 @@ import handlePlayTrailer from '../../utils/playTrailer';
 import TrailerModal from '../TrailerModal';
 import axios from '../../axios';
 import './Banner.css';
+import ReservationContext from '../../Store/ReservationContext';
 
 export default function Banner() {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
+  const [, dispatch] = useContext(ReservationContext);
 
   useEffect(() => {
     async function fetchData() {
@@ -30,6 +32,12 @@ export default function Banner() {
   function truncate(str, n) {
     return str.length > n ? `${str.substr(0, n - 1)}...` : str;
   }
+
+  // To handle movie booking
+  const handleBookNow = (movie) => {
+    dispatch({ type: 'ADD_MOVIE_ID', payload: movie._id });
+    dispatch({ type: 'ADD_MOVIE', payload: movie.title });
+  };
 
   // Slick settings
   const settings = {
@@ -83,7 +91,10 @@ export default function Banner() {
                       PLAY
                     </button>
                     <Link to="/booking">
-                      <button className="banner_button" type="button">
+                      <button
+                        className="banner_button"
+                        type="button"
+                        onClick={() => handleBookNow(movie)}>
                         BOOK NOW
                       </button>
                     </Link>

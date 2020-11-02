@@ -4,7 +4,6 @@
 
 .checkout_buttons {
   display: flex;
-  background-color: white;
   width: 35vw;
   height: 15vh;
   justify-content: center;
@@ -17,9 +16,10 @@
   color: white;
   outline: none;
   border: none;
+  min-width: 110px;
   font-weight: bolder;
   border-radius: 0.4vw;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   margin-right: 1rem;
   background-color: rgb(51, 51, 51, 0.5);
 }

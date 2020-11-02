@@ -13,6 +13,9 @@
 .container {
   perspective: 1000px;
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .seat {

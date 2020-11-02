@@ -21,7 +21,6 @@ function SeatLayout() {
 
       <div className="container">
         <div className="screen" />
-
         <div className="row">
           <div className="seat" />
           <div className="seat" />
