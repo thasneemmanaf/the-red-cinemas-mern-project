@@ -5,7 +5,8 @@ import handlePlayTrailer from '../../utils/playTrailer';
 import TrailerModal from '../TrailerModal';
 
 import axios from '../../axios';
-import './Row.css';
+
+import classes from './Row.module.css';
 
 function Row({ type }) {
   const [movies, setMovies] = useState([]);
@@ -31,31 +32,31 @@ function Row({ type }) {
   }
 
   return (
-    <div className="row">
-      <h2 className="row_title">{type}</h2>
-      <div className="row_posters">
+    <div className={classes.row}>
+      <h2 className={classes.row_title}>{type}</h2>
+      <div className={classes.row_posters}>
         {movies.map((movie) => {
           return (
-            <div className="poster_container" key={movie._id}>
+            <div className={classes.poster_container} key={movie._id}>
               <img
-                className="row_poster"
+                className={classes.row_poster}
                 src={movie.bannerImage}
                 alt={movie.name}
               />
-              <div className="movie_info">
+              <div className={classes.movie_info}>
                 <h3>TITANIC</h3>
                 <h4>ENGLISH . ROMANTIC</h4>
               </div>
-              <div className="poster_actions">
+              <div className={classes.poster_actions}>
                 <button
                   type="button"
-                  className="play_btn"
+                  className={classes.play_btn}
                   onClick={() =>
                     handlePlayTrailer(movie, trailerUrl, setTrailerUrl)
                   }>
                   PLAY
                 </button>
-                <button type="button" className="book_btn">
+                <button type="button" className={classes.book_btn}>
                   BOOK NOW
                 </button>
               </div>
@@ -64,7 +65,7 @@ function Row({ type }) {
         })}
       </div>
       <Link to={`/${type}`}>
-        <button type="button" className="explore_button ">
+        <button type="button" className={classes.explore_button}>
           Explore All
         </button>
       </Link>
