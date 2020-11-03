@@ -9,6 +9,7 @@
     "axios": "^0.21.0",
     "movie-trailer": "^2.0.6",
     "react": "^17.0.1",
+    "react-dates": "^21.8.0",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
