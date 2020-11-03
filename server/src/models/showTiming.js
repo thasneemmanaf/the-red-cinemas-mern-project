@@ -7,13 +7,9 @@ const showTimingSchema = new Schema({
     required: [true, 'Please provide show starting time'],
     trim: true
   },
-  startDate: {
+  date: {
     type: Date,
-    required: [true, 'Please provide show start date']
-  },
-  endDate: {
-    type: Date,
-    required: [true, 'Please provide show end date']
+    required: [true, 'Please provide show date']
   },
   movieId: {
     type: Schema.Types.ObjectId,

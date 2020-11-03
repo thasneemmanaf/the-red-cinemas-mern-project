@@ -7,7 +7,10 @@ function BookingForm() {
   return (
     <div className={classes.form}>
       <BookingCalender />
-      <ScreenSelector />
+      <div className={classes.option_selectors}>
+        <ScreenSelector className={classes.screen_selector} />
+        <ScreenSelector className={classes.time_selector} />
+      </div>
     </div>
   );
 }
