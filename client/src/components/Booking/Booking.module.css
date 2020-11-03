@@ -25,11 +25,11 @@
     column-gap: 0.5rem;
     grid-template-rows: repeat(5, 100px);
     grid-template-areas:
-      'a b b c'
+      'b b b b'
+      'a d d f'
       'a d d f'
       'e d d f'
-      'e d d f'
-      'g h h i';
+      'e h h i';
   }
   .movie_image {
     grid-area: a;
