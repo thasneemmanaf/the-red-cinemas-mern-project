@@ -3,7 +3,8 @@ import React from 'react';
 import SeatLayout from '../SeatLayout';
 import BookingForm from '../BookingForm';
 import BookingCheckout from '../BookingCheckout';
-import TicketInfo from '../TicketInfo';
+// import TicketInfo from '../TicketInfo';
+import MovieTicket from '../MovieTicket';
 import classes from './Booking.module.css';
 
 function Booking() {
@@ -31,7 +32,8 @@ function Booking() {
           <SeatLayout />
         </div>
         <div className={classes.ticket_info}>
-          <TicketInfo />
+          {/* <TicketInfo /> */}
+          <MovieTicket />
         </div>
         <div className={classes.checkout_panel}>
           <BookingCheckout />
