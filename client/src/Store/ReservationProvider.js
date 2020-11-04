@@ -1,9 +1,18 @@
 import React, { useReducer } from 'react';
+import moment from 'moment';
 import ReservationContext from './ReservationContext';
 
 const initialState = {
   movieId: '',
-  movie: ''
+  movie: '',
+  movieImg: '',
+  date: moment(),
+  startAt: '',
+  ticketPrice: 0,
+  screenId: '',
+  emailId: '',
+  name: '',
+  seats: []
 };
 
 const reducer = (state, action) => {
@@ -17,6 +26,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         movie: action.payload
+      };
+    case 'ADD_MOVIE_IMG':
+      return {
+        ...state,
+        movieImg: action.payload
+      };
+    case 'ADD_DATE':
+      return {
+        ...state,
+        date: action.payload
       };
     default:
       return state;

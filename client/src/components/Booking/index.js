@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import moment from 'moment';
+import ReservationContext from '../../Store/ReservationContext';
 import SeatLayout from '../SeatLayout';
 import BookingForm from '../BookingForm';
 import BookingCheckout from '../BookingCheckout';
@@ -8,10 +9,16 @@ import MovieTicket from '../MovieTicket';
 import classes from './Booking.module.css';
 
 function Booking(props) {
-  const { id } = props.match.params;
-  const today = moment().startOf('day');
-  console.log(id);
-  console.log(moment(today).endOf('day').toDate());
+  const [reservation] = useContext(ReservationContext);
+
+  const { movieId } = props.match.params;
+  // const today = moment().startOf('day');
+  // console.log(moment(today).endOf('day').toDate());
+
+  useEffect(() => {
+    console.log(reservation);
+  }, [reservation]);
+
   return (
     <div className={classes.container}>
       <div className={classes.container_center}>

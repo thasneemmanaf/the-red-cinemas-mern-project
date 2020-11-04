@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import styled from 'styled-components';
 import { SingleDatePicker } from 'react-dates';
-import moment from 'moment';
+import ReservationContext from '../../Store/ReservationContext';
 
 const StyledDatePickerWrapper = styled.div`
   & .SingleDatePicker,
@@ -40,25 +41,23 @@ const StyledDatePickerWrapper = styled.div`
     .SingleDatePicker_picker.SingleDatePicker_picker {
       top: 43px;
       left: 2px;
-      /* top: 43px !important;
-      left: 2px !important; */
     }
   }
 `;
 
 function BookingCalender() {
-  const [date, setDate] = useState(moment());
   const [focused, setFocused] = useState(false);
+  const [reservation, dispatch] = useContext(ReservationContext);
 
   const handleDateChange = (dateSelected) => {
-    setDate(dateSelected);
+    dispatch({ type: 'ADD_DATE', payload: dateSelected });
     setFocused(false);
   };
 
   return (
     <StyledDatePickerWrapper>
       <SingleDatePicker
-        date={date}
+        date={reservation.date}
         numberOfMonths={1}
         daySize={35}
         displayFormat="MMM D"
@@ -67,7 +66,6 @@ function BookingCalender() {
         focused={focused}
         noBorder
         regular
-        autoFocus
         keepOpenOnDateSelect
         onFocusChange={({ focus }) => setFocused({ focus })}
         id="date_selector"
