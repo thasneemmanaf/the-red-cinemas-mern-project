@@ -1,5 +1,9 @@
+const mongoose = require('mongoose');
+
 const ShowTiming = require('../models/showTiming');
 const AppError = require('../utils/appError');
+
+const { ObjectId } = mongoose.Types;
 
 // To add a showTiming
 exports.addShowTiming = async (req, res, next) => {
@@ -15,9 +19,43 @@ exports.addShowTiming = async (req, res, next) => {
 };
 
 // To get all showTimings
-exports.getShowTimings = async (req, res, next) => {
+exports.getAllShowTimings = async (req, res, next) => {
   try {
     const showTimings = await ShowTiming.find({});
+    res.status(200).json({
+      status: 'success',
+      showTimings
+    });
+  } catch {
+    next(new AppError('Unable to fetch showTimings at the moment', 400));
+  }
+};
+
+// To get showtimings and screens based on movie id
+exports.getShowTimings = async (req, res, next) => {
+  const { movieId } = req.params;
+  try {
+    const showTimings = await ShowTiming.aggregate([
+      {
+        $match: { movieId: ObjectId(`${movieId}`) }
+      },
+      {
+        $lookup: {
+          from: 'screens',
+          localField: 'screenId',
+          foreignField: '_id',
+          as: 'screen_details'
+        }
+      },
+      {
+        $unset: [
+          '_id',
+          'screen_details._id',
+          'screen_details.image',
+          'screen_details.city'
+        ]
+      }
+    ]);
     res.status(200).json({
       status: 'success',
       showTimings

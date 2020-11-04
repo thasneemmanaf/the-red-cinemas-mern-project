@@ -1,5 +1,5 @@
 import React from 'react';
-
+import moment from 'moment';
 import SeatLayout from '../SeatLayout';
 import BookingForm from '../BookingForm';
 import BookingCheckout from '../BookingCheckout';
@@ -9,7 +9,9 @@ import classes from './Booking.module.css';
 
 function Booking(props) {
   const { id } = props.match.params;
+  const today = moment().startOf('day');
   console.log(id);
+  console.log(moment(today).endOf('day').toDate());
   return (
     <div className={classes.container}>
       <div className={classes.container_center}>

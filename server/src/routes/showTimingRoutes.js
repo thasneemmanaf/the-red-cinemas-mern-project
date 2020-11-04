@@ -1,6 +1,7 @@
 const express = require('express');
 const {
   addShowTiming,
+  getAllShowTimings,
   getShowTimings,
   updateShowTiming
 } = require('../controllers/showTimingController');
@@ -8,7 +9,8 @@ const {
 const router = express.Router();
 
 router
-  .get('/', getShowTimings)
+  .get('/', getAllShowTimings)
+  .get('/:movieId', getShowTimings)
   .post('/', addShowTiming)
   .patch('/:showTimingId', updateShowTiming);
 
