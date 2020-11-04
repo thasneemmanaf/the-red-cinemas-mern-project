@@ -51,12 +51,10 @@ function BookingCalender() {
   const [focused, setFocused] = useState(false);
 
   const handleDateChange = (dateSelected) => {
-    console.log(dateSelected);
     setDate(dateSelected);
     setFocused(false);
   };
 
-  console.log(moment());
   return (
     <StyledDatePickerWrapper>
       <SingleDatePicker

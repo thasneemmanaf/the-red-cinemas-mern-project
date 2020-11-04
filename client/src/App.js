@@ -28,8 +28,8 @@ function App() {
           <Switch>
             <Route path="/playingnow" exact component={ExploreAll} />
             <Route path="/comingsoon" exact component={ExploreAll} />
-            <Route path="/booking" exact component={Booking} />
             <Route path="/signin" exact component={SignIn} />
+            <Route path="/booking/:id" exact component={Booking} />
           </Switch>
         </div>
       </ReservationProvider>

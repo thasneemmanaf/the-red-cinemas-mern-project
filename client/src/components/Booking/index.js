@@ -7,7 +7,9 @@ import BookingCheckout from '../BookingCheckout';
 import MovieTicket from '../MovieTicket';
 import classes from './Booking.module.css';
 
-function Booking() {
+function Booking(props) {
+  const { id } = props.match.params;
+  console.log(id);
   return (
     <div className={classes.container}>
       <div className={classes.container_center}>
