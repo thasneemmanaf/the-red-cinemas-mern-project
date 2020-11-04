@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classes from './AccountMenu.module.css';
 
 function AccountMenu() {
@@ -6,10 +7,12 @@ function AccountMenu() {
     <div className={classes.nav}>
       <ul>
         <li>
-          <a href="#bjfghhf">Sign In</a>
+          <Link to="/signin">Sign In</Link>
+          {/* <a href="#bjfghhf"></a> */}
         </li>
         <li>
-          <a href="#ffg">Sign Up</a>
+          <Link to="/signin">Sign Up</Link>
+          {/* <a href="#ffg">Sign Up</a> */}
         </li>
       </ul>
     </div>
