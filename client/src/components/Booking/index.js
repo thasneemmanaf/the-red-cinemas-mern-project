@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import moment from 'moment';
+import axios from '../../axios';
 import ReservationContext from '../../Store/ReservationContext';
 import SeatLayout from '../SeatLayout';
 import BookingForm from '../BookingForm';
@@ -13,10 +14,24 @@ function Booking(props) {
 
   const { movieId } = props.match.params;
   // const today = moment().startOf('day');
-  // console.log(moment(today).endOf('day').toDate());
+  console.log(reservation.date);
+  console.log(moment(reservation.date).endOf('day').toDate());
 
   useEffect(() => {
-    console.log(reservation);
+    async function fetchData() {
+      try {
+        const response = await axios.get(`/show-timing/${movieId}`, {
+          params: {
+            startDate: reservation.date.toDate(),
+            endDate: moment(reservation.date).endOf('day').toDate()
+          }
+        });
+        console.log(response);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchData();
   }, [reservation]);
 
   return (
