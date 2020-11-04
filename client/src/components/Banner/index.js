@@ -41,6 +41,7 @@ export default function Banner() {
 
   // Slick settings
   const settings = {
+    arrows: false,
     dots: true,
     infinite: true,
     speed: 3000,

@@ -1,5 +1,6 @@
 .form {
   position: fixed;
+  width: 60vw;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -12,7 +13,7 @@
 }
 
 .login_form {
-  max-width: 350px;
+  max-width: 300px;
   margin: 0 auto;
   border-radius: 5px;
   overflow: hidden;
@@ -31,7 +32,7 @@
 }
 
 .login_form__input {
-  width: 100%;
+  width: 90%;
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -42,7 +43,7 @@
 }
 
 .login_form__input:focus {
-  border-color: #009578;
+  border-color: linear-gradient(to bottom, #e84c3d 50%, #e84c3d 50%);
 }
 
 .login_form__input::placeholder {

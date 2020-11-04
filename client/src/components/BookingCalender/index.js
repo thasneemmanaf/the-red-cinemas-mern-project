@@ -3,6 +3,7 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import styled from 'styled-components';
 import { SingleDatePicker } from 'react-dates';
+import moment from 'moment';
 
 const StyledDatePickerWrapper = styled.div`
   & .SingleDatePicker,
@@ -46,7 +47,7 @@ const StyledDatePickerWrapper = styled.div`
 `;
 
 function BookingCalender() {
-  const [date, setDate] = useState();
+  const [date, setDate] = useState(moment());
   const [focused, setFocused] = useState(false);
 
   const handleDateChange = (dateSelected) => {
@@ -55,6 +56,7 @@ function BookingCalender() {
     setFocused(false);
   };
 
+  console.log(moment());
   return (
     <StyledDatePickerWrapper>
       <SingleDatePicker
