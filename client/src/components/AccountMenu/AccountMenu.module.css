@@ -1,0 +1,32 @@
+.nav {
+  background-color: rgba(51, 51, 51, 0.5);
+  color: #fff;
+  font-weight: bolder;
+  position: absolute;
+  top: 5rem;
+  right: 3.7rem;
+  width: 200px;
+  height: 15vh;
+  z-index: 100;
+  border-radius: 10px;
+}
+
+.nav ul {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+.nav ul li {
+  border-bottom: 2px solid rgba(200, 200, 200, 0.1);
+  padding: 10px;
+}
+
+.nav ul li:first-of-type {
+  border-top: 2px solid rgba(200, 200, 200, 0.1);
+}
+
+.nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
