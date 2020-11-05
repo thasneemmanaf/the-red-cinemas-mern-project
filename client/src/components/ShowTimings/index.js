@@ -1,27 +1,39 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 
 import axios from '../../axios';
 import ReservationContext from '../../Store/ReservationContext';
 import ScreenSelector from '../ScreenSelector';
-import BookingCalendar from '../BookingCalender';
+import BookingCalendar from '../BookingCalendar';
 import classes from './ShowTimings.module.css';
+import Cinemas from '../Cinemas';
 
 function ShowTimings(props) {
   const [reservation] = useContext(ReservationContext);
+  const [cinemas, setCinemas] = useState([]);
 
   const { movieId } = props.match.params;
 
   useEffect(() => {
     async function fetchData() {
       try {
-        console.log('ok');
         const response = await axios.get(`/show-timing/${movieId}`, {
           params: {
             selectedDate: reservation.date.toDate()
           }
         });
         response.data.showTimings.forEach((show) => {
-          console.log(show);
+          // console.log(show);
+          setCinemas((prevCinemas) => [
+            ...prevCinemas,
+            {
+              screenId: show.screenId,
+              name: show.screen_details[0].name,
+              startAt: show.startAt,
+              price: show.screen_details[0].ticketPrice,
+              city: show.screen_details[0].city,
+              image: show.screen_details[0].image
+            }
+          ]);
         });
       } catch (err) {
         console.log(err);
@@ -29,9 +41,8 @@ function ShowTimings(props) {
     }
     fetchData();
   }, []);
-
   return (
-    <>
+    <div className={classes.container}>
       <div
         className={classes.banner}
         style={{
@@ -48,9 +59,10 @@ function ShowTimings(props) {
       </div>
       <div className={classes.selectors}>
         <BookingCalendar />
-        <ScreenSelector />
+        <ScreenSelector cinemas={cinemas} />
       </div>
-    </>
+      <Cinemas cinemas={cinemas} />
+    </div>
   );
 }
 

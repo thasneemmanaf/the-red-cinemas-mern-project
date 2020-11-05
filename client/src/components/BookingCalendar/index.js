@@ -45,7 +45,7 @@ const StyledDatePickerWrapper = styled.div`
   }
 `;
 
-function BookingCalender() {
+function BookingCalendar() {
   const [focused, setFocused] = useState(false);
   const [reservation, dispatch] = useContext(ReservationContext);
 
@@ -74,4 +74,4 @@ function BookingCalender() {
   );
 }
 
-export default BookingCalender;
+export default BookingCalendar;

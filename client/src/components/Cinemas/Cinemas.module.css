@@ -15,11 +15,11 @@
   align-items: center;
   justify-items: center;
   gap: 2rem 0.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
 .poster_container {
-  max-height: 280px;
+  max-height: 300px;
   border-radius: 8px;
   overflow: hidden;
   position: relative;

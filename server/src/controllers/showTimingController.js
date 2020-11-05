@@ -52,12 +52,7 @@ exports.getShowTimings = async (req, res, next) => {
         }
       },
       {
-        $unset: [
-          '_id',
-          'screen_details._id',
-          'screen_details.image',
-          'screen_details.city'
-        ]
+        $unset: ['_id', 'screen_details._id']
       }
     ]);
 

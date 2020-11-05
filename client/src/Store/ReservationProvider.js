@@ -12,7 +12,8 @@ const initialState = {
   screenId: '',
   emailId: '',
   name: '',
-  seats: []
+  seats: [],
+  shows: []
 };
 
 const reducer = (state, action) => {

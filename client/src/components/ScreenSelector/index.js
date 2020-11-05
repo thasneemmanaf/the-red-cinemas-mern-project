@@ -4,16 +4,20 @@
 import React from 'react';
 import classes from './ScreenSelector.module.css';
 
-function ScreenSelector() {
+function ScreenSelector({ cinemas }) {
+  console.log(cinemas);
   return (
     <div className={classes.box}>
       <select>
         <option defaultValue="" disabled>
           Select screen
         </option>
-        <option>Screen A</option>
+        {cinemas.map((cinema) => {
+          return <option>{cinema.name}</option>;
+        })}
+        {/* <option>Screen A</option>
         <option>Screen B</option>
-        <option>Screen C</option>
+        <option>Screen C</option> */}
       </select>
     </div>
   );
