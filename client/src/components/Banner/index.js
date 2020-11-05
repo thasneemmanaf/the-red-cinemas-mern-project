@@ -92,7 +92,7 @@ export default function Banner() {
                       }>
                       PLAY
                     </button>
-                    <Link to={`/booking/${movie._id}`}>
+                    <Link to={`/showtimings/${movie._id}`}>
                       <button
                         className="banner_button"
                         type="button"

@@ -13,9 +13,6 @@ function Booking(props) {
   const [reservation] = useContext(ReservationContext);
 
   const { movieId } = props.match.params;
-  // const today = moment().startOf('day');
-  console.log(reservation.date);
-  console.log(moment(reservation.date).endOf('day').toDate());
 
   useEffect(() => {
     async function fetchData() {
@@ -26,7 +23,9 @@ function Booking(props) {
             endDate: moment(reservation.date).endOf('day').toDate()
           }
         });
-        console.log(response);
+        response.data.showTimings.forEach((show) => {
+          console.log(show);
+        });
       } catch (err) {
         console.log(err);
       }

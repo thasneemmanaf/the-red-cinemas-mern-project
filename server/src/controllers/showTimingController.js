@@ -33,15 +33,14 @@ exports.getAllShowTimings = async (req, res, next) => {
 
 // To get showtimings and screens based on movie id
 exports.getShowTimings = async (req, res, next) => {
-  const { startDate, endDate } = req.query;
+  const { selectedDate } = req.query;
   const { movieId } = req.params;
-
   try {
     const showTimings = await ShowTiming.aggregate([
       {
         $match: {
           movieId: ObjectId(`${movieId}`),
-          date: { $gte: new Date(startDate), $lt: new Date(endDate) }
+          endDate: { $gte: new Date(selectedDate) }
         }
       },
       {
