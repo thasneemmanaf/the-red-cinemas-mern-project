@@ -22,7 +22,6 @@ function ShowTimings(props) {
           }
         });
         response.data.showTimings.forEach((show) => {
-          // console.log(show);
           setCinemas((prevCinemas) => [
             ...prevCinemas,
             {
@@ -40,7 +39,9 @@ function ShowTimings(props) {
       }
     }
     fetchData();
-  }, []);
+    return () => setCinemas([]);
+  }, [reservation.date]);
+
   return (
     <div className={classes.container}>
       <div

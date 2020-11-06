@@ -5,19 +5,22 @@ import React from 'react';
 import classes from './ScreenSelector.module.css';
 
 function ScreenSelector({ cinemas }) {
-  console.log(cinemas);
+  let cinemaNames = cinemas.map((cinema) => {
+    return cinema.name;
+  });
+
+  // Remove duplicate cinema names
+  cinemaNames = [...new Set(cinemaNames)];
+
   return (
     <div className={classes.box}>
       <select>
         <option defaultValue="" disabled>
           Select screen
         </option>
-        {cinemas.map((cinema) => {
-          return <option>{cinema.name}</option>;
+        {cinemaNames.map((cinemaName) => {
+          return <option>{cinemaName}</option>;
         })}
-        {/* <option>Screen A</option>
-        <option>Screen B</option>
-        <option>Screen C</option> */}
       </select>
     </div>
   );

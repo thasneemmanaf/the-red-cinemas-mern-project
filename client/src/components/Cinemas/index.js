@@ -1,24 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 // import { Link } from 'react-router-dom';
-
-import axios from '../../axios';
 
 import classes from './Cinemas.module.css';
 
 function Cinemas({ cinemas }) {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const response = await axios.get('/movie', {
-        params: { limit: 8 }
-      });
-      setMovies(response.data.movies);
-      return response;
-    }
-    fetchData();
-  }, []);
-
   return (
     <div className={classes.row}>
       <div className={classes.row_posters}>
