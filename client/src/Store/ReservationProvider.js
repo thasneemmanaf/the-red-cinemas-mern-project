@@ -9,6 +9,7 @@ const initialState = {
   date: moment(),
   startAt: '',
   ticketPrice: 0,
+  totalPrice: 0,
   screenId: '',
   emailId: '',
   name: '',
@@ -58,6 +59,21 @@ const reducer = (state, action) => {
       return {
         ...state,
         seats: [...state.seats.filter((seat) => seat !== action.payload)]
+      };
+    case 'ADD_TICKET_PRICE':
+      return {
+        ...state,
+        ticketPrice: state.ticketPrice + action.payload
+      };
+    case 'ADD_TOTAL_PRICE':
+      return {
+        ...state,
+        totalPrice: state.totalPrice + action.payload
+      };
+    case 'DECREMENT_TOTAL_PRICE':
+      return {
+        ...state,
+        totalPrice: state.totalPrice - action.payload
       };
     default:
       return state;

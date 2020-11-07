@@ -30,7 +30,7 @@ function ShowTimings(props) {
               screenId: show.screenId,
               name: show.screen_details[0].name,
               startAt: show.startAt,
-              price: show.screen_details[0].ticketPrice,
+              ticketPrice: show.screen_details[0].ticketPrice,
               city: show.screen_details[0].city,
               image: show.screen_details[0].image
             }

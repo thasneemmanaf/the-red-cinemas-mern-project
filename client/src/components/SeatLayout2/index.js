@@ -13,11 +13,17 @@ function SeatLayout2() {
     e.target.classList.toggle(classes.selected);
     if (reservation.seats.includes(e.target.id)) {
       dispatch({ type: 'REMOVE_SEATS', payload: e.target.id });
+      dispatch({
+        type: 'DECREMENT_TOTAL_PRICE',
+        payload: reservation.ticketPrice
+      });
     } else {
       dispatch({ type: 'ADD_SEATS', payload: e.target.id });
+      dispatch({ type: 'ADD_TOTAL_PRICE', payload: reservation.ticketPrice });
     }
   };
-  console.log(reservation.seats);
+  console.log(reservation.ticketPrice);
+  console.log(reservation.totalPrice);
   return (
     <div className={classes.theatre}>
       <div className={`${classes.cinema_seats} ${classes.left}`}>

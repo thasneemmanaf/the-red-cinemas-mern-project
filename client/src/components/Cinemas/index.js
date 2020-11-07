@@ -15,8 +15,9 @@ function Cinemas({ cinemas }) {
     });
   }
 
-  const handleBookNow = (startAt) => {
-    dispatch({ type: 'ADD_START_AT', payload: startAt });
+  const handleBookNow = (cinema) => {
+    dispatch({ type: 'ADD_START_AT', payload: cinema.startAt });
+    dispatch({ type: 'ADD_TICKET_PRICE', payload: cinema.ticketPrice });
   };
 
   return (
@@ -39,7 +40,7 @@ function Cinemas({ cinemas }) {
                   <button
                     type="button"
                     className={classes.book_btn}
-                    onClick={() => handleBookNow(cinema.startAt)}>
+                    onClick={() => handleBookNow(cinema)}>
                     BOOK NOW
                   </button>
                 </div>

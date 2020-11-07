@@ -43,7 +43,7 @@ function MovieTicket() {
           <span>Screen</span>
         </div>
         <div className={classes.price}>
-          <h3>500 SEK</h3>
+          <h3>{`${reservation.totalPrice} SEK`}</h3>
           <span>Total</span>
         </div>
         <div className={classes.barcode} />
