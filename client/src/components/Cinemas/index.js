@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import classes from './Cinemas.module.css';
 
@@ -19,11 +19,13 @@ function Cinemas({ cinemas }) {
                 <h3>{cinema.name}</h3>
                 <h4>{`Show Time:${cinema.startAt}`}</h4>
               </div>
-              <div className={classes.poster_actions}>
-                <button type="button" className={classes.book_btn}>
-                  BOOK NOW
-                </button>
-              </div>
+              <Link to="/seatlayout">
+                <div className={classes.poster_actions}>
+                  <button type="button" className={classes.book_btn}>
+                    BOOK NOW
+                  </button>
+                </div>
+              </Link>
             </div>
           );
         })}
