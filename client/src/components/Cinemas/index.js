@@ -5,7 +5,7 @@ import classes from './Cinemas.module.css';
 import ReservationContext from '../../Store/ReservationContext';
 
 function Cinemas({ cinemas }) {
-  const [reservation] = useContext(ReservationContext);
+  const [reservation, dispatch] = useContext(ReservationContext);
   let newCinemas = [...cinemas];
 
   // Filter cinemas based on user cinema selection
@@ -14,6 +14,10 @@ function Cinemas({ cinemas }) {
       return reservation.selectedCinema === cinema.name;
     });
   }
+
+  const handleBookNow = (startAt) => {
+    dispatch({ type: 'ADD_START_AT', payload: startAt });
+  };
 
   return (
     <div className={classes.row}>
@@ -32,7 +36,10 @@ function Cinemas({ cinemas }) {
               </div>
               <Link to="/booking">
                 <div className={classes.poster_actions}>
-                  <button type="button" className={classes.book_btn}>
+                  <button
+                    type="button"
+                    className={classes.book_btn}
+                    onClick={() => handleBookNow(cinema.startAt)}>
                     BOOK NOW
                   </button>
                 </div>

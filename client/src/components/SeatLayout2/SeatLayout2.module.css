@@ -6,23 +6,24 @@
   left: 50%; */
   /* transform: translate(-50%, -50%); */
 }
-.cinema-seats {
+.cinema_seats {
   display: flex;
 }
-.cinema-seats .seat {
+.cinema_seats .seat {
   cursor: pointer;
 }
 
-.cinema-seats .seat:hover:before {
+.cinema_seats .seat:hover:before {
   content: '';
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.5); */
+  background: #39c421;
   border-radius: 7px;
 }
-.cinema-seats .seat.active:before {
+.cinema_seats .seat.selected:before {
   content: '';
   position: absolute;
   top: 0;
@@ -31,7 +32,28 @@
   background: #ffce26;
   border-radius: 7px;
 }
-.left .cinema-row {
+
+.cinema_seats .seat.unavailable:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #444451;
+  border-radius: 7px;
+}
+.cinema_seats .seat.unavailable:hover:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #444451;
+  border-radius: 7px;
+  cursor: not-allowed;
+}
+
+.left .cinema_row {
   transform: skew(-15deg);
   margin: 0 6px;
 }
@@ -55,46 +77,46 @@
   margin-top: -32px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
-.left .row-2 {
+.left .row_2 {
   transform: skew(-13deg);
 }
-.left .row-2 .seat {
+.left .row_2 .seat {
   transform: skew(18deg);
 }
-.left .row-3 {
+.left .row_3 {
   transform: skew(-12deg);
 }
-.left .row-3 .seat {
+.left .row_3 .seat {
   transform: skew(16deg);
 }
-.left .row-4 {
+.left .row_4 {
   transform: skew(-11deg);
 }
-.left .row-4 .seat {
+.left .row_4 .seat {
   transform: skew(15deg);
 }
-.left .row-5 {
+.left .row_5 {
   transform: skew(-10deg);
 }
-.left .row-5 .seat {
+.left .row_5 .seat {
   transform: skew(12deg);
 }
-.left .row-6 {
+.left .row_6 {
   transform: skew(-9deg);
 }
-.left .row-6 .seat {
+.left .row_6 .seat {
   transform: skew(10deg);
 }
-.left .row-7 {
+.left .row_7 {
   transform: skew(-7deg);
 }
-.left .row-7 .seat {
+.left .row_7 .seat {
   transform: skew(8deg);
 }
 .right {
   margin-left: 70px;
 }
-.right .cinema-row {
+.right .cinema_row {
   transform: skew(7deg);
   margin: 0 6px;
 }
@@ -118,39 +140,39 @@
   margin-top: -32px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
-.right .row-2 {
+.right .row_2 {
   transform: skew(9deg);
 }
-.right .row-2 .seat {
+.right .row_2 .seat {
   transform: skew(-10deg);
 }
-.right .row-3 {
+.right .row_3 {
   transform: skew(10deg);
 }
-.right .row-3 .seat {
+.right .row_3 .seat {
   transform: skew(-12deg);
 }
-.right .row-4 {
+.right .row_4 {
   transform: skew(11deg);
 }
-.right .row-4 .seat {
+.right .row_4 .seat {
   transform: skew(-15deg);
 }
-.right .row-5 {
+.right .row_5 {
   transform: skew(12deg);
 }
-.right .row-5 .seat {
+.right .row_5 .seat {
   transform: skew(-16deg);
 }
-.right .row-6 {
+.right .row_6 {
   transform: skew(13deg);
 }
-.right .row-6 .seat {
+.right .row_6 .seat {
   transform: skew(-18deg);
 }
-.right .row-7 {
+.right .row_7 {
   transform: skew(15deg);
 }
-.right .row-7 .seat {
+.right .row_7 .seat {
   transform: skew(-20deg);
 }

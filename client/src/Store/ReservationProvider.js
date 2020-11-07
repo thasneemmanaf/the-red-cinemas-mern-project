@@ -39,10 +39,20 @@ const reducer = (state, action) => {
         ...state,
         date: action.payload
       };
+    case 'ADD_START_AT':
+      return {
+        ...state,
+        startAt: action.payload
+      };
     case 'ADD_SELECTED_CINEMA':
       return {
         ...state,
         selectedCinema: action.payload
+      };
+    case 'ADD_SEATS':
+      return {
+        ...state,
+        seats: [...state.seats, action.payload]
       };
     default:
       return state;

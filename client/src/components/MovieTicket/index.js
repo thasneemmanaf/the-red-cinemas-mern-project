@@ -29,13 +29,10 @@ function MovieTicket() {
         </div>
         <div className={classes.seat}>
           <div className={classes.seats}>
-            <h2>A1</h2>
-            <h2>A2</h2>
-            <h2>A3</h2>
-            <h2>A4</h2>
-            <h2>A5</h2>
+            {reservation.seats.map((seat) => {
+              return <h2 key={seat}>{seat}</h2>;
+            })}
           </div>
-
           <span>seats</span>
         </div>
       </div>
