@@ -25,6 +25,7 @@ function ShowTimings(props) {
           setCinemas((prevCinemas) => [
             ...prevCinemas,
             {
+              showId: show.screenId + show.startAt,
               screenId: show.screenId,
               name: show.screen_details[0].name,
               startAt: show.startAt,

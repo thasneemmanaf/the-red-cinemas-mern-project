@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import classes from './Cinemas.module.css';
+import ReservationContext from '../../Store/ReservationContext';
 
 function Cinemas({ cinemas }) {
+  const [reservation] = useContext(ReservationContext);
+  let newCinemas = [...cinemas];
+
+  // Filter cinemas based on user cinema selection
+  if (reservation.selectedCinema !== 'Select screen') {
+    newCinemas = cinemas.filter((cinema) => {
+      return reservation.selectedCinema === cinema.name;
+    });
+  }
+
   return (
     <div className={classes.row}>
       <div className={classes.row_posters}>
-        {cinemas.map((cinema) => {
+        {newCinemas.map((cinema) => {
           return (
-            <div className={classes.poster_container} key={cinema.screenId}>
+            <div className={classes.poster_container} key={cinema.showId}>
               <img
                 className={classes.row_poster}
                 src={cinema.image}

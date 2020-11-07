@@ -13,7 +13,8 @@ const initialState = {
   emailId: '',
   name: '',
   seats: [],
-  shows: []
+  shows: [],
+  selectedCinema: 'Select screen'
 };
 
 const reducer = (state, action) => {
@@ -37,6 +38,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         date: action.payload
+      };
+    case 'ADD_SELECTED_CINEMA':
+      return {
+        ...state,
+        selectedCinema: action.payload
       };
     default:
       return state;
