@@ -30,7 +30,7 @@ function Cinemas({ cinemas }) {
                 <h3>{cinema.name}</h3>
                 <h4>{`Show Time:${cinema.startAt}`}</h4>
               </div>
-              <Link to="/seatlayout">
+              <Link to="/booking">
                 <div className={classes.poster_actions}>
                   <button type="button" className={classes.book_btn}>
                     BOOK NOW

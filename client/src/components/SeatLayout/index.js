@@ -1,5 +1,6 @@
 import React from 'react';
 import './SeatLayout.css';
+import SeatLayout2 from '../SeatLayout2';
 
 function SeatLayout() {
   return (
@@ -21,6 +22,7 @@ function SeatLayout() {
 
       <div className="container">
         <div className="screen" />
+        {/* <SeatLayout2 /> */}
         <div className="row">
           <div className="seat" />
           <div className="seat" />

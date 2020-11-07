@@ -19,53 +19,34 @@
   justify-items: center;
 }
 
-.screen_container {
-  perspective: 1000px;
-  /* margin-bottom: 30px; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.screen {
-  background: #fff;
-  height: 6rem;
-  width: 20rem;
-  margin: 0 auto;
-  transform: rotateX(-45deg);
-  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
-}
-
-.showcase_container {
-  width: 20rem;
-  height: 6rem;
-}
-
 @media screen and (min-width: 1170px) {
   .container_center {
     grid-template-columns: repeat(5, 1fr);
     column-gap: 0.5rem;
     grid-template-rows: repeat(5, 100px);
     grid-template-areas:
-      'z z z b b'
+      'a a a b b'
       'a a a c c'
       'a a a c c'
       'a a a d d'
-      'y y y e e';
+      'a a a e e';
   }
-
-  .screen_container {
-    grid-area: z;
-  }
-  .seat_layout {
+  .movie_image {
     grid-area: a;
   }
-  .movie_ticket {
-    grid-area: c;
+  .movie_info {
+    grid-area: e;
   }
-  .checkout_panel {
+  .booking_form {
+    grid-area: b;
+  }
+  .seat_layout {
     grid-area: d;
   }
-  .showcase_container {
-    grid-area: y;
+  .ticket_info {
+    grid-area: f;
+  }
+  .checkout_panel {
+    grid-area: h;
   }
 }

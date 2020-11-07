@@ -10,7 +10,8 @@ import ShowTimings from './components/ShowTimings';
 import ReservationProvider from './Store/ReservationProvider';
 import SignIn from './components/SignIn';
 // import SeatLayout from './components/SeatLayout';
-import SeatLayout2 from './components/SeatLayout2';
+// import SeatLayout2 from './components/SeatLayout2';
+import Booking from './components/Booking';
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
             <Route path="/playingnow" exact component={ExploreAll} />
             <Route path="/comingsoon" exact component={ExploreAll} />
             <Route path="/signin" exact component={SignIn} />
-            <Route path="/seatlayout" exact component={SeatLayout2} />
+            <Route path="/booking" exact component={Booking} />
             <Route path="/showtimings/:movieId" exact component={ShowTimings} />
           </Switch>
         </div>

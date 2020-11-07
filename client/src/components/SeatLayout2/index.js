@@ -55,25 +55,21 @@ function SeatLayout2() {
           <div className="seat" />
         </div>
 
-        <div className="cinema-row row-6">
+        {/* <div className="cinema-row row-6">
           <div className="seat" />
           <div className="seat" />
           <div className="seat" />
           <div className="seat" />
           <div className="seat" />
-          <div className="seat" />
-          <div className="seat" />
-        </div>
+        </div> */}
 
-        <div className="cinema-row row-7">
+        {/* <div className="cinema-row row-7">
           <div className="seat" />
           <div className="seat" />
           <div className="seat active" />
           <div className="seat" />
           <div className="seat" />
-          <div className="seat" />
-          <div className="seat" />
-        </div>
+        </div> */}
       </div>
 
       <div className="cinema-seats right">
@@ -127,25 +123,21 @@ function SeatLayout2() {
           <div className="seat" />
         </div>
 
-        <div className="cinema-row row-6">
+        {/* <div className="cinema-row row-6">
           <div className="seat" />
           <div className="seat" />
           <div className="seat" />
           <div className="seat" />
           <div className="seat" />
-          <div className="seat" />
-          <div className="seat" />
-        </div>
+        </div> */}
 
-        <div className="cinema-row row-7">
+        {/* <div className="cinema-row row-7">
           <div className="seat" />
           <div className="seat" />
           <div className="seat" />
           <div className="seat" />
           <div className="seat" />
-          <div className="seat" />
-          <div className="seat" />
-        </div>
+        </div> */}
       </div>
     </div>
   );

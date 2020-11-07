@@ -15,6 +15,7 @@ function ShowTimings(props) {
 
   useEffect(() => {
     async function fetchData() {
+      console.log(reservation.date.toDate());
       try {
         const response = await axios.get(`/show-timing/${movieId}`, {
           params: {

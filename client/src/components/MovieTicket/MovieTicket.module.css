@@ -5,12 +5,22 @@
   font-family: sans-serif;
 }
 .card {
-  background: linear-gradient(
+  /* background: linear-gradient(
     to bottom,
     #e84c3d 0%,
-    #e84c3d 26%,
+    #e22514 26%,
     #ecedef 26%,
     #ecedef 100%
+  ); */
+  background: linear-gradient(
+    to top,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #b54041,
+    #f3686a
   );
   height: 11em;
   float: left;
@@ -75,7 +85,8 @@ h1 span {
 .date h2,
 .time h2 {
   font-size: 0.9em;
-  color: #525252;
+  color: #3b3a3a;
+  color: #e7594c;
   margin: 0;
 }
 .title span,

@@ -1,13 +1,10 @@
-body {
-  /* margin: 60px; */
-  /* background: #111; */
-}
 .theatre {
   display: flex;
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 2rem;
+  /* position: absolute; */
+  /* top: 70%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
 }
 .cinema-seats {
   display: flex;
@@ -15,6 +12,7 @@ body {
 .cinema-seats .seat {
   cursor: pointer;
 }
+
 .cinema-seats .seat:hover:before {
   content: '';
   position: absolute;
@@ -41,7 +39,7 @@ body {
   width: 35px;
   height: 50px;
   border-radius: 7px;
-  /* background: linear-gradient(
+  background: linear-gradient(
     to top,
     #761818,
     #761818,
@@ -50,8 +48,8 @@ body {
     #761818,
     #b54041,
     #f3686a
-  ); */
-  background: #7a7975;
+  );
+  /* background: #7a7975; */
   margin-bottom: 10px;
   transform: skew(20deg);
   margin-top: -32px;
@@ -104,7 +102,7 @@ body {
   width: 35px;
   height: 50px;
   border-radius: 7px;
-  /* background: linear-gradient(
+  background: linear-gradient(
     to top,
     #761818,
     #761818,
@@ -113,8 +111,8 @@ body {
     #761818,
     #b54041,
     #f3686a
-  ); */
-  background: #7a7975;
+  );
+  /* background: #7a7975; */
   margin-bottom: 10px;
   transform: skew(-8deg);
   margin-top: -32px;
