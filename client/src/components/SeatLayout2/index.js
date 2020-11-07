@@ -11,7 +11,11 @@ function SeatLayout2() {
     console.log(e.target);
 
     e.target.classList.toggle(classes.selected);
-    dispatch({ type: 'ADD_SEATS', payload: e.target.id });
+    if (reservation.seats.includes(e.target.id)) {
+      dispatch({ type: 'REMOVE_SEATS', payload: e.target.id });
+    } else {
+      dispatch({ type: 'ADD_SEATS', payload: e.target.id });
+    }
   };
   console.log(reservation.seats);
   return (

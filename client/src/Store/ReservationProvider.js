@@ -54,6 +54,11 @@ const reducer = (state, action) => {
         ...state,
         seats: [...state.seats, action.payload]
       };
+    case 'REMOVE_SEATS':
+      return {
+        ...state,
+        seats: [...state.seats.filter((seat) => seat !== action.payload)]
+      };
     default:
       return state;
   }
