@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './MovieTicket.module.css';
+import ReservationContext from '../../Store/ReservationContext';
 
 function MovieTicket() {
+  const [reservation] = useContext(ReservationContext);
   return (
     <div className={classes.cardWrap}>
       <div className={`${classes.card} ${classes.cardLeft}`}>
@@ -10,7 +12,7 @@ function MovieTicket() {
           <span>Time</span>
         </h1>
         <div className={classes.title}>
-          <h2>How I met your Mother</h2>
+          <h2>{reservation.movie}</h2>
           <span>movie</span>
         </div>
         <div className={classes.name}>
@@ -18,11 +20,11 @@ function MovieTicket() {
           <span>name</span>
         </div>
         <div className={classes.date}>
-          <h2>01/04/2020</h2>
+          <h2>{reservation.date.format('YYYY-MM-DD')}</h2>
           <span>Date</span>
         </div>
         <div className={classes.time}>
-          <h2>12:00</h2>
+          <h2>{reservation.startAt}</h2>
           <span>time</span>
         </div>
         <div className={classes.seat}>
@@ -40,7 +42,7 @@ function MovieTicket() {
       <div className={`${classes.card} ${classes.cardRight}`}>
         <div className={classes.eye} />
         <div className={classes.screen}>
-          <h3>SCREEN A</h3>
+          <h3>{reservation.selectedCinema}</h3>
           <span>Screen</span>
         </div>
         <div className={classes.price}>
