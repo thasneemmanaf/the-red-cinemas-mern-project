@@ -15,7 +15,7 @@ exports.createReservation = async (req, res, next) => {
   }
 };
 
-// To get all reservations
+// To get all reservations of a user
 exports.getAllReservations = async (req, res, next) => {
   const { startAt, screenId, date } = req.query;
   try {

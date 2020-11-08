@@ -33,6 +33,27 @@ exports.getAllShowTimings = async (req, res, next) => {
   }
 };
 
+// To get all reserved seats
+exports.getReservedSeats = async (req, res, next) => {
+  const { startAt, screenId, date } = req.query;
+  try {
+    const reservedSeats = await ShowTiming.find(
+      {
+        startAt: { $eq: startAt },
+        screenId: { $eq: screenId },
+        date: new Date(date)
+      },
+      { reservedSeats: 1, _id: 0 }
+    ).exec();
+    res.status(200).json({
+      status: 'success',
+      reservedSeats
+    });
+  } catch {
+    next(new AppError('Unable to fetch reservations at the moment', 400));
+  }
+};
+
 // To get showtimings and screens based on movie id
 exports.getShowTimings = async (req, res, next) => {
   const { selectedDate } = req.query;

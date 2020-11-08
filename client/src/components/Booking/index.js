@@ -17,7 +17,7 @@ function Booking() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('/reservation', {
+        const response = await axios.get('/show-timing/reserved-seats', {
           params: {
             date: reservation.date.format('YYYY-MM-DD'),
             screenId: reservation.screenId,
