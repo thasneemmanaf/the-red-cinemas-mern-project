@@ -3,6 +3,7 @@ const AppError = require('../utils/appError');
 
 // To create a reservation
 exports.createReservation = async (req, res, next) => {
+  req.body.date = new Date(req.body.date);
   try {
     const reservation = new Reservation(req.body);
     await reservation.save();
@@ -16,13 +17,13 @@ exports.createReservation = async (req, res, next) => {
 
 // To get all reservations
 exports.getAllReservations = async (req, res, next) => {
-  const { startAt, screenId } = req.params;
-  console.log(req.params);
+  const { startAt, screenId, date } = req.query;
   try {
-    const reservations = await Reservation.find(
-      { startAt: { $eq: startAt } },
-      { screenId: { $eq: screenId } }
-    );
+    const reservations = await Reservation.find({
+      startAt: { $eq: startAt },
+      screenId: { $eq: screenId },
+      date: new Date(date)
+    }).exec();
     res.status(200).json({
       status: 'success',
       reservations

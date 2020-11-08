@@ -1,4 +1,6 @@
 import React, { useContext, useEffect } from 'react';
+import moment from 'moment';
+
 import axios from '../../axios';
 import BookingCheckout from '../BookingCheckout';
 import MovieTicket from '../MovieTicket';
@@ -17,7 +19,7 @@ function Booking() {
       try {
         const response = await axios.get('/reservation', {
           params: {
-            date: reservation.date.toDate(),
+            date: reservation.date.format('YYYY-MM-DD'),
             screenId: reservation.screenId,
             startAt: reservation.startAt
           }
