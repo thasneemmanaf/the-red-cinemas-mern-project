@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import moment from 'moment';
 
 import axios from '../../axios';
@@ -12,9 +12,9 @@ import ReservationContext from '../../Store/ReservationContext';
 
 function Booking() {
   const [reservation] = useContext(ReservationContext);
+  const [reservedSeats, setReservedSeats] = useState([]);
 
   useEffect(() => {
-    console.log(reservation.date.toDate());
     async function fetchData() {
       try {
         const response = await axios.get('/reservation', {
@@ -24,7 +24,7 @@ function Booking() {
             startAt: reservation.startAt
           }
         });
-        console.log(response.data);
+        setReservedSeats(response.data.reservations[0].reservedSeats);
       } catch (err) {
         console.log(err);
       }
@@ -39,7 +39,7 @@ function Booking() {
           <div className={classes.screen} />
         </div>
         <div className={classes.seat_layout}>
-          <SeatLayout2 />
+          <SeatLayout2 reservedSeats={reservedSeats} />
         </div>
         <div className={classes.showcase_container}>
           <Showcase />

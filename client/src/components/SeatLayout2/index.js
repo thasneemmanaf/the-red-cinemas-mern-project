@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import './SeatLayout2.css';
 import ReservationContext from '../../Store/ReservationContext';
 
-function SeatLayout2() {
+function SeatLayout2({ reservedSeats }) {
   const [reservation, dispatch] = useContext(ReservationContext);
 
   const handleSeatSelect = (e) => {
@@ -22,7 +22,7 @@ function SeatLayout2() {
       dispatch({ type: 'ADD_TOTAL_PRICE', payload: reservation.ticketPrice });
     }
   };
-  console.log(reservation.seats);
+  console.log(reservedSeats.includes('B1'));
   return (
     <div className="theatre">
       <div className="cinema_seats left">
@@ -30,7 +30,10 @@ function SeatLayout2() {
           {reservation.seatLayout.row0.map((seatNumber) => {
             return (
               <div
-                className="seat"
+                key={seatNumber}
+                className={`seat ${
+                  reservedSeats.includes(seatNumber) && 'unavailable'
+                }`}
                 id={seatNumber}
                 onClick={handleSeatSelect}
               />
@@ -42,7 +45,10 @@ function SeatLayout2() {
           {reservation.seatLayout.row1.map((seatNumber) => {
             return (
               <div
-                className="seat"
+                key={seatNumber}
+                className={`seat ${
+                  reservedSeats.includes(seatNumber) && 'unavailable'
+                }`}
                 id={seatNumber}
                 onClick={handleSeatSelect}
               />
@@ -54,7 +60,10 @@ function SeatLayout2() {
           {reservation.seatLayout.row2.map((seatNumber) => {
             return (
               <div
-                className="seat"
+                key={seatNumber}
+                className={`seat ${
+                  reservedSeats.includes(seatNumber) && 'unavailable'
+                }`}
                 id={seatNumber}
                 onClick={handleSeatSelect}
               />
@@ -66,7 +75,10 @@ function SeatLayout2() {
           {reservation.seatLayout.row3.map((seatNumber) => {
             return (
               <div
-                className="seat"
+                key={seatNumber}
+                className={`seat ${
+                  reservedSeats.includes(seatNumber) && 'unavailable'
+                }`}
                 id={seatNumber}
                 onClick={handleSeatSelect}
               />
@@ -78,7 +90,10 @@ function SeatLayout2() {
           {reservation.seatLayout.row4.map((seatNumber) => {
             return (
               <div
-                className="seat"
+                key={seatNumber}
+                className={`seat ${
+                  reservedSeats.includes(seatNumber) && 'unavailable'
+                }`}
                 id={seatNumber}
                 onClick={handleSeatSelect}
               />
@@ -92,7 +107,10 @@ function SeatLayout2() {
           {reservation.seatLayout.row5.map((seatNumber) => {
             return (
               <div
-                className="seat"
+                key={seatNumber}
+                className={`seat ${
+                  reservedSeats.includes(seatNumber) && 'unavailable'
+                }`}
                 id={seatNumber}
                 onClick={handleSeatSelect}
               />
@@ -104,7 +122,10 @@ function SeatLayout2() {
           {reservation.seatLayout.row6.map((seatNumber) => {
             return (
               <div
-                className="seat"
+                key={seatNumber}
+                className={`seat ${
+                  reservedSeats.includes(seatNumber) && 'unavailable'
+                }`}
                 id={seatNumber}
                 onClick={handleSeatSelect}
               />
@@ -116,7 +137,10 @@ function SeatLayout2() {
           {reservation.seatLayout.row7.map((seatNumber) => {
             return (
               <div
-                className="seat"
+                key={seatNumber}
+                className={`seat ${
+                  reservedSeats.includes(seatNumber) && 'unavailable'
+                }`}
                 id={seatNumber}
                 onClick={handleSeatSelect}
               />
@@ -128,7 +152,10 @@ function SeatLayout2() {
           {reservation.seatLayout.row8.map((seatNumber) => {
             return (
               <div
-                className="seat"
+                key={seatNumber}
+                className={`seat ${
+                  reservedSeats.includes(seatNumber) && 'unavailable'
+                }`}
                 id={seatNumber}
                 onClick={handleSeatSelect}
               />
@@ -140,7 +167,10 @@ function SeatLayout2() {
           {reservation.seatLayout.row9.map((seatNumber) => {
             return (
               <div
-                className="seat"
+                key={seatNumber}
+                className={`seat ${
+                  reservedSeats.includes(seatNumber) && 'unavailable'
+                }`}
                 id={seatNumber}
                 onClick={handleSeatSelect}
               />
