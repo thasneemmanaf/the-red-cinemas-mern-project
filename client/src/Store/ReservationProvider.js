@@ -12,7 +12,7 @@ const initialState = {
   totalPrice: 0,
   emailId: '',
   name: '',
-  seats: [],
+  selectedSeats: [],
   seatLayout: {},
   shows: [],
   selectedCinema: 'Select screen',
@@ -59,12 +59,14 @@ const reducer = (state, action) => {
     case 'ADD_SEATS':
       return {
         ...state,
-        seats: [...state.seats, action.payload]
+        selectedSeats: [...state.selectedSeats, action.payload]
       };
     case 'REMOVE_SEATS':
       return {
         ...state,
-        seats: [...state.seats.filter((seat) => seat !== action.payload)]
+        selectedSeats: [
+          ...state.selectedSeats.filter((seat) => seat !== action.payload)
+        ]
       };
     case 'ADD_TICKET_PRICE':
       return {

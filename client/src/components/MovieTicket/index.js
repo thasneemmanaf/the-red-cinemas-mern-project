@@ -29,7 +29,7 @@ function MovieTicket() {
         </div>
         <div className={classes.seat}>
           <div className={classes.seats}>
-            {reservation.seats.map((seat) => {
+            {reservation.selectedSeats.map((seat) => {
               return <h2 key={seat}>{seat}</h2>;
             })}
           </div>

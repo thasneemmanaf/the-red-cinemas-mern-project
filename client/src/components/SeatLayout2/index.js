@@ -9,9 +9,14 @@ function SeatLayout2({ reservedSeats }) {
 
   const handleSeatSelect = (e) => {
     if (e.target.classList.contains('unavailable')) return;
+    if (
+      reservation.selectedSeats.length === 5 &&
+      !e.target.classList.contains('selected')
+    )
+      return;
 
     e.target.classList.toggle('selected');
-    if (reservation.seats.includes(e.target.id)) {
+    if (reservation.selectedSeats.includes(e.target.id)) {
       dispatch({ type: 'REMOVE_SEATS', payload: e.target.id });
       dispatch({
         type: 'DECREMENT_TOTAL_PRICE',
