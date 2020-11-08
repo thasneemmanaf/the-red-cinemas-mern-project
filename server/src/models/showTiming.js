@@ -15,7 +15,9 @@ const showTimingSchema = new Schema({
     type: Date,
     required: [true, 'Please provide start date']
   },
-
+  reservedSeats: {
+    type: Array
+  },
   movieId: {
     type: Schema.Types.ObjectId,
     ref: 'Movie',
