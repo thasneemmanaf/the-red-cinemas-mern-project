@@ -67,7 +67,7 @@ function BookingCalendar() {
         noBorder
         regular
         keepOpenOnDateSelect
-        onFocusChange={({ focus }) => setFocused({ focus })}
+        onFocusChange={() => setFocused(true)}
         id="date_selector"
       />
     </StyledDatePickerWrapper>

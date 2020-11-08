@@ -15,14 +15,13 @@ function ShowTimings(props) {
 
   useEffect(() => {
     async function fetchData() {
-      console.log(reservation.date.toDate());
       try {
         const response = await axios.get(`/show-timing/${movieId}`, {
           params: {
             selectedDate: reservation.date.toDate()
           }
         });
-        console.log(response.data.showTimings);
+
         response.data.showTimings.forEach((show) => {
           setCinemas((prevCinemas) => [
             ...prevCinemas,

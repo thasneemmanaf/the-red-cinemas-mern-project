@@ -18,7 +18,6 @@ function ScreenSelector({ cinemas }) {
   const handleOnChange = (e) => {
     dispatch({ type: 'ADD_SELECTED_CINEMA', payload: e.target.value });
   };
-  console.log(reservation.selectedCinema);
 
   return (
     <div className={classes.box}>

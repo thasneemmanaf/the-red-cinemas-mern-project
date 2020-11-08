@@ -22,7 +22,7 @@ function SeatLayout2({ reservedSeats }) {
       dispatch({ type: 'ADD_TOTAL_PRICE', payload: reservation.ticketPrice });
     }
   };
-  console.log(reservedSeats.includes('B1'));
+
   return (
     <div className="theatre">
       <div className="cinema_seats left">
