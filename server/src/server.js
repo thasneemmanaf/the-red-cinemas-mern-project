@@ -8,6 +8,7 @@ const movieRoutes = require('./routes/movieRoutes');
 const screenRoutes = require('./routes/screenRoutes');
 const showTimingRoutes = require('./routes/showTimingRoutes');
 const reservationRoutes = require('./routes/reservationRoutes');
+const checkoutRoutes = require('./routes/checkoutRoutes');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -33,6 +34,7 @@ app.use('/api/v1/movie', movieRoutes);
 app.use('/api/v1/screen', screenRoutes);
 app.use('/api/v1/show-timing', showTimingRoutes);
 app.use('/api/v1/reservation', reservationRoutes);
+app.use('/api/v1/checkout', checkoutRoutes);
 
 app.get('/', (req, res) => {
   logger.debug('hi there');
