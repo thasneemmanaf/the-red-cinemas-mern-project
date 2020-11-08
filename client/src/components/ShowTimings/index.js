@@ -22,6 +22,7 @@ function ShowTimings(props) {
             selectedDate: reservation.date.toDate()
           }
         });
+        console.log(response.data.showTimings);
         response.data.showTimings.forEach((show) => {
           setCinemas((prevCinemas) => [
             ...prevCinemas,
@@ -32,7 +33,8 @@ function ShowTimings(props) {
               startAt: show.startAt,
               ticketPrice: show.screen_details[0].ticketPrice,
               city: show.screen_details[0].city,
-              image: show.screen_details[0].image
+              image: show.screen_details[0].image,
+              seats: show.screen_details[0].seats
             }
           ]);
         });

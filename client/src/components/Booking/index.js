@@ -1,13 +1,35 @@
-import React from 'react';
-
+import React, { useContext, useEffect } from 'react';
+import axios from '../../axios';
 import BookingCheckout from '../BookingCheckout';
 import MovieTicket from '../MovieTicket';
 import SeatLayout2 from '../SeatLayout2';
 // import SeatLayout from '../SeatLayout';
 import classes from './Booking.module.css';
 import Showcase from '../Showcase';
+import ReservationContext from '../../Store/ReservationContext';
 
 function Booking() {
+  const [reservation] = useContext(ReservationContext);
+
+  useEffect(() => {
+    console.log(reservation.date.toDate());
+    async function fetchData() {
+      try {
+        const response = await axios.get('/reservation', {
+          params: {
+            date: reservation.date.toDate(),
+            screenId: reservation.screenId,
+            startAt: reservation.startAt
+          }
+        });
+        console.log(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchData();
+  }, [reservation.date, reservation.screenId, reservation.startAt]);
+
   return (
     <div className={classes.container}>
       <div className={classes.container_center}>

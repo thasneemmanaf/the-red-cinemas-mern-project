@@ -16,8 +16,13 @@ exports.createReservation = async (req, res, next) => {
 
 // To get all reservations
 exports.getAllReservations = async (req, res, next) => {
+  const { startAt, screenId } = req.params;
+  console.log(req.params);
   try {
-    const reservations = await Reservation.find({});
+    const reservations = await Reservation.find(
+      { startAt: { $eq: startAt } },
+      { screenId: { $eq: screenId } }
+    );
     res.status(200).json({
       status: 'success',
       reservations

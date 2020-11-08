@@ -18,6 +18,8 @@ function Cinemas({ cinemas }) {
   const handleBookNow = (cinema) => {
     dispatch({ type: 'ADD_START_AT', payload: cinema.startAt });
     dispatch({ type: 'ADD_TICKET_PRICE', payload: cinema.ticketPrice });
+    dispatch({ type: 'ADD_SEAT_LAYOUT', payload: cinema.seats });
+    dispatch({ type: 'ADD_CINEMA_ID', payload: cinema.screenId });
   };
 
   return (

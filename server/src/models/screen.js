@@ -19,6 +19,38 @@ const screenSchema = new mongoose.Schema({
   ticketPrice: {
     type: Number,
     required: [true, 'Please provide ticket price']
+  },
+  seats: {
+    row0: {
+      type: Array
+    },
+    row1: {
+      type: Array
+    },
+    row2: {
+      type: Array
+    },
+    row3: {
+      type: Array
+    },
+    row4: {
+      type: Array
+    },
+    row5: {
+      type: Array
+    },
+    row6: {
+      type: Array
+    },
+    row7: {
+      type: Array
+    },
+    row8: {
+      type: Array
+    },
+    row9: {
+      type: Array
+    }
   }
 });
 

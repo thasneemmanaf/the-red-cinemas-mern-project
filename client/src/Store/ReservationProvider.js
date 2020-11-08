@@ -10,12 +10,13 @@ const initialState = {
   startAt: '',
   ticketPrice: 0,
   totalPrice: 0,
-  screenId: '',
   emailId: '',
   name: '',
   seats: [],
+  seatLayout: {},
   shows: [],
-  selectedCinema: 'Select screen'
+  selectedCinema: 'Select screen',
+  screenId: ''
 };
 
 const reducer = (state, action) => {
@@ -50,6 +51,11 @@ const reducer = (state, action) => {
         ...state,
         selectedCinema: action.payload
       };
+    case 'ADD_CINEMA_ID':
+      return {
+        ...state,
+        screenId: action.payload
+      };
     case 'ADD_SEATS':
       return {
         ...state,
@@ -74,6 +80,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         totalPrice: state.totalPrice - action.payload
+      };
+    case 'ADD_SEAT_LAYOUT':
+      return {
+        ...state,
+        seatLayout: action.payload
       };
     default:
       return state;

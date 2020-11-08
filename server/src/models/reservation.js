@@ -11,8 +11,8 @@ const reservationSchema = new Schema({
     required: [true, 'Please provide movie starting time'],
     trim: true
   },
-  seats: {
-    type: [Schema.Types.Mixed],
+  reservedSeats: {
+    type: Array,
     required: [true, 'Please provide seats']
   },
   ticketPrice: {
