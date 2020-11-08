@@ -24,7 +24,6 @@ function Booking() {
             startAt: reservation.startAt
           }
         });
-
         setReservedSeats(response.data.reservedSeats[0].reservedSeats);
       } catch (err) {
         console.log(err);

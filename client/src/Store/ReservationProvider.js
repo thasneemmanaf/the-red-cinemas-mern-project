@@ -18,6 +18,7 @@ const initialState = {
   shows: [],
   selectedCinema: 'Select screen',
   screenId: '',
+  showTimeId: '',
   paymentStatus: 'not paid'
 };
 
@@ -89,6 +90,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         seatLayout: action.payload
+      };
+    case 'ADD_SHOWTIME_ID':
+      return {
+        ...state,
+        showTimeId: action.payload
       };
     default:
       return state;

@@ -33,7 +33,8 @@ function ShowTimings(props) {
               ticketPrice: show.screen_details[0].ticketPrice,
               city: show.screen_details[0].city,
               image: show.screen_details[0].image,
-              seats: show.screen_details[0].seats
+              seats: show.screen_details[0].seats,
+              showTimeId: show._id
             }
           ]);
         });

@@ -43,7 +43,7 @@ exports.getReservedSeats = async (req, res, next) => {
         screenId: { $eq: screenId },
         date: new Date(date)
       },
-      { reservedSeats: 1, _id: 0 }
+      { reservedSeats: 1 }
     ).exec();
     res.status(200).json({
       status: 'success',
@@ -75,7 +75,7 @@ exports.getShowTimings = async (req, res, next) => {
         }
       },
       {
-        $unset: ['_id', 'screen_details._id']
+        $unset: ['screen_details._id']
       }
     ]);
 
@@ -92,8 +92,8 @@ exports.getShowTimings = async (req, res, next) => {
 exports.updateShowTiming = async (req, res, next) => {
   try {
     await ShowTiming.updateOne(
-      { _id: req.params.showTimingId },
-      { $set: req.body }
+      { _id: req.body.showTimeId },
+      { $push: { reservedSeats: req.body.selectedSeats } }
     );
     res.status(200).json({
       status: 'success'
