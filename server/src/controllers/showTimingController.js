@@ -63,7 +63,7 @@ exports.getShowTimings = async (req, res, next) => {
       {
         $match: {
           movieId: ObjectId(`${movieId}`),
-          endDate: { $gte: new Date(selectedDate) }
+          date: { $eq: new Date(selectedDate) }
         }
       },
       {

@@ -14,6 +14,7 @@ function BookingCheckout() {
         url: '/reservation',
         data: reservation
       });
+      console.log(reservation);
     } catch (error) {
       console.log(error);
     }
