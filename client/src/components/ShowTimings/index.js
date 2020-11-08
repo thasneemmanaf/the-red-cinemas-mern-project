@@ -18,7 +18,7 @@ function ShowTimings(props) {
       try {
         const response = await axios.get(`/show-timing/${movieId}`, {
           params: {
-            selectedDate: reservation.date.toDate()
+            selectedDate: reservation.date.format('YYYY-MM-DD')
           }
         });
 

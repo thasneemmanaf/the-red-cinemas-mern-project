@@ -7,6 +7,8 @@ const { ObjectId } = mongoose.Types;
 
 // To add a showTiming
 exports.addShowTiming = async (req, res, next) => {
+  req.body.date = new Date(req.body.date);
+
   try {
     const showTiming = new ShowTiming(req.body);
     await showTiming.save();

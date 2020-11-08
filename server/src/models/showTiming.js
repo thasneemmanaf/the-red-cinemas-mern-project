@@ -7,13 +7,13 @@ const showTimingSchema = new Schema({
     required: [true, 'Please provide show starting time'],
     trim: true
   },
-  startDate: {
+  date: {
     type: Date,
-    required: [true, 'Please provide start date']
+    required: [true, 'Please provide show date']
   },
   endDate: {
     type: Date,
-    required: [true, 'Please provide start date']
+    required: [true, 'Please provide show end date']
   },
   reservedSeats: {
     type: Array
