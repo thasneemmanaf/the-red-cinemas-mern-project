@@ -11,11 +11,11 @@ const reservationSchema = new Schema({
     required: [true, 'Please provide movie starting time'],
     trim: true
   },
-  reservedSeats: {
+  selectedSeats: {
     type: Array,
     required: [true, 'Please provide seats']
   },
-  ticketPrice: {
+  totalPrice: {
     type: Number,
     required: [true, 'Please provide ticket price']
   },

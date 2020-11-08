@@ -10,13 +10,15 @@ const initialState = {
   startAt: '',
   ticketPrice: 0,
   totalPrice: 0,
-  emailId: '',
-  name: '',
+  totalSeats: 0,
+  emailId: 'testuser@test.com',
+  name: 'test user',
   selectedSeats: [],
   seatLayout: {},
   shows: [],
   selectedCinema: 'Select screen',
-  screenId: ''
+  screenId: '',
+  paymentStatus: 'not paid'
 };
 
 const reducer = (state, action) => {
