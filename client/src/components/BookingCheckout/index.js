@@ -11,10 +11,10 @@ function BookingCheckout() {
     try {
       const response = await axios({
         method: 'post',
-        url: '/reservation',
+        url: '/checkout/checkout-session',
         data: reservation
       });
-      console.log(reservation);
+      console.log(response);
     } catch (error) {
       console.log(error);
     }

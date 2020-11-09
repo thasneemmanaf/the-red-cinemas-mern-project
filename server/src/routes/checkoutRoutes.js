@@ -3,6 +3,6 @@ const { getCheckoutSession } = require('../controllers/checkoutController');
 
 const router = express.Router();
 
-router.get('/checkout-session/:movieId', getCheckoutSession);
+router.post('/checkout-session', getCheckoutSession);
 
 module.exports = router;
