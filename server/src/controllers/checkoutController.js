@@ -1,6 +1,7 @@
 /* eslint-disable object-curly-newline */
 require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const { createReservation } = require('../controllers/reservationController');
 
 const { v4: uuidv4 } = require('uuid');
 const AppError = require('../utils/appError');
@@ -32,10 +33,7 @@ exports.getCheckoutSession = async (req, res, next) => {
       }
     );
 
-    res.status(200).json({
-      status: 'success',
-      charge
-    });
+    createReservation(req, res, next);
   } catch (err) {
     next(new AppError('Unable to create movie at the moment', 400));
   }
