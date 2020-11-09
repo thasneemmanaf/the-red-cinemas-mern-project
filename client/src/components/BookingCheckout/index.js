@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import StripeCheckout from 'react-stripe-checkout';
 import axios from '../../axios';
 
 import classes from './BookingCheckout.module.css';
@@ -7,8 +8,9 @@ import ReservationContext from '../../Store/ReservationContext';
 
 function BookingCheckout() {
   const [reservation] = useContext(ReservationContext);
-  const handleCheckout = async () => {
+  const handleCheckout = async (token) => {
     try {
+      reservation.token = token;
       const response = await axios({
         method: 'post',
         url: '/checkout/checkout-session',
@@ -29,12 +31,15 @@ function BookingCheckout() {
           </button>
         </Link>
         <Link to="/booking">
-          <button
-            className={classes.checkout_button}
-            type="button"
-            onClick={handleCheckout}>
-            CHECKOUT
-          </button>
+          <StripeCheckout
+            stripeKey={process.env.REACT_APP_STRIPE_KEY}
+            token={handleCheckout}
+            name="Book movie"
+            image={reservation.movieImg}>
+            <button className={classes.checkout_button} type="button">
+              CHECKOUT
+            </button>
+          </StripeCheckout>
         </Link>
       </div>
     </div>

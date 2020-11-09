@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
     "moment": "^2.29.1",
     "movie-trailer": "^2.0.6",
     "react": "^17.0.1",
