@@ -18,9 +18,9 @@ const app = express();
 const logger = pino({ level: process.env.LOG_LEVEL || 'info' });
 global.logger = logger;
 
-if (['development', 'production'].includes(process.env.NODE_ENV)) {
-  app.use(expressLogger({ logger }));
-}
+// if (['development', 'production'].includes(process.env.NODE_ENV)) {
+//   app.use(expressLogger({ logger }));
+// }
 
 // Middlewares
 app.use(express.json());

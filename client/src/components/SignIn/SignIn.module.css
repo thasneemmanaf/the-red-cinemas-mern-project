@@ -23,6 +23,9 @@
 .login_form__content {
   padding: 30px;
   background: #eeeeee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .login_form__header {

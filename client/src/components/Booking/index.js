@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import moment from 'moment';
 
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
 import axios from '../../axios';
 import BookingCheckout from '../BookingCheckout';
 import MovieTicket from '../MovieTicket';
@@ -9,6 +12,10 @@ import SeatLayout2 from '../SeatLayout2';
 import classes from './Booking.module.css';
 import Showcase from '../Showcase';
 import ReservationContext from '../../Store/ReservationContext';
+
+const stripePromise = loadStripe(
+  'pk_test_51HlLg3IZDks6HiKTIC1tGO58Vf3Czk45saBZ4FYitiFco9UcPg6NT1LQvF8g5bRoIH5n50IpF23tyHXKqt490205006HU99NUt'
+);
 
 function Booking() {
   const [reservation] = useContext(ReservationContext);
@@ -48,7 +55,9 @@ function Booking() {
           <MovieTicket />
         </div>
         <div className={classes.checkout_panel}>
-          <BookingCheckout />
+          <Elements stripe={stripePromise}>
+            <BookingCheckout />
+          </Elements>
         </div>
       </div>
     </div>
