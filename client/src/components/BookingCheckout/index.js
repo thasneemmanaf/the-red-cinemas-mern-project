@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import { loadStripe } from '@stripe/stripe-js';
 
-import StripeCheckout from 'react-stripe-checkout';
 import axios from '../../axios';
 
 import classes from './BookingCheckout.module.css';
@@ -17,19 +16,31 @@ function BookingCheckout() {
   const handleCheckout = async () => {
     const stripe = await stripePromise;
 
+    // Create a session on server and reserve seats
     try {
       const response = await axios({
         method: 'post',
         url: '/checkout/checkout-session',
         data: reservation
       });
-      console.log('response: ', response.data.id);
+      const { reservationId } = response.data;
+      console.log(reservationId);
+      // const result = await stripe.redirectToCheckout({
+      //   sessionId: response.data.id
+      // });
 
-      const result = await stripe.redirectToCheckout({
-        sessionId: response.data.id
-      });
-
-      console.log('result: ', result);
+      // eslint-disable-next-line no-constant-condition
+      if (false) {
+        console.log('payment failed');
+      } else {
+        const res = await axios({
+          method: 'patch',
+          url: `/reservation/${reservationId}`,
+          data: {
+            paymentStatus: 'Succeeded'
+          }
+        });
+      }
     } catch (error) {
       console.log(error);
     }
@@ -44,17 +55,12 @@ function BookingCheckout() {
           </button>
         </Link>
         <Link to="/booking">
-          {/* <StripeCheckout */}
-          {/* stripeKey={process.env.REACT_APP_STRIPE_KEY}
-          token={handleCheckout}
-          name="Book movie" image={reservation.movieImg}> */}
           <button
             className={classes.checkout_button}
             type="button"
             onClick={handleCheckout}>
             CHECKOUT
           </button>
-          {/* </StripeCheckout> */}
         </Link>
       </div>
     </div>

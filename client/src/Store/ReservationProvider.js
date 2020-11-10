@@ -19,7 +19,7 @@ const initialState = {
   selectedCinema: 'Select screen',
   screenId: '',
   showTimeId: '',
-  paymentStatus: 'not paid'
+  paymentStatus: 'Incomplete'
 };
 
 const reducer = (state, action) => {

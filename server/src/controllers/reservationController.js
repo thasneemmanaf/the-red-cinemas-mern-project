@@ -10,6 +10,7 @@ exports.createReservation = async (req, res, next) => {
     await reservation.save();
 
     // Update reserved seats in showTiming collection for this specific show
+    req.body.reservationId = reservation._id;
     updateShowTiming(req, res, next);
   } catch {
     next(new AppError('Unable to reserve at the moment', 400));
@@ -36,6 +37,7 @@ exports.getAllReservations = async (req, res, next) => {
 
 // To update a reservation
 exports.updateReservation = async (req, res, next) => {
+  console.log(req.body.data);
   try {
     await Reservation.updateOne(
       { _id: req.params.reservationId },
