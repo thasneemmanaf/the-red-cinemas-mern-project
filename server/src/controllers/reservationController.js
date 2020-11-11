@@ -37,7 +37,8 @@ exports.getAllReservations = async (req, res, next) => {
 
 // To update a reservation
 exports.updateReservation = async (req, res, next) => {
-  console.log(req.body.data);
+  console.log(req.params.reservationId);
+  console.log(req.body);
   try {
     await Reservation.updateOne(
       { _id: req.params.reservationId },

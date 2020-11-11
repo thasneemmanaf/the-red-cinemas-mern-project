@@ -40,6 +40,7 @@ function BookingCheckout() {
             paymentStatus: 'Succeeded'
           }
         });
+        console.log(res);
       }
     } catch (error) {
       console.log(error);
