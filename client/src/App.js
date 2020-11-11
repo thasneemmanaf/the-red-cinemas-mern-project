@@ -13,6 +13,7 @@ import SignIn from './components/SignIn';
 // import SeatLayout2 from './components/SeatLayout2';
 import Booking from './components/Booking';
 import PaymentSuccess from './components/PaymentSuccess';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path="/booking" exact component={Booking} />
             <Route path="/payment-success" exact component={PaymentSuccess} />
             <Route path="/showtimings/:movieId" exact component={ShowTimings} />
+            {/* <Route component={PageNotFound} /> */}
           </Switch>
         </div>
       </ReservationProvider>
