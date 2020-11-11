@@ -12,6 +12,7 @@ import SignIn from './components/SignIn';
 // import SeatLayout from './components/SeatLayout';
 // import SeatLayout2 from './components/SeatLayout2';
 import Booking from './components/Booking';
+import PaymentSuccess from './components/PaymentSuccess';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="/comingsoon" exact component={ExploreAll} />
             <Route path="/signin" exact component={SignIn} />
             <Route path="/booking" exact component={Booking} />
+            <Route path="/payment-success" exact component={PaymentSuccess} />
             <Route path="/showtimings/:movieId" exact component={ShowTimings} />
           </Switch>
         </div>

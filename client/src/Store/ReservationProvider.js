@@ -3,6 +3,7 @@ import moment from 'moment';
 import ReservationContext from './ReservationContext';
 
 const initialState = {
+  reservationId: '',
   movieId: '',
   movie: '',
   movieImg: '',
@@ -95,6 +96,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         showTimeId: action.payload
+      };
+    case 'ADD_RESERVATION_ID':
+      return {
+        ...state,
+        reservationId: action.payload
       };
     default:
       return state;

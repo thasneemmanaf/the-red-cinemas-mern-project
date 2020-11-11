@@ -11,7 +11,7 @@ function AccountMenu() {
           {/* <a href="#bjfghhf"></a> */}
         </li>
         <li>
-          <Link to="/signin">Sign Up</Link>
+          <Link to="/signup">Sign Up</Link>
           {/* <a href="#ffg">Sign Up</a> */}
         </li>
       </ul>

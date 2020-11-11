@@ -11,7 +11,7 @@ import ReservationContext from '../../Store/ReservationContext';
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
 function BookingCheckout() {
-  const [reservation] = useContext(ReservationContext);
+  const [reservation, dispatch] = useContext(ReservationContext);
 
   const handleCheckout = async () => {
     const stripe = await stripePromise;
@@ -24,24 +24,25 @@ function BookingCheckout() {
         data: reservation
       });
       const { reservationId } = response.data;
-      console.log(reservationId);
-      // const result = await stripe.redirectToCheckout({
-      //   sessionId: response.data.id
-      // });
+      dispatch({ type: 'ADD_RESERVATION_ID', payload: reservationId });
 
-      // eslint-disable-next-line no-constant-condition
-      if (false) {
-        console.log('payment failed');
-      } else {
-        const res = await axios({
-          method: 'patch',
-          url: `/reservation/${reservationId}`,
-          data: {
-            paymentStatus: 'Succeeded'
-          }
-        });
-        console.log(res);
-      }
+      // Redirect to stripe hosted checkout page
+      // const result =
+      await stripe.redirectToCheckout({
+        sessionId: response.data.id
+      });
+
+      // if (result.error) {
+      //   console.log('payment failed');
+      // } else {
+      // await axios({
+      //   method: 'patch',
+      //   url: `/reservation/${reservationId}`,
+      //   data: {
+      //     paymentStatus: 'Succeeded'
+      //   }
+      // });
+      // }
     } catch (error) {
       console.log(error);
     }
