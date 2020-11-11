@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const ShowTiming = require('../models/showTiming');
+const { createCheckoutSession } = require('./checkoutController');
 const AppError = require('../utils/appError');
 
 const { ObjectId } = mongoose.Types;
@@ -90,16 +91,13 @@ exports.getShowTimings = async (req, res, next) => {
 
 // To update a showTiming
 exports.updateShowTiming = async (req, res, next) => {
-  const { reservationId } = req.body;
+  // const { reservationId } = req.body;
   try {
     await ShowTiming.updateOne(
       { _id: req.body.showTimeId },
       { $push: { reservedSeats: req.body.selectedSeats } }
     );
-    res.status(200).json({
-      id: req.body.sessionId,
-      reservationId
-    });
+    createCheckoutSession(req, res, next);
   } catch {
     next(new AppError('Unable to update showTiming at the moment', 400));
   }

@@ -1,6 +1,6 @@
 const Reservation = require('../models/reservation');
 const AppError = require('../utils/appError');
-const { updateShowTiming } = require('../controllers/showTimingController');
+const { updateShowTiming } = require('./showTimingController');
 
 // To create a reservation
 exports.createReservation = async (req, res, next) => {
@@ -10,9 +10,10 @@ exports.createReservation = async (req, res, next) => {
     await reservation.save();
 
     // Update reserved seats in showTiming collection for this specific show
-    req.body.reservationId = reservation._id;
+    req.body.reservationId = reservation._id.toString();
     updateShowTiming(req, res, next);
-  } catch {
+  } catch (err) {
+    console.log(err);
     next(new AppError('Unable to reserve at the moment', 400));
   }
 };
@@ -37,8 +38,6 @@ exports.getAllReservations = async (req, res, next) => {
 
 // To update a reservation
 exports.updateReservation = async (req, res, next) => {
-  console.log(req.params.reservationId);
-  console.log(req.body);
   try {
     await Reservation.updateOne(
       { _id: req.params.reservationId },

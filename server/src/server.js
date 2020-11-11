@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const pino = require('pino');
-const expressLogger = require('express-pino-logger');
+
+// const expressLogger = require('express-pino-logger');
 
 const userRoutes = require('./routes/userRoutes');
 const movieRoutes = require('./routes/movieRoutes');
@@ -9,10 +10,10 @@ const screenRoutes = require('./routes/screenRoutes');
 const showTimingRoutes = require('./routes/showTimingRoutes');
 const reservationRoutes = require('./routes/reservationRoutes');
 const checkoutRoutes = require('./routes/checkoutRoutes');
+const stripeEventRoutes = require('./routes/stripeEventRoutes');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
-const { stripeEventHandler } = require('./controllers/checkoutController');
 
 const app = express();
 
@@ -36,7 +37,7 @@ app.use('/api/v1/screen', screenRoutes);
 app.use('/api/v1/show-timing', showTimingRoutes);
 app.use('/api/v1/reservation', reservationRoutes);
 app.use('/api/v1/checkout', checkoutRoutes);
-app.use('/webhook', stripeEventHandler);
+app.use('/webhook', stripeEventRoutes);
 
 app.get('/', (req, res) => {
   logger.debug('hi there');

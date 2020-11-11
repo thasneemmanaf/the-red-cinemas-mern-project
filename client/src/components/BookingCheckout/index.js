@@ -11,7 +11,7 @@ import ReservationContext from '../../Store/ReservationContext';
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
 function BookingCheckout() {
-  const [reservation, dispatch] = useContext(ReservationContext);
+  const [reservation] = useContext(ReservationContext);
 
   const handleCheckout = async () => {
     const stripe = await stripePromise;
@@ -20,28 +20,29 @@ function BookingCheckout() {
     try {
       const response = await axios({
         method: 'post',
-        url: '/checkout/checkout-session',
+        url: '/reservation',
         data: reservation
       });
-      const { reservationId } = response.data;
-      dispatch({ type: 'ADD_RESERVATION_ID', payload: reservationId });
+
+      const { reservationId, sessionId } = response.data;
 
       // Redirect to stripe hosted checkout page
-      // const result =
-      await stripe.redirectToCheckout({
-        sessionId: response.data.id
+      const result = await stripe.redirectToCheckout({
+        sessionId
       });
 
-      // if (result.error) {
-      //   console.log('payment failed');
-      // } else {
-      // await axios({
-      //   method: 'patch',
-      //   url: `/reservation/${reservationId}`,
-      //   data: {
-      //     paymentStatus: 'Succeeded'
-      //   }
-      // });
+      if (result.error) {
+        console.log('payment failed');
+      }
+
+      // else {
+      //   await axios({
+      //     method: 'patch',
+      //     url: `/reservation/${reservationId}`,
+      //     data: {
+      //       paymentStatus: 'Succeeded'
+      //     }
+      //   });
       // }
     } catch (error) {
       console.log(error);

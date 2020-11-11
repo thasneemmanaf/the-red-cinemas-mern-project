@@ -1,22 +1,23 @@
 /* eslint-disable object-curly-newline */
+const mongoose = require('mongoose');
 require('dotenv').config();
 
+const { ObjectId } = mongoose.Types;
+
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-// Find your endpoint's secret in your Dashboard's webhook settings
-const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
-const { createReservation } = require('./reservationController');
-
+const Reservation = require('../models/reservation');
 const AppError = require('../utils/appError');
 
 // To generate a checkout session
-exports.getCheckoutSession = async (req, res, next) => {
-  const { movie, totalPrice, emailId, movieImg } = req.body;
+exports.createCheckoutSession = async (req, res, next) => {
+  const { movie, totalPrice, emailId, movieImg, reservationId } = req.body;
 
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       customer_email: emailId,
+      client_reference_id: reservationId,
       line_items: [
         {
           amount: totalPrice * 100,
@@ -31,9 +32,10 @@ exports.getCheckoutSession = async (req, res, next) => {
       cancel_url: `${req.protocol}://${req.get('host')}/booking`
     });
 
-    // Forward session id to next middleware
-    req.body.sessionId = session.id;
-    createReservation(req, res, next);
+    res.status(201).json({
+      reservationId,
+      sessionId: session.id
+    });
   } catch (err) {
     console.log(err);
     next(new AppError('Unable to create movie at the moment', 400));
@@ -42,17 +44,20 @@ exports.getCheckoutSession = async (req, res, next) => {
 
 // Stripe payment event handler
 exports.stripeEventHandler = async (req, res) => {
-  const payload = req.body;
-  const sig = req.headers['stripe-signature'];
+  const eventType = req.body.type;
 
-  let event;
-  try {
-    event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
-  } catch (err) {
-    res.status(400).send(`Webhook Error: ${err.message}`);
+  // Handle the payment successfull event and update payment status to 'Success'
+  if (eventType === 'checkout.session.completed') {
+    const reservationId = req.body.data.object.client_reference_id;
+    try {
+      await Reservation.updateOne(
+        { _id: ObjectId(reservationId) },
+        { $set: { paymentStatus: 'Success' } }
+      );
+    } catch (error) {
+      console.log(error);
+    }
   }
-
-  console.log('event: ', event);
 
   res.status(200);
 };
