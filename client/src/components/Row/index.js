@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
+
 import handlePlayTrailer from '../../utils/playTrailer';
 import TrailerModal from '../TrailerModal';
 
@@ -11,6 +14,8 @@ import classes from './Row.module.css';
 function Row({ type }) {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function fetchData() {
@@ -23,6 +28,12 @@ function Row({ type }) {
     fetchData();
   }, [type]);
 
+  // Handle book now
+
+  const handleBookNow = () => {
+    i18next.changeLanguage('sv');
+  };
+
   // Conditionally render TrailerModal
   let trailerModal = null;
   if (trailerUrl) {
@@ -33,7 +44,7 @@ function Row({ type }) {
 
   return (
     <div className={classes.row}>
-      <h2 className={classes.row_title}>{type}</h2>
+      <h2 className={classes.row_title}>{t(type)}</h2>
       <div className={classes.row_posters}>
         {movies.map((movie) => {
           return (
@@ -56,7 +67,10 @@ function Row({ type }) {
                   }>
                   PLAY
                 </button>
-                <button type="button" className={classes.book_btn}>
+                <button
+                  type="button"
+                  className={classes.book_btn}
+                  onClick={handleBookNow}>
                   BOOK NOW
                 </button>
               </div>
