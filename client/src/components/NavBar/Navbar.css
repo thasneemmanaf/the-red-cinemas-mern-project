@@ -22,6 +22,13 @@
   object-fit: contain;
 }
 
+.LanguageSelector {
+  position: fixed;
+  right: 150px;
+  width: 100px;
+  object-fit: contain;
+}
+
 .nav_avatar {
   position: fixed;
   right: 20px;

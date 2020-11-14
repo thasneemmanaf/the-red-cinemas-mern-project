@@ -1,5 +1,5 @@
 {
-  "name": "mern-starter-kit",
+  "name": "movie-time",
   "version": "1.0.0",
   "description": "",
   "main": "server/src/index.js",

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './Navbar.css';
 import AccountMenu from '../AccountMenu';
+import LanguageSelector from '../LanguageSelector';
 
 function Navbar() {
   const [show, handleshow] = useState(false);
@@ -35,6 +36,10 @@ function Navbar() {
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/250px-Netflix_2015_logo.svg.png"
         alt="Netflix Logo"
       />
+      <div className="LanguageSelector">
+        <LanguageSelector />
+      </div>
+
       <button
         type="button"
         style={{ background: 'none', border: 'none' }}
