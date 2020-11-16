@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
+import i18next from 'i18next';
 
 import classes from './LanguageSelector.module.css';
 
@@ -26,7 +27,9 @@ function LanguageSelector() {
   };
 
   const handleSelection = (language) => {
+    i18next.changeLanguage(language);
     setSelectedLang(language);
+    console.log(language);
   };
 
   return (

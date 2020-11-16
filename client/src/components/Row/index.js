@@ -29,7 +29,6 @@ function Row({ type }) {
   }, [type]);
 
   // Handle book now
-
   const handleBookNow = () => {
     i18next.changeLanguage('sv');
   };

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -16,6 +17,8 @@ export default function Banner() {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
   const [, dispatch] = useContext(ReservationContext);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function fetchData() {
@@ -90,14 +93,14 @@ export default function Banner() {
                       onClick={() =>
                         handlePlayTrailer(movie, trailerUrl, setTrailerUrl)
                       }>
-                      PLAY
+                      {t('play')}
                     </button>
                     <Link to={`/showtimings/${movie._id}`}>
                       <button
                         className="banner_button"
                         type="button"
                         onClick={() => handleBookNow(movie)}>
-                        BOOK NOW
+                        {t('book_now')}
                       </button>
                     </Link>
                   </div>
