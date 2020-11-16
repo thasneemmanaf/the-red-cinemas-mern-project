@@ -24,14 +24,14 @@
 
 .LanguageSelector {
   position: fixed;
-  right: 150px;
+  right: 75px;
   width: 100px;
   object-fit: contain;
 }
 
 .nav_avatar {
   position: fixed;
-  top:20px;
+  top: 20px;
   right: 20px;
   width: 30px;
   object-fit: contain;

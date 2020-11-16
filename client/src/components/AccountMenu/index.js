@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import classes from './AccountMenu.module.css';
 
 function AccountMenu() {
@@ -7,11 +7,12 @@ function AccountMenu() {
     <div className={classes.nav}>
       <ul>
         <li>
-          <Link to="/signin">Sign In</Link>
+          <NavLink to="/signin">Sign In</NavLink>
+
           {/* <a href="#bjfghhf"></a> */}
         </li>
         <li>
-          <Link to="/signup">Sign Up</Link>
+          <NavLink to="/signup">Sign Up</NavLink>
           {/* <a href="#ffg">Sign Up</a> */}
         </li>
       </ul>
