@@ -1,0 +1,22 @@
+.select option:before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.sv:before {
+  background-image: url(https://www.countryflags.io/se/flat/32.png);
+}
+
+.en:before {
+  background-image: url(https://www.countryflags.io/us/flat/32.png);
+}
+
+.ml:before {
+  background-image: url(https://www.countryflags.io/in/flat/32.png);
+}

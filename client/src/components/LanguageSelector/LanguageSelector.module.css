@@ -8,6 +8,7 @@
   text-align: right;
   font-weight: bold; */
   /* margin-top: 25px; */
+  cursor: pointer;
   position: relative;
 }
 .lang_menu .selected_lang {
@@ -16,12 +17,32 @@
   line-height: 2;
   cursor: pointer;
 }
-.lang_menu .selected_lang:before {
+.lang_menu .selected_sv {
   content: '';
   display: inline-block;
   width: 32px;
   height: 32px;
   background-image: url(https://www.countryflags.io/se/flat/32.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.lang_menu .selected_en {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-image: url(https://www.countryflags.io/us/flat/32.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.lang_menu .selected_ml {
+  content: '';
+  display: inline-block;
+  width: 125px;
+  height: 32px;
+  background-image: url(https://www.countryflags.io/in/flat/32.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -81,6 +102,10 @@
   background-image: url(https://www.countryflags.io/in/flat/32.png);
 }
 
-.lang_menu:hover ul {
+/* .lang_menu:hover ul {
   display: block;
+} */
+
+.show_option {
+  display: block !important;
 }

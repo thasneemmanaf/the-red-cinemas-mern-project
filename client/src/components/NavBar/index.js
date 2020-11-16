@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './Navbar.css';
 import AccountMenu from '../AccountMenu';
 import LanguageSelector from '../LanguageSelector';
+// import LanguageSelector2 from '../LanguageSelector2';
 
 function Navbar() {
   const [show, handleshow] = useState(false);
@@ -18,7 +19,7 @@ function Navbar() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
   // To dislay signin and signup
   const onclickAccount = () => {
@@ -38,6 +39,7 @@ function Navbar() {
       />
       <div className="LanguageSelector">
         <LanguageSelector />
+        {/* <LanguageSelector2 /> */}
       </div>
 
       <button

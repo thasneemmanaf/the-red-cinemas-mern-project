@@ -3,9 +3,9 @@
   color: #fff;
   font-weight: bolder;
   position: absolute;
-  top: 5rem;
+  top: 4rem;
   right: 3.7rem;
-  width: 200px;
+  width: 120px;
   height: 15vh;
   z-index: 100;
   border-radius: 10px;
@@ -20,6 +20,7 @@
 .nav ul li {
   border-bottom: 2px solid rgba(200, 200, 200, 0.1);
   padding: 10px;
+  text-align: center;
 }
 
 .nav ul li:first-of-type {

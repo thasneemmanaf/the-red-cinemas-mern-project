@@ -11,6 +11,8 @@ const StyledDatePickerWrapper = styled.div`
   .SingleDatePickerInput {
     display: flex;
     max-width: 120px;
+    background: rgba(51, 51, 51, 0.5);
+    color: #fff;
     .DateInput {
       width: 60%;
       height: 40px;
@@ -20,6 +22,8 @@ const StyledDatePickerWrapper = styled.div`
         font-size: 1rem;
         border-bottom: 0;
         padding: 0 !important;
+        background: rgb(41, 41, 41);
+        color: #fff;
       }
     }
 

@@ -3,10 +3,12 @@
   /* top: 20%;
   left: 50%; */
   /* transform: translate(-50%, -50%); */
+    
 }
 
 .box select {
-  background: #0563af;
+  /* background: #0563af; */
+    background: rgba(51, 51, 51, 0.5);
   color: #fff;
   padding: 10px;
   width: 250px;
@@ -17,16 +19,22 @@
   outline: none;
 }
 
-.box::before {
+.box select:hover{
+  background-color:#e6e6e6;
+  color: black;
+}
+
+/* .box::before {
   content: '';
+  font-family: 'Font Awesome 5 Free';
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0; 
+   right: 0;
   width: 50px;
   height: 50px;
   background: #007ce0;
-}
-
+} */
+/* 
 .box:hover::before {
   background: #0472ca;
-}
+} */
