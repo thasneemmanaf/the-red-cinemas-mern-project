@@ -7,6 +7,7 @@ import SeatLayout2 from '../SeatLayout2';
 // import SeatLayout from '../SeatLayout';
 import classes from './Booking.module.css';
 import Showcase from '../Showcase';
+import PopupMessage from '../PopupMessage';
 import ReservationContext from '../../Store/ReservationContext';
 
 function Booking() {
@@ -50,6 +51,7 @@ function Booking() {
           <BookingCheckout />
         </div>
       </div>
+      <PopupMessage />
     </div>
   );
 }

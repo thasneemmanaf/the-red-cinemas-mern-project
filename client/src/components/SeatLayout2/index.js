@@ -7,6 +7,7 @@ import ReservationContext from '../../Store/ReservationContext';
 function SeatLayout2({ reservedSeats }) {
   const [reservation, dispatch] = useContext(ReservationContext);
 
+  // User should not be able to select more than 5 seats or reserved seats
   const handleSeatSelect = (e) => {
     if (e.target.classList.contains('unavailable')) return;
     if (

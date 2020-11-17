@@ -7,6 +7,7 @@ import axios from '../../axios';
 
 import classes from './BookingCheckout.module.css';
 import ReservationContext from '../../Store/ReservationContext';
+import sendEmail from '../../utils/sendEmail';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
@@ -14,6 +15,7 @@ function BookingCheckout() {
   const [reservation] = useContext(ReservationContext);
 
   const handleCheckout = async () => {
+    await sendEmail();
     const stripe = await stripePromise;
 
     // Create a session on server and reserve seats
