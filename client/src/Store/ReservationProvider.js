@@ -12,7 +12,7 @@ const initialState = {
   ticketPrice: 0,
   totalPrice: 0,
   totalSeats: 0,
-  emailId: 'testuser@test.com',
+  emailId: '',
   name: 'test user',
   selectedSeats: [],
   seatLayout: {},

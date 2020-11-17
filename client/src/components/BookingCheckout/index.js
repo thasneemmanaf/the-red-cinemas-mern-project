@@ -15,7 +15,17 @@ function BookingCheckout({ setShowModal }) {
   const [reservation] = useContext(ReservationContext);
 
   const handleCheckout = async () => {
-    if (reservation.selectedSeats.length === 0) {
+    // Check if user is logged in before checkout
+    if (!reservation.emailId) {
+      setShowModal({
+        status: true,
+        type: 'SIGNIN',
+        subject: 'Info',
+        message: 'Please login to reserve tickets'
+      });
+    }
+    // Check if user has selected seats before checkout
+    else if (reservation.selectedSeats.length === 0) {
       setShowModal({
         status: true,
         type: 'CLOSE',
