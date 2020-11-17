@@ -5,14 +5,17 @@ import React from 'react';
 import classes from './Modal.module.css';
 
 function Modal({ type, subject, message, setShowModal }) {
-  const closeModal = () => {
-    setShowModal(false);
+  // Close error modal when user click close button or backdrop
+  const closeModal = (e) => {
+    if (e.target.id === 'modal' || e.target.id === 'close') {
+      setShowModal(false);
+    }
   };
   return (
-    <div className={classes.modal}>
+    <div id="modal" className={classes.modal} onClick={closeModal}>
       <div className={classes.modal_content}>
         <div className={classes.modal_header}>
-          <span className={classes.close} onClick={closeModal}>
+          <span id="close" className={classes.close} onClick={closeModal}>
             &times;
           </span>
           <h2>{subject}</h2>
