@@ -5,16 +5,13 @@ import Banner from './components/Banner';
 import './App.css';
 import Row from './components/Row';
 import ExploreAll from './components/ExploreAll';
-// import Booking from './components/Booking';
 import ShowTimings from './components/ShowTimings';
 import ReservationProvider from './Store/ReservationProvider';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
-// import SeatLayout from './components/SeatLayout';
-// import SeatLayout2 from './components/SeatLayout2';
 import Booking from './components/Booking';
 import PaymentSuccess from './components/PaymentSuccess';
-import PageNotFound from './pages/PageNotFound';
+// import PageNotFound from './pages/PageNotFound';
 
 function App() {
   return (

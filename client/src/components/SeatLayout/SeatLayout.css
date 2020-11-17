@@ -1,96 +1,178 @@
-/* .seatContainer {
-  background-color: #242333;
-  color: #fff;
+.theatre {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  font-family: 'Lato', sans-serif;
-  margin: 0;
-} */
-
-.container {
-  perspective: 1000px;
-  margin-bottom: 30px;
+  margin-top: 2rem;
+  /* position: absolute; */
+  /* top: 70%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+}
+.cinema_seats {
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
-
-.seat {
-  background-color: #444451;
-  height: 12px;
-  width: 15px;
-  margin: 3px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.seat.selected {
-  background-color: #6feaf6;
-}
-
-.seat.occupied {
-  background-color: #fff;
-}
-
-.seat:nth-of-type(2) {
-  margin-right: 18px;
-}
-
-.seat:nth-last-of-type(2) {
-  margin-left: 18px;
-}
-
-.seat:not(.occupied):hover {
+.cinema_seats .seat {
   cursor: pointer;
-  transform: scale(1.2);
 }
 
-.showcase .seat:not(.occupied):hover {
-  cursor: default;
-  transform: scale(1);
-}
-
-.showcase {
-  background: rgba(0, 0, 0, 0.1);
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: #777;
-  list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-}
-
-.showcase li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 10px;
-}
-
-.showcase li small {
-  margin-left: 2px;
-}
-
-.row {
-  display: flex;
-}
-
-.screen {
-  background-color: #fff;
-  height: 70px;
+.cinema_seats .seat:hover:before {
+  content: '';
+  position: absolute;
+  top: 0;
   width: 100%;
-  margin: 15px 0;
-  transform: rotateX(-45deg);
-  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+  height: 100%;
+  /* background: rgba(0, 0, 0, 0.5); */
+  background: #39c421;
+  border-radius: 7px;
+}
+.cinema_seats .seat.selected:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffce26;
+  border-radius: 7px;
 }
 
-p.text {
-  margin: 5px 0;
+.cinema_seats .seat.unavailable:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #444451;
+  border-radius: 7px;
+}
+.cinema_seats .seat.unavailable:hover:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #444451;
+  border-radius: 7px;
+  cursor: not-allowed;
 }
 
-p.text span {
-  color: #6feaf6;
+.left .cinema_row {
+  transform: skew(-15deg);
+  margin: 0 6px;
+}
+.left .seat {
+  width: 35px;
+  height: 50px;
+  border-radius: 7px;
+  background: linear-gradient(
+    to top,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #b54041,
+    #f3686a
+  );
+  /* background: #7a7975; */
+  margin-bottom: 10px;
+  transform: skew(20deg);
+  margin-top: -32px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.left .row_2 {
+  transform: skew(-13deg);
+}
+.left .row_2 .seat {
+  transform: skew(18deg);
+}
+.left .row_3 {
+  transform: skew(-12deg);
+}
+.left .row_3 .seat {
+  transform: skew(16deg);
+}
+.left .row_4 {
+  transform: skew(-11deg);
+}
+.left .row_4 .seat {
+  transform: skew(15deg);
+}
+.left .row_5 {
+  transform: skew(-10deg);
+}
+.left .row_5 .seat {
+  transform: skew(12deg);
+}
+.left .row_6 {
+  transform: skew(-9deg);
+}
+.left .row_6 .seat {
+  transform: skew(10deg);
+}
+.left .row_7 {
+  transform: skew(-7deg);
+}
+.left .row_7 .seat {
+  transform: skew(8deg);
+}
+.right {
+  margin-left: 70px;
+}
+.right .cinema_row {
+  transform: skew(7deg);
+  margin: 0 6px;
+}
+.right .seat {
+  width: 35px;
+  height: 50px;
+  border-radius: 7px;
+  background: linear-gradient(
+    to top,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #b54041,
+    #f3686a
+  );
+  /* background: #7a7975; */
+  margin-bottom: 10px;
+  transform: skew(-8deg);
+  margin-top: -32px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.right .row_2 {
+  transform: skew(9deg);
+}
+.right .row_2 .seat {
+  transform: skew(-10deg);
+}
+.right .row_3 {
+  transform: skew(10deg);
+}
+.right .row_3 .seat {
+  transform: skew(-12deg);
+}
+.right .row_4 {
+  transform: skew(11deg);
+}
+.right .row_4 .seat {
+  transform: skew(-15deg);
+}
+.right .row_5 {
+  transform: skew(12deg);
+}
+.right .row_5 .seat {
+  transform: skew(-16deg);
+}
+.right .row_6 {
+  transform: skew(13deg);
+}
+.right .row_6 .seat {
+  transform: skew(-18deg);
+}
+.right .row_7 {
+  transform: skew(15deg);
+}
+.right .row_7 .seat {
+  transform: skew(-20deg);
 }

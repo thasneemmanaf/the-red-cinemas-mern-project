@@ -3,8 +3,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from '../../axios';
 import BookingCheckout from '../BookingCheckout';
 import MovieTicket from '../MovieTicket';
-import SeatLayout2 from '../SeatLayout2';
-// import SeatLayout from '../SeatLayout';
+import SeatLayout from '../SeatLayout';
+
 import classes from './Booking.module.css';
 import Showcase from '../Showcase';
 import Modal from '../Modal';
@@ -45,7 +45,7 @@ function Booking() {
           <div className={classes.screen} />
         </div>
         <div className={classes.seat_layout}>
-          <SeatLayout2
+          <SeatLayout
             reservedSeats={reservedSeats}
             setShowModal={setShowModal}
           />
