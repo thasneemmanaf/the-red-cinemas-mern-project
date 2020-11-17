@@ -7,5 +7,6 @@
   "close": "CLOSE",
   "Info": "Information",
   "not_signedin_message": "Please sign in to continue!",
-  "seat_limit_message": "You cannot select more than 5 seats at a time"
+  "seat_limit_message": "You cannot select more than 5 seats at a time",
+  "select_min_seat_message": "Please select at least one seat to continue to checkout"
 }

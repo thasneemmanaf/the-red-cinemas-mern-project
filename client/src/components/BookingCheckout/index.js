@@ -28,9 +28,9 @@ function BookingCheckout({ setShowModal }) {
     else if (reservation.selectedSeats.length === 0) {
       setShowModal({
         status: true,
-        type: 'CLOSE',
+        type: 'close',
         subject: 'Info',
-        message: 'Please select atleast one seat before checkout'
+        message: 'select_min_seat_message'
       });
     } else {
       // await sendEmail();

@@ -7,5 +7,6 @@
   "close": "AVBRYT",
   "Info": "Information",
   "not_signedin_message": "Logga in för att fortsätta!",
-  "seat_limit_message": "Du kan inte välja mer än fem platser åt gången"
+  "seat_limit_message": "Du kan inte välja mer än fem platser åt gången",
+  "select_min_seat_message": "Välj minst en plats för att fortsätta till kassan"
 }
