@@ -2,5 +2,8 @@
   "playingnow": "Playing Now",
   "comingsoon": "Coming Soon",
   "play": "PLAY",
-  "book_now": "BOOK NOW"
+  "book_now": "BOOK NOW",
+  "sign_in": "SIGN IN",
+  "Info": "Information",
+  "not_signedin_message": "Please sign in to continue!"
 }

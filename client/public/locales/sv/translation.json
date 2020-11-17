@@ -2,5 +2,8 @@
   "playingnow": "På bio nu",
   "comingsoon": "Kommande filmer",
   "play": "SPELA",
-  "book_now": "BOKA NU"
+  "book_now": "BOKA NU",
+  "sign_in": "LOGGA IN",
+  "Info": "Information",
+  "not_signedin_message": "Logga in för att fortsätta!"
 }

@@ -2,10 +2,13 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import classes from './Modal.module.css';
 
 function Modal({ showModal, setShowModal }) {
+  const { t } = useTranslation();
+
   // Close error modal when user click close button or backdrop
   const closeModal = (e) => {
     if (e.target.id === 'modal' || e.target.id === 'close') {
@@ -15,15 +18,14 @@ function Modal({ showModal, setShowModal }) {
 
   // Conditionally render modal button based on type
   const buttonElement =
-    showModal.type === 'SIGNIN' ? (
+    showModal.type === 'sign_in' ? (
       <Link to="/signin">
-        {' '}
         <button
           type="button"
           id="close"
           className={classes.modalBtn}
           onClick={closeModal}>
-          {showModal.type}
+          {t(showModal.type)}
         </button>
       </Link>
     ) : (
@@ -32,7 +34,7 @@ function Modal({ showModal, setShowModal }) {
         id="close"
         className={classes.modalBtn}
         onClick={closeModal}>
-        {showModal.type}
+        {t(showModal.type)}
       </button>
     );
 
@@ -40,10 +42,10 @@ function Modal({ showModal, setShowModal }) {
     <div id="modal" className={classes.modal} onClick={closeModal}>
       <div className={classes.modal_content}>
         <div className={classes.modal_header}>
-          <h2>{showModal.subject}</h2>
+          <h2>{t(showModal.subject)}</h2>
         </div>
         <div className={classes.modal_body}>
-          <p>{showModal.message}</p>
+          <p>{t(showModal.message)}</p>
         </div>
         <div className={classes.modal_footer}>{buttonElement}</div>
       </div>

@@ -19,9 +19,9 @@ function BookingCheckout({ setShowModal }) {
     if (!reservation.emailId) {
       setShowModal({
         status: true,
-        type: 'SIGNIN',
+        type: 'sign_in',
         subject: 'Info',
-        message: 'Please login to reserve tickets'
+        message: 'not_signedin_message'
       });
     }
     // Check if user has selected seats before checkout
@@ -33,7 +33,8 @@ function BookingCheckout({ setShowModal }) {
         message: 'Please select atleast one seat before checkout'
       });
     } else {
-      await sendEmail();
+      // await sendEmail();
+
       const stripe = await stripePromise;
 
       // Create a session on server and reserve seats
