@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import classes from './Modal.module.css';
 
@@ -11,6 +12,30 @@ function Modal({ showModal, setShowModal }) {
       setShowModal({ status: false, type: '', subject: '', message: '' });
     }
   };
+
+  // Conditionally render modal button based on type
+  const buttonElement =
+    showModal.type === 'SIGNIN' ? (
+      <Link to="/signin">
+        {' '}
+        <button
+          type="button"
+          id="close"
+          className={classes.modalBtn}
+          onClick={closeModal}>
+          {showModal.type}
+        </button>
+      </Link>
+    ) : (
+      <button
+        type="button"
+        id="close"
+        className={classes.modalBtn}
+        onClick={closeModal}>
+        {showModal.type}
+      </button>
+    );
+
   return (
     <div id="modal" className={classes.modal} onClick={closeModal}>
       <div className={classes.modal_content}>
@@ -20,15 +45,7 @@ function Modal({ showModal, setShowModal }) {
         <div className={classes.modal_body}>
           <p>{showModal.message}</p>
         </div>
-        <div className={classes.modal_footer}>
-          <button
-            type="button"
-            id="close"
-            className={classes.modalBtn}
-            onClick={closeModal}>
-            {showModal.type}
-          </button>
-        </div>
+        <div className={classes.modal_footer}>{buttonElement}</div>
       </div>
     </div>
   );
