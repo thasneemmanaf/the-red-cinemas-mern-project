@@ -60,14 +60,6 @@ export default function Banner() {
     dotsClass: 'button__bar'
   };
 
-  // Conditionally render TrailerModal
-  let trailerModal = null;
-  if (trailerUrl) {
-    trailerModal = (
-      <TrailerModal trailerUrl={trailerUrl} setTrailerUrl={setTrailerUrl} />
-    );
-  }
-
   return (
     <>
       <NavBar />
@@ -114,7 +106,9 @@ export default function Banner() {
           );
         })}
       </Slider>
-      {trailerModal}
+      {trailerUrl && (
+        <TrailerModal trailerUrl={trailerUrl} setTrailerUrl={setTrailerUrl} />
+      )}
     </>
   );
 }

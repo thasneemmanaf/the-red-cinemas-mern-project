@@ -33,14 +33,6 @@ function Row({ type }) {
     i18next.changeLanguage('sv');
   };
 
-  // Conditionally render TrailerModal
-  let trailerModal = null;
-  if (trailerUrl) {
-    trailerModal = (
-      <TrailerModal trailerUrl={trailerUrl} setTrailerUrl={setTrailerUrl} />
-    );
-  }
-
   return (
     <div className={classes.row}>
       <h2 className={classes.row_title}>{t(type)}</h2>
@@ -82,7 +74,9 @@ function Row({ type }) {
           Explore All
         </button>
       </Link>
-      {trailerModal}
+      {trailerUrl && (
+        <TrailerModal trailerUrl={trailerUrl} setTrailerUrl={setTrailerUrl} />
+      )}
     </div>
   );
 }
