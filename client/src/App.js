@@ -9,6 +9,7 @@ import ExploreAll from './components/ExploreAll';
 import ShowTimings from './components/ShowTimings';
 import ReservationProvider from './Store/ReservationProvider';
 import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
 // import SeatLayout from './components/SeatLayout';
 // import SeatLayout2 from './components/SeatLayout2';
 import Booking from './components/Booking';
@@ -35,6 +36,7 @@ function App() {
             <Route path="/playingnow" exact component={ExploreAll} />
             <Route path="/comingsoon" exact component={ExploreAll} />
             <Route path="/signin" exact component={SignIn} />
+            <Route path="/signup" exact component={SignUp} />
             <Route path="/booking" exact component={Booking} />
             <Route path="/payment-success" exact component={PaymentSuccess} />
             <Route path="/showtimings/:movieId" exact component={ShowTimings} />
