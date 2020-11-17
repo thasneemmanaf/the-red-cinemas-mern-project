@@ -15,16 +15,19 @@ function Modal({ type, subject, message, setShowModal }) {
     <div id="modal" className={classes.modal} onClick={closeModal}>
       <div className={classes.modal_content}>
         <div className={classes.modal_header}>
-          <span id="close" className={classes.close} onClick={closeModal}>
-            &times;
-          </span>
           <h2>{subject}</h2>
         </div>
         <div className={classes.modal_body}>
           <p>{message}</p>
         </div>
         <div className={classes.modal_footer}>
-          <h3>{type}</h3>
+          <button
+            type="button"
+            id="close"
+            className={classes.modalBtn}
+            onClick={closeModal}>
+            {type}
+          </button>
         </div>
       </div>
     </div>

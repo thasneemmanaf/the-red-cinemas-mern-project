@@ -18,6 +18,7 @@ function SeatLayout2({ reservedSeats, setShowModal }) {
       return;
     }
 
+    // Update seat number and total price based on user's seat selection
     e.target.classList.toggle('selected');
     if (reservation.selectedSeats.includes(e.target.id)) {
       dispatch({ type: 'REMOVE_SEATS', payload: e.target.id });
