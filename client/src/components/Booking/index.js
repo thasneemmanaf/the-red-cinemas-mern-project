@@ -60,6 +60,7 @@ function Booking() {
           type="info"
           subject="Information"
           message="Customers cannot reserve more than 5 seats at a time"
+          setShowModal={setShowModal}
         />
       )}
     </div>
