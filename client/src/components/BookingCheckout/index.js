@@ -16,7 +16,12 @@ function BookingCheckout({ setShowModal }) {
 
   const handleCheckout = async () => {
     if (reservation.selectedSeats.length === 0) {
-      setShowModal(true);
+      setShowModal({
+        status: true,
+        type: 'CLOSE',
+        subject: 'Info',
+        message: 'Please select atleast one seat before checkout'
+      });
     } else {
       await sendEmail();
       const stripe = await stripePromise;
