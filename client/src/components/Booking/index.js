@@ -13,7 +13,12 @@ import ReservationContext from '../../Store/ReservationContext';
 function Booking() {
   const [reservation] = useContext(ReservationContext);
   const [reservedSeats, setReservedSeats] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState({
+    status: false,
+    type: '',
+    subject: '',
+    message: ''
+  });
 
   useEffect(() => {
     async function fetchData() {
@@ -52,16 +57,11 @@ function Booking() {
           <MovieTicket />
         </div>
         <div className={classes.checkout_panel}>
-          <BookingCheckout />
+          <BookingCheckout setShowModal={setShowModal} />
         </div>
       </div>
-      {showModal && (
-        <Modal
-          type="CLOSE"
-          subject="Information"
-          message="Customers cannot reserve more than 5 seats at a time"
-          setShowModal={setShowModal}
-        />
+      {showModal.status && (
+        <Modal showModal={showModal} setShowModal={setShowModal} />
       )}
     </div>
   );

@@ -11,43 +11,37 @@ import sendEmail from '../../utils/sendEmail';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
-function BookingCheckout() {
+function BookingCheckout({ setShowModal }) {
   const [reservation] = useContext(ReservationContext);
 
   const handleCheckout = async () => {
-    await sendEmail();
-    const stripe = await stripePromise;
+    if (reservation.selectedSeats.length === 0) {
+      setShowModal(true);
+    } else {
+      await sendEmail();
+      const stripe = await stripePromise;
 
-    // Create a session on server and reserve seats
-    try {
-      const response = await axios({
-        method: 'post',
-        url: '/reservation',
-        data: reservation
-      });
+      // Create a session on server and reserve seats
+      try {
+        const response = await axios({
+          method: 'post',
+          url: '/reservation',
+          data: reservation
+        });
 
-      const { reservationId, sessionId } = response.data;
+        const { reservationId, sessionId } = response.data;
 
-      // Redirect to stripe hosted checkout page
-      const result = await stripe.redirectToCheckout({
-        sessionId
-      });
+        // Redirect to stripe hosted checkout page
+        const result = await stripe.redirectToCheckout({
+          sessionId
+        });
 
-      if (result.error) {
-        console.log('payment failed');
+        if (result.error) {
+          console.log('payment failed');
+        }
+      } catch (error) {
+        console.log(error);
       }
-
-      // else {
-      //   await axios({
-      //     method: 'patch',
-      //     url: `/reservation/${reservationId}`,
-      //     data: {
-      //       paymentStatus: 'Succeeded'
-      //     }
-      //   });
-      // }
-    } catch (error) {
-      console.log(error);
     }
   };
 

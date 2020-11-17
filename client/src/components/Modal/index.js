@@ -4,21 +4,21 @@ import React from 'react';
 
 import classes from './Modal.module.css';
 
-function Modal({ type, subject, message, setShowModal }) {
+function Modal({ showModal, setShowModal }) {
   // Close error modal when user click close button or backdrop
   const closeModal = (e) => {
     if (e.target.id === 'modal' || e.target.id === 'close') {
-      setShowModal(false);
+      setShowModal({ status: false, type: '', subject: '', message: '' });
     }
   };
   return (
     <div id="modal" className={classes.modal} onClick={closeModal}>
       <div className={classes.modal_content}>
         <div className={classes.modal_header}>
-          <h2>{subject}</h2>
+          <h2>{showModal.subject}</h2>
         </div>
         <div className={classes.modal_body}>
-          <p>{message}</p>
+          <p>{showModal.message}</p>
         </div>
         <div className={classes.modal_footer}>
           <button
@@ -26,7 +26,7 @@ function Modal({ type, subject, message, setShowModal }) {
             id="close"
             className={classes.modalBtn}
             onClick={closeModal}>
-            {type}
+            {showModal.type}
           </button>
         </div>
       </div>

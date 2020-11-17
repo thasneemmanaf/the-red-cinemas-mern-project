@@ -14,7 +14,12 @@ function SeatLayout2({ reservedSeats, setShowModal }) {
       reservation.selectedSeats.length === 5 &&
       !e.target.classList.contains('selected')
     ) {
-      setShowModal(true);
+      setShowModal({
+        status: true,
+        type: 'CLOSE',
+        subject: 'Info',
+        message: 'You cannot reserve more than 5 seats at a time'
+      });
       return;
     }
 
