@@ -4,6 +4,8 @@
   "play": "SPELA",
   "book_now": "BOKA NU",
   "sign_in": "LOGGA IN",
+  "close": "AVBRYT",
   "Info": "Information",
-  "not_signedin_message": "Logga in för att fortsätta!"
+  "not_signedin_message": "Logga in för att fortsätta!",
+  "seat_limit_message": "Du kan inte välja mer än fem platser åt gången"
 }

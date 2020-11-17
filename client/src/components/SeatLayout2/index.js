@@ -16,9 +16,9 @@ function SeatLayout2({ reservedSeats, setShowModal }) {
     ) {
       setShowModal({
         status: true,
-        type: 'CLOSE',
+        type: 'close',
         subject: 'Info',
-        message: 'You cannot reserve more than 5 seats at a time'
+        message: 'seat_limit_message'
       });
       return;
     }
