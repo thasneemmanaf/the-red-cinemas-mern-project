@@ -7,12 +7,13 @@ import SeatLayout2 from '../SeatLayout2';
 // import SeatLayout from '../SeatLayout';
 import classes from './Booking.module.css';
 import Showcase from '../Showcase';
-import PopupMessage from '../PopupMessage';
+import Modal from '../Modal';
 import ReservationContext from '../../Store/ReservationContext';
 
 function Booking() {
   const [reservation] = useContext(ReservationContext);
   const [reservedSeats, setReservedSeats] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -39,7 +40,10 @@ function Booking() {
           <div className={classes.screen} />
         </div>
         <div className={classes.seat_layout}>
-          <SeatLayout2 reservedSeats={reservedSeats} />
+          <SeatLayout2
+            reservedSeats={reservedSeats}
+            setShowModal={setShowModal}
+          />
         </div>
         <div className={classes.showcase_container}>
           <Showcase />
@@ -51,7 +55,13 @@ function Booking() {
           <BookingCheckout />
         </div>
       </div>
-      <PopupMessage />
+      {showModal && (
+        <Modal
+          type="info"
+          subject="Information"
+          message="Customers cannot reserve more than 5 seats at a time"
+        />
+      )}
     </div>
   );
 }

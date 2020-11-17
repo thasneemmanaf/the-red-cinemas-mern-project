@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import './SeatLayout2.css';
 import ReservationContext from '../../Store/ReservationContext';
 
-function SeatLayout2({ reservedSeats }) {
+function SeatLayout2({ reservedSeats, setShowModal }) {
   const [reservation, dispatch] = useContext(ReservationContext);
 
   // User should not be able to select more than 5 seats or reserved seats
@@ -13,8 +13,10 @@ function SeatLayout2({ reservedSeats }) {
     if (
       reservation.selectedSeats.length === 5 &&
       !e.target.classList.contains('selected')
-    )
+    ) {
+      setShowModal(true);
       return;
+    }
 
     e.target.classList.toggle('selected');
     if (reservation.selectedSeats.includes(e.target.id)) {
