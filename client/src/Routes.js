@@ -1,6 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import Loader from './components/Loader';
+
 import ReservationProvider from './Store/ReservationProvider';
 
 import './App.css';
@@ -32,7 +34,7 @@ const PaymentSuccess = lazy(() => import('./components/PaymentSuccess'));
 
 function Routes() {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<Loader />}>
       <BrowserRouter>
         <ReservationProvider>
           <div className="app">
