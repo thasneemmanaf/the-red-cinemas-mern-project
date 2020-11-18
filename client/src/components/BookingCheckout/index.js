@@ -15,22 +15,22 @@ function BookingCheckout({ setShowModal }) {
   const [reservation] = useContext(ReservationContext);
 
   const handleCheckout = async () => {
-    // Check if user is logged in before checkout
-    if (!reservation.emailId) {
-      setShowModal({
-        status: true,
-        type: 'sign_in',
-        subject: 'Info',
-        message: 'not_signedin_message'
-      });
-    }
     // Check if user has selected seats before checkout
-    else if (reservation.selectedSeats.length === 0) {
+    if (reservation.selectedSeats.length === 0) {
       setShowModal({
         status: true,
         type: 'close',
         subject: 'Info',
         message: 'select_min_seat_message'
+      });
+    }
+    // Check if user is logged in before checkout
+    else if (!reservation.emailId) {
+      setShowModal({
+        status: true,
+        type: 'sign_in',
+        subject: 'Info',
+        message: 'not_signedin_message'
       });
     } else {
       // await sendEmail();
