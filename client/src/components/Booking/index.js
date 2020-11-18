@@ -10,9 +10,15 @@ import Showcase from '../Showcase';
 import Modal from '../Modal';
 import ReservationContext from '../../Store/ReservationContext';
 
+import { setLocalStorage, getLocalStorage } from '../../utils/localStorage';
+
 function Booking() {
-  const [reservation] = useContext(ReservationContext);
-  const [reservedSeats, setReservedSeats] = useState([]);
+  const [reservation, dispatch] = useContext(ReservationContext);
+
+  // Initialize reserved Seats state with local storage  if available
+  const [reservedSeats, setReservedSeats] = useState(
+    getLocalStorage('reservedSeats') ? getLocalStorage('reservedSeats') : []
+  );
   const [showModal, setShowModal] = useState({
     status: false,
     type: '',
@@ -20,6 +26,12 @@ function Booking() {
     message: ''
   });
 
+  // Update reservation in local storage every time reservation info is updated
+  useEffect(() => {
+    setLocalStorage('reservation', reservation);
+  }, [reservation]);
+
+  // Fetch already reserved seats after component is mounted
   useEffect(() => {
     async function fetchData() {
       try {
@@ -30,13 +42,17 @@ function Booking() {
             startAt: reservation.startAt
           }
         });
+        setLocalStorage(
+          'reservedSeats',
+          response.data.reservedSeats[0].reservedSeats
+        );
         setReservedSeats(response.data.reservedSeats[0].reservedSeats);
       } catch (err) {
         console.log(err);
       }
     }
     fetchData();
-  }, [reservation.date, reservation.screenId, reservation.startAt]);
+  }, []);
 
   return (
     <div className={classes.container}>
