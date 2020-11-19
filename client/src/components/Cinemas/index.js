@@ -21,6 +21,7 @@ function Cinemas({ cinemas }) {
     dispatch({ type: 'ADD_SEAT_LAYOUT', payload: cinema.seats });
     dispatch({ type: 'ADD_CINEMA_ID', payload: cinema.screenId });
     dispatch({ type: 'ADD_SHOWTIME_ID', payload: cinema.showTimeId });
+    dispatch({ type: 'ADD_SELECTED_CINEMA', payload: cinema.name });
   };
 
   return (
