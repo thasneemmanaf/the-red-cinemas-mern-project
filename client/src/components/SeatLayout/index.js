@@ -6,7 +6,6 @@ import ReservationContext from '../../Store/ReservationContext';
 import { getLocalStorage } from '../../utils/localStorage';
 
 function SeatLayout({ reservedSeats, setShowModal }) {
-  console.log(reservedSeats);
   const [reservation, dispatch] = useContext(ReservationContext);
 
   // if (!reservedSeats) {

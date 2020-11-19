@@ -9,7 +9,7 @@ import classes from './Booking.module.css';
 import Showcase from '../Showcase';
 import Modal from '../Modal';
 import ReservationContext from '../../Store/ReservationContext';
-
+import dispatchActions from '../../utils/dispatchActions';
 import { setLocalStorage, getLocalStorage } from '../../utils/localStorage';
 
 function Booking() {
@@ -28,12 +28,17 @@ function Booking() {
     message: ''
   });
 
-  // Update reservation in local storage every time reservation info is updated
   useEffect(() => {
+    // Get reservation from local storage after reloading the page and skip initial loading
+    if (!reservation.movie) {
+      const localReservation = getLocalStorage('reservation', reservation);
+      dispatchActions(dispatch, localReservation);
+    }
+    // Update reservation in local storage every time reservation info is updated
     setLocalStorage('reservation', reservation);
   }, [reservation]);
 
-  // Fetch already reserved seats after component is mounted
+  // Fetch already reserved seats for a specific show after component is mounted
   useEffect(() => {
     async function fetchData() {
       try {
