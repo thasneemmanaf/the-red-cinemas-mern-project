@@ -1,47 +1,54 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import classes from './SignIn.module.css';
+import validate from '../../utils/validateForm';
+import useForm from '../../hooks/useForm';
 
-function SignIn() {
+const SignIn = ({ submitForm }) => {
+  const { handleChange, handleSubmit, values, errors } = useForm(
+    submitForm,
+    validate
+  );
+
   return (
-    <div className={classes.form}>
-      <form className={classes.signin_form} action="./" method="POST">
-        <div className={classes.signin_form__content}>
-          <div className={classes.signin_form__header}>
-            Signin to your account
-          </div>
+    <div className={classes.form_content_right}>
+      <form onSubmit={handleSubmit} className={classes.form} noValidate>
+        <h1>Sign In</h1>
+        <div className={classes.form_inputs}>
+          <label className={classes.form_label}>Email</label>
           <input
-            className={classes.signin_form__input}
-            type="text"
-            name="name"
-            placeholder="Name"
-          />
-          <input
-            className={classes.signin_form__input}
+            className={classes.form_input}
             type="email"
             name="email"
-            placeholder="Email-id"
+            placeholder="Enter your email"
+            value={values.email}
+            onChange={handleChange}
           />
+          {errors.email && <p>{errors.email}</p>}
+        </div>
+        <div className={classes.form_inputs}>
+          <label className={classes.form_label}>Password</label>
           <input
-            className={classes.signin_form__input}
+            className={classes.form_input}
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="Enter your password"
+            value={values.password}
+            onChange={handleChange}
           />
-          <input
-            className={classes.signin_form__input}
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            pattern="[+]{46}[0-9]{11,14}"
-            required
-          />
-          <button className={classes.signin_form__button} type="submit">
-            SignIn
-          </button>
+          {errors.password && <p>{errors.password}</p>}
         </div>
+
+        <button className={classes.form_input_btn} type="submit">
+          Sign In
+        </button>
+        <span className={classes.form_input_login}>
+          New to MovieTime?
+          <a href="/signup"> Sign up now</a>
+        </span>
       </form>
     </div>
   );
-}
+};
 
 export default SignIn;

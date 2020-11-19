@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const useForm = (validate) => {
+const useForm = (callback, validate) => {
   const [values, setValues] = useState({
-    name: '',
+    username: '',
     email: '',
     password: '',
     password2: ''
   });
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Handle input field change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({
@@ -18,12 +18,19 @@ const useForm = (validate) => {
     });
   };
 
-  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setErrors(validate(values));
+    setIsSubmitting(true);
   };
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && isSubmitting) {
+      callback();
+    }
+  }, [errors]);
+
   return { handleChange, handleSubmit, values, errors };
 };
 

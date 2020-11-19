@@ -20,11 +20,8 @@ const ShowTimings = lazy(() => import('./components/ShowTimings'));
 // Booking page
 const Booking = lazy(() => import('./components/Booking'));
 
-// Sign In page
-const SignIn = lazy(() => import('./components/SignIn'));
-
-// Sign up page
-const SignUp = lazy(() => import('./components/SignUp'));
+// Sign Ip and sign In page
+const Form = lazy(() => import('./components/Form'));
 
 // Payment success page
 const PaymentSuccess = lazy(() => import('./components/PaymentSuccess'));
@@ -52,8 +49,8 @@ function Routes() {
             <Switch>
               <Route path="/playingnow" exact component={ExploreAll} />
               <Route path="/comingsoon" exact component={ExploreAll} />
-              <Route path="/signin" exact component={SignIn} />
-              <Route path="/signup" exact component={SignUp} />
+              <Route path="/signin" exact component={Form} />
+              <Route path="/signup" exact component={Form} />
               <Route path="/booking" exact component={Booking} />
               <Route path="/payment-success" exact component={PaymentSuccess} />
               <Route

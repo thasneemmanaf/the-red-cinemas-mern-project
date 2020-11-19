@@ -1,73 +1,77 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import validate from '../../utils/validateForm';
 import classes from './SignUp.module.css';
+import validate from '../../utils/validateForm';
 import useForm from '../../hooks/useForm';
 
-function SignUp() {
-  const { handleChange, handleSubmit, values, errors } = useForm(validate);
+const SignUp = ({ submitForm }) => {
+  const { handleChange, handleSubmit, values, errors } = useForm(
+    submitForm,
+    validate
+  );
+
   return (
-    <div className={classes.form}>
-      <form
-        onSubmit={handleSubmit}
-        noValidate
-        className={classes.signup_form}
-        action="./"
-        method="POST">
-        <div className={classes.signup_form__content}>
-          <div className={classes.signup_form__header}>
-            Signup to your account
-          </div>
+    <div className={classes.form_content_right}>
+      <form onSubmit={handleSubmit} className={classes.form} noValidate>
+        <h1>Let Us Get started! Create your account</h1>
+        <div className={classes.form_inputs}>
+          <label className={classes.form_label}>Name</label>
           <input
-            className={classes.signup_form__input}
+            className={classes.form_input}
             type="text"
-            name="name"
-            placeholder="Name"
-            value={values.name}
+            name="username"
+            placeholder="Enter your username"
+            value={values.username}
             onChange={handleChange}
           />
-          {errors.name && <p>{errors.name}</p>}
+          {errors.username && <p>{errors.username}</p>}
+        </div>
+        <div className={classes.form_inputs}>
+          <label className={classes.form_label}>Email</label>
           <input
-            className={classes.signup_form__input}
+            className={classes.form_input}
             type="email"
             name="email"
-            placeholder="Email-id"
+            placeholder="Enter your email"
             value={values.email}
             onChange={handleChange}
           />
           {errors.email && <p>{errors.email}</p>}
+        </div>
+        <div className={classes.form_inputs}>
+          <label className={classes.form_label}>Password</label>
           <input
-            className={classes.signup_form__input}
+            className={classes.form_input}
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="Enter your password"
             value={values.password}
             onChange={handleChange}
           />
           {errors.password && <p>{errors.password}</p>}
+        </div>
+        <div className={classes.form_inputs}>
+          <label className={classes.form_label}>Confirm Password</label>
           <input
-            className={classes.signup_form__input}
+            className={classes.form_input}
             type="password"
             name="password2"
-            placeholder="Confirm password"
+            placeholder="Confirm your password"
             value={values.password2}
             onChange={handleChange}
           />
           {errors.password2 && <p>{errors.password2}</p>}
-          <input
-            className={classes.signup_form__input}
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            pattern="[+]{46}[0-9]{11,14}"
-            required
-          />
-          <button className={classes.signup_form__button} type="submit">
-            SignUp
-          </button>
         </div>
+        <button className={classes.form_input_btn} type="submit">
+          Sign Up
+        </button>
+        <span className={classes.form_input_login}>
+          Already have an account?
+          <a href="/signin"> Login</a>
+        </span>
       </form>
     </div>
   );
-}
+};
 
 export default SignUp;
