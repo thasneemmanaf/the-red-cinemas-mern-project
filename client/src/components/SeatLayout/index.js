@@ -6,6 +6,7 @@ import ReservationContext from '../../Store/ReservationContext';
 import { getLocalStorage } from '../../utils/localStorage';
 
 function SeatLayout({ reservedSeats, setShowModal }) {
+  console.log(reservedSeats);
   const [reservation, dispatch] = useContext(ReservationContext);
 
   // if (!reservedSeats) {
@@ -13,7 +14,7 @@ function SeatLayout({ reservedSeats, setShowModal }) {
   // }
 
   useEffect(() => {
-    const localReservation = getLocalStorage('reservation');
+    const localReservation = getLocalStorage('reservation', {});
     if (!reservation.seatLayout.row0) {
       dispatch({
         type: 'ADD_SEAT_LAYOUT',
