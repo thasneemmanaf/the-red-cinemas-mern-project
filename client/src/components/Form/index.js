@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import classes from './Form.module.css';
 import FormSignup from '../SignUp';
 import FormSignin from '../SignIn';
@@ -15,7 +16,9 @@ const Form = (props) => {
   return (
     <>
       <div className={classes.form_container}>
-        <span className={classes.close_btn}>×</span>
+        <NavLink to="/" className={classes.closeLink}>
+          <span className={classes.close_btn}>×</span>
+        </NavLink>
         <div className={classes.form_content_left}>
           <img className={classes.form_img} src={formImage} alt="spaceship" />
         </div>

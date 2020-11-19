@@ -1,7 +1,7 @@
 .form_content_right {
   border-radius: 0 10px 10px 0;
   position: relative;
-  background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
+  background: linear-gradient(90deg, rgb(40, 40, 40) 100%, rgb(17, 17, 17) 0%);
 }
 
 .form {
@@ -49,7 +49,7 @@
   outline: none;
   border-radius: 2px;
   height: 40px;
-  width: 100%;
+  width: 96.5%;
   border: none;
 }
 

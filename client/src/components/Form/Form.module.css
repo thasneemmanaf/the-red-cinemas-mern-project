@@ -9,6 +9,12 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.closeLink {
+  position: absolute;
+  top: 2%;
+  right: 3%;
+}
+
 .close_btn {
   position: absolute;
   top: 2%;
@@ -34,11 +40,11 @@
   position: relative;
 }
 
-.form_content_right {
+/* .form_content_right {
   border-radius: 0 10px 10px 0;
   position: relative;
-  background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
-}
+  background: #f3686a;
+} */
 
 .form_img {
   width: 80%;
