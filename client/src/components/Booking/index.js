@@ -32,8 +32,10 @@ function Booking() {
     // Get reservation from local storage after reloading the page and skip initial loading
     if (!reservation.movie) {
       const localReservation = getLocalStorage('reservation', reservation);
+
       dispatchActions(dispatch, localReservation);
     }
+
     // Update reservation in local storage every time reservation info is updated
     setLocalStorage('reservation', reservation);
   }, [reservation]);

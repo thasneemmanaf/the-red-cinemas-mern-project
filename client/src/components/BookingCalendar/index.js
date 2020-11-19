@@ -54,6 +54,7 @@ function BookingCalendar() {
   const [reservation, dispatch] = useContext(ReservationContext);
 
   const handleDateChange = (dateSelected) => {
+    console.log(dateSelected);
     dispatch({ type: 'ADD_DATE', payload: dateSelected });
     setFocused(false);
   };
