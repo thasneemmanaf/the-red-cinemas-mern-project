@@ -67,32 +67,20 @@
   padding: 10px;
   color: #ffffff;
   font-weight: bold;
-  background: linear-gradient(
-    to top,
-    #761818,
-    #761818,
-    #761818,
-    #761818,
-    #761818,
-    #b54041,
-    #f3686a
-  );
+  background: rgba(27, 27, 27, 0.5);
+  /* background: #000; */
   width: 100%;
   border: none;
   outline: none;
   border-radius: 5px;
   cursor: pointer;
 }
+.signin_form__button:hover {
+  color: #fff;
+  background: #000;
+}
 
 .signin_form__button:active {
-  background: linear-gradient(
-    to top,
-    #761818,
-    #761818,
-    #761818,
-    #761818,
-    #761818,
-    #b54041,
-    #f3686a
-  );
+  color: #000;
+  background-color: #e6e6e6;
 }
