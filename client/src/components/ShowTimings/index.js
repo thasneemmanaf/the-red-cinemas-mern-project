@@ -6,6 +6,7 @@ import ScreenSelector from '../ScreenSelector';
 import BookingCalendar from '../BookingCalendar';
 import classes from './ShowTimings.module.css';
 import Cinemas from '../Cinemas';
+import { setLocalStorage } from '../../utils/localStorage';
 
 function ShowTimings(props) {
   const [reservation] = useContext(ReservationContext);
@@ -13,6 +14,12 @@ function ShowTimings(props) {
 
   const { movieId } = props.match.params;
 
+  // Set local storage with banner image
+  useEffect(() => {
+    setLocalStorage('reservation', reservation);
+  }, []);
+
+  // Fetch Show timing based on user's date selection
   useEffect(() => {
     async function fetchData() {
       try {

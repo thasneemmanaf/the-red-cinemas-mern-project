@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import moment from 'moment';
 import ReservationContext from './ReservationContext';
+import { getLocalStorage } from '../utils/localStorage';
 
 const initialState = {
   reservationId: '',
@@ -22,6 +23,9 @@ const initialState = {
   showTimeId: '',
   paymentStatus: 'Incomplete'
 };
+
+// Initialize the app with local storage reservation , otherwise use initialState
+const localReservation = getLocalStorage('reservation', initialState);
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -108,7 +112,7 @@ const reducer = (state, action) => {
 };
 
 const ReservationProvider = (props) => {
-  const [reservation, dispatch] = useReducer(reducer, initialState);
+  const [reservation, dispatch] = useReducer(reducer, localReservation);
   return (
     <ReservationContext.Provider value={[reservation, dispatch]}>
       {props.children}
