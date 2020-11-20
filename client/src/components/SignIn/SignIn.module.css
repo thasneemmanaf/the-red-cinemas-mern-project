@@ -63,11 +63,7 @@
   height: 50px;
   margin-top: 10px;
   border-radius: 2px;
-  background: linear-gradient(
-    90deg,
-    rgb(39, 176, 255) 0%,
-    rgb(0, 232, 236) 100%
-  );
+  background: linear-gradient(to top, #761818, #b54041, #f3686a);
   outline: none;
   border: none;
   color: #fff;
@@ -77,9 +73,14 @@
 .form_input_btn:hover {
   cursor: pointer;
   background: linear-gradient(
-    90deg,
-    rgb(39, 143, 255) 0%,
-    rgb(12, 99, 250) 100%
+    to top,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #b54041,
+    #f3686a
   );
   transition: all 0.4s ease-out;
 }
