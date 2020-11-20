@@ -15,12 +15,12 @@ import { setLocalStorage, getLocalStorage } from '../../utils/localStorage';
 function Booking() {
   const [reservation, dispatch] = useContext(ReservationContext);
 
-  // Initialize reserved Seats state with local storage if available
-  const [reservedSeats, setReservedSeats] = useState(
-    getLocalStorage('reservedSeats', [])
-      ? getLocalStorage('reservedSeats', [])
-      : []
-  );
+  // Lazy Initialize already reserved unavailable Seats with local storage if available
+  const [reservedSeats, setReservedSeats] = useState(() => {
+    const localReservedSeats = getLocalStorage('reservedSeats', []);
+    return localReservedSeats || [];
+  });
+
   const [showModal, setShowModal] = useState({
     status: false,
     type: '',
