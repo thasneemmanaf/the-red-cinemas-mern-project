@@ -27,11 +27,6 @@ function Booking() {
     message: ''
   });
 
-  // Update reservation in local storage every time reservation info is updated
-  useEffect(() => {
-    setLocalStorage('reservation', reservation);
-  }, [reservation]);
-
   // Fetch already reserved seats for a specific show after component is mounted
   useEffect(() => {
     async function fetchData() {
@@ -53,6 +48,8 @@ function Booking() {
       }
     }
     fetchData();
+    // Update reservation to local storage
+    setLocalStorage('reservation', reservation);
   }, []);
 
   return (
