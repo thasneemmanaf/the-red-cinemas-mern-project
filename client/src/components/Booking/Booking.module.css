@@ -14,7 +14,7 @@
   max-width: 1170px;
   margin: 0 auto;
   display: grid;
-  row-gap: 0.5rem;
+  row-gap: 0.2rem;
   align-items: center;
   justify-items: center;
 }
@@ -46,12 +46,13 @@
   .container_center {
     grid-template-columns: repeat(5, 1fr);
     column-gap: 0.1rem;
-    grid-template-rows: repeat(6, 100px);
+    grid-template-rows: repeat(7, 105px);
     grid-template-areas:
       'z z z z z'
       'a a a a a'
       'a a a a a'
       'b b b b b'
+      'c c c c c'
       'c c c c c'
       'd d d d d';
   }
