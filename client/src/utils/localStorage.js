@@ -9,8 +9,8 @@ export const setLocalStorage = (key, initialValue) => {
 export const getLocalStorage = (key, initialValue) => {
   let reservationValue = JSON.parse(localStorage.getItem(key));
 
-  // Format date string to moment object
-  if (reservationValue) {
+  // Format date string to moment object only for reservation
+  if (reservationValue && key === 'reservation') {
     reservationValue = {
       ...reservationValue,
       date: moment(reservationValue.date)

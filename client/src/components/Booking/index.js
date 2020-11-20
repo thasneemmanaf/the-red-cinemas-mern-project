@@ -9,11 +9,10 @@ import classes from './Booking.module.css';
 import Showcase from '../Showcase';
 import Modal from '../Modal';
 import ReservationContext from '../../Store/ReservationContext';
-import dispatchActions from '../../utils/dispatchActions';
 import { setLocalStorage, getLocalStorage } from '../../utils/localStorage';
 
 function Booking() {
-  const [reservation, dispatch] = useContext(ReservationContext);
+  const [reservation] = useContext(ReservationContext);
 
   // Lazy Initialize already reserved unavailable Seats with local storage if available
   const [reservedSeats, setReservedSeats] = useState(() => {
@@ -28,15 +27,8 @@ function Booking() {
     message: ''
   });
 
+  // Update reservation in local storage every time reservation info is updated
   useEffect(() => {
-    // Get reservation from local storage after reloading the page and skip initial loading
-    if (!reservation.movie) {
-      const localReservation = getLocalStorage('reservation', reservation);
-
-      dispatchActions(dispatch, localReservation);
-    }
-
-    // Update reservation in local storage every time reservation info is updated
     setLocalStorage('reservation', reservation);
   }, [reservation]);
 
