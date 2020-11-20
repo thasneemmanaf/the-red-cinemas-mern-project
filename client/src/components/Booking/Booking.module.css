@@ -1,5 +1,5 @@
 .container {
-  padding: 1rem, 0;
+  padding: 0;
   background-color: #080808;
 }
 
@@ -12,9 +12,9 @@
 .container_center {
   width: 90vw;
   max-width: 1170px;
-  margin: 1rem auto;
+  margin: 0 auto;
   display: grid;
-  row-gap: 1rem;
+  row-gap: 0.5rem;
   align-items: center;
   justify-items: center;
 }
@@ -35,22 +35,25 @@
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
 }
 
+.movie_ticket {
+  max-height: 10rem;
+}
 .showcase_container {
-  width: 20rem;
-  height: 6rem;
+  width: 10rem;
 }
 
 @media screen and (min-width: 1170px) {
   .container_center {
     grid-template-columns: repeat(5, 1fr);
-    column-gap: 0.5rem;
-    grid-template-rows: repeat(5, 100px);
+    column-gap: 0.1rem;
+    grid-template-rows: repeat(6, 100px);
     grid-template-areas:
-      'z z z b b'
-      'a a a c c'
-      'a a a c c'
-      'a a a d d'
-      'y y y e e';
+      'z z z z z'
+      'a a a a a'
+      'a a a a a'
+      'b b b b b'
+      'c c c c c'
+      'd d d d d';
   }
 
   .screen_container {
@@ -66,6 +69,6 @@
     grid-area: d;
   }
   .showcase_container {
-    grid-area: y;
+    grid-area: b;
   }
 }
