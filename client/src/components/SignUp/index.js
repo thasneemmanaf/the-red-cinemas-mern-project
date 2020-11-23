@@ -19,24 +19,24 @@ const SignUp = ({ submitForm }) => {
           <input
             className={classes.form_input}
             type="text"
-            name="username"
+            name="name"
             placeholder="Enter your username"
-            value={values.username}
+            value={values.name}
             onChange={handleChange}
           />
-          {errors.username && <p>{errors.username}</p>}
+          {errors.name && <p>{errors.name}</p>}
         </div>
         <div className={classes.form_inputs}>
           <label className={classes.form_label}>Email</label>
           <input
             className={classes.form_input}
             type="email"
-            name="email"
+            name="emailId"
             placeholder="Enter your email"
-            value={values.email}
+            value={values.emailId}
             onChange={handleChange}
           />
-          {errors.email && <p>{errors.email}</p>}
+          {errors.emailId && <p>{errors.emailId}</p>}
         </div>
         <div className={classes.form_inputs}>
           <label className={classes.form_label}>Password</label>
@@ -55,12 +55,12 @@ const SignUp = ({ submitForm }) => {
           <input
             className={classes.form_input}
             type="password"
-            name="password2"
+            name="confirmPassword"
             placeholder="Confirm your password"
-            value={values.password2}
+            value={values.confirmPassword}
             onChange={handleChange}
           />
-          {errors.password2 && <p>{errors.password2}</p>}
+          {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
         </div>
         <button className={classes.form_input_btn} type="submit">
           Sign Up

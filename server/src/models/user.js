@@ -36,18 +36,10 @@ const userSchema = new mongoose.Schema({
       message: 'Passwords do not match'
     }
   },
-  phoneNumber: {
-    type: String,
-    required: [true, 'Please provide your phone number'],
-    trim: true
-  },
   role: {
     type: String,
     default: 'user',
     enum: ['user', 'admin']
-  },
-  userImage: {
-    type: String
   }
 });
 

@@ -31,10 +31,12 @@ const sendToken = (user, res, statusCode) => {
 
 // To signup a user
 exports.signUpUser = async (req, res, next) => {
+  console.log(req.body);
   try {
     const newUser = await User.create(req.body);
     sendToken(newUser, res, 201);
-  } catch {
+  } catch (err) {
+    console.log(err);
     next(new AppError('Unable to Signup at the moment', 400));
   }
 };
@@ -95,3 +97,23 @@ exports.signoutUser = (req, res) => {
   res.clearCookie('jwt');
   return res.status(200).json({ status: 'success' });
 };
+
+// To delete user
+// exports.deleteUser = async (req, res, next) => {
+//   try {
+//     const deletedUser = await User.findByIdAndDelete(req.params.userId);
+
+//     if (!deletedUser) {
+//       return next(new AppError('Cannot find a user with this user id!', 401));
+//     }
+
+//     return res.status(200).json({
+//       status: 'success',
+//       data: {
+//         user: deletedUser
+//       }
+//     });
+//   } catch {
+//     return next(new AppError('Unable to delete user at the moment', 401));
+//   }
+// };

@@ -1,11 +1,13 @@
+/* eslint-disable no-inner-declarations */
 import { useState, useEffect } from 'react';
+import axios from '../axios';
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
-    username: '',
-    email: '',
+    name: '',
+    emailId: '',
     password: '',
-    password2: ''
+    confirmPassword: ''
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -18,16 +20,29 @@ const useForm = (callback, validate) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     setErrors(validate(values));
     setIsSubmitting(true);
   };
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      callback();
+      // callback();
+      if (values.name) {
+        async function fetchData() {
+          try {
+            await axios({
+              method: 'post',
+              url: '/user/signup',
+              data: values
+            });
+          } catch (err) {
+            console.log(err);
+          }
+        }
+        fetchData();
+      }
     }
   }, [errors]);
 
