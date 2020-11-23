@@ -89,3 +89,9 @@ exports.fetchUser = async (req, res, next) => {
     }
   }
 };
+
+// Logout user and clear JWT cookie
+exports.signoutUser = (req, res) => {
+  res.clearCookie('jwt');
+  return res.status(200).json({ status: 'success' });
+};
