@@ -1,3 +1,4 @@
+const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const AppError = require('../utils/appError');
@@ -58,5 +59,33 @@ exports.signInUser = async (req, res, next) => {
     return sendToken(user, res, 200);
   } catch {
     return next(new AppError('Unable to Signin at the moment', 400));
+  }
+};
+
+// Get user based on Token when App refresh
+exports.fetchUser = async (req, res, next) => {
+  const token = req.cookies.jwt;
+
+  if (!token) {
+    res.status(401).json({
+      status: 'unauthorized'
+    });
+  } else {
+    // Token Verification
+    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+
+    // Check if user still exists
+    const currentUser = await User.findById(decoded.id);
+
+    if (currentUser) {
+      res.status(200).json({
+        status: 'success',
+        data: {
+          user: currentUser
+        }
+      });
+    } else {
+      next(new AppError('User does not exist! Unauthorized access', 401));
+    }
   }
 };
