@@ -67,7 +67,7 @@ const SignUp = ({ submitForm }) => {
         </button>
         <span className={classes.form_input_login}>
           Already have an account?
-          <a href="/signin"> Login</a>
+          <a href="/signin"> Sign in</a>
         </span>
       </form>
     </div>
