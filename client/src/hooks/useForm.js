@@ -9,7 +9,7 @@ const useForm = (callback, validate) => {
     password: '',
     confirmPassword: ''
   });
-  const [isAuthorized, setAuthorized] = useState(false);
+  const [showLoginError, setShowLoginError] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -54,9 +54,9 @@ const useForm = (callback, validate) => {
             });
 
             if (response.data.status === 'unauthorized') {
-              setAuthorized(true);
+              setShowLoginError(true);
             } else {
-              setAuthorized(false);
+              setShowLoginError(false);
             }
           } catch (err) {
             console.log(err);
@@ -67,7 +67,7 @@ const useForm = (callback, validate) => {
     }
   }, [errors, isSubmitting]);
 
-  return { handleChange, handleSubmit, isAuthorized, values, errors };
+  return { handleChange, handleSubmit, showLoginError, values, errors };
 };
 
 export default useForm;
