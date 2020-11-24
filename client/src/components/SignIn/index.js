@@ -12,19 +12,23 @@ const SignIn = ({ submitForm }) => {
 
   return (
     <div className={classes.form_content_right}>
-      <form onSubmit={handleSubmit} className={classes.form} noValidate>
+      <form
+        id="signin"
+        onSubmit={handleSubmit}
+        className={classes.form}
+        noValidate>
         <h1>Sign In</h1>
         <div className={classes.form_inputs}>
           <label className={classes.form_label}>Email</label>
           <input
             className={classes.form_input}
             type="email"
-            name="email"
+            name="emailId"
             placeholder="Enter your email"
-            value={values.email}
+            value={values.emailId}
             onChange={handleChange}
           />
-          {errors.email && <p>{errors.email}</p>}
+          {errors.emailId && <p>{errors.emailId}</p>}
         </div>
         <div className={classes.form_inputs}>
           <label className={classes.form_label}>Password</label>

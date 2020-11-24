@@ -1,7 +1,7 @@
-export default function validateInfo(values) {
+export default function validateInfo(values, type) {
   const errors = {};
 
-  if (!values.name.trim()) {
+  if (!values.name.trim() && type === 'signup') {
     errors.name = 'Username required';
   }
   // else if (!/^[A-Za-z]+/.test(values.name.trim())) {
@@ -19,9 +19,9 @@ export default function validateInfo(values) {
     errors.password = 'Password needs to be 6 characters or more';
   }
 
-  if (!values.confirmPassword) {
+  if (!values.confirmPassword && type === 'signup') {
     errors.confirmPassword = 'Password is required';
-  } else if (values.confirmPassword !== values.password) {
+  } else if (values.confirmPassword !== values.password && type === 'signup') {
     errors.confirmPassword = 'Passwords do not match';
   }
   return errors;

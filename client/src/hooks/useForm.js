@@ -22,15 +22,16 @@ const useForm = (callback, validate) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors(validate(values));
+    setErrors(validate(values, e.target.id));
     setIsSubmitting(true);
   };
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       // callback();
+
       if (values.name) {
-        async function fetchData() {
+        async function userSignUp() {
           try {
             await axios({
               method: 'post',
@@ -41,10 +42,23 @@ const useForm = (callback, validate) => {
             console.log(err);
           }
         }
-        fetchData();
+        userSignUp();
+      } else {
+        async function userSignIn() {
+          try {
+            await axios({
+              method: 'post',
+              url: '/user/signin',
+              data: values
+            });
+          } catch (err) {
+            console.log(err);
+          }
+        }
+        userSignIn();
       }
     }
-  }, [errors]);
+  }, [errors, isSubmitting]);
 
   return { handleChange, handleSubmit, values, errors };
 };
