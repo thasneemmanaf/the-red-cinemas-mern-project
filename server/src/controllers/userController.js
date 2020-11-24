@@ -54,7 +54,9 @@ exports.signInUser = async (req, res, next) => {
 
     // Check if user exists and if password is correct
     if (!user || !(await user.verifyPassword(password, user.password))) {
-      return next(new AppError('Email or password is incorrect', 401));
+      return res.status(200).json({
+        status: 'unauthorized'
+      });
     }
 
     // If above validations are passed, send token

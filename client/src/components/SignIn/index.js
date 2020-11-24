@@ -5,7 +5,7 @@ import validate from '../../utils/validateForm';
 import useForm from '../../hooks/useForm';
 
 const SignIn = ({ submitForm }) => {
-  const { handleChange, handleSubmit, values, errors } = useForm(
+  const { handleChange, handleSubmit, isAuthorized, values, errors } = useForm(
     submitForm,
     validate
   );
@@ -18,6 +18,7 @@ const SignIn = ({ submitForm }) => {
         className={classes.form}
         noValidate>
         <h1>Sign In</h1>
+        {isAuthorized && <h4>Incorrect Password or email Id</h4>}
         <div className={classes.form_inputs}>
           <label className={classes.form_label}>Email</label>
           <input

@@ -25,6 +25,15 @@
   color: #fff;
 }
 
+.form h4 {
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
+  width: 80%;
+  margin-bottom: 0.5rem;
+  color: red;
+}
+
 .form_inputs {
   margin-bottom: 0.5rem;
   width: 80%;

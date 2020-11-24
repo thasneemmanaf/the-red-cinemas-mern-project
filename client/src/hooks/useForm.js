@@ -9,6 +9,7 @@ const useForm = (callback, validate) => {
     password: '',
     confirmPassword: ''
   });
+  const [isAuthorized, setAuthorized] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -46,11 +47,17 @@ const useForm = (callback, validate) => {
       } else {
         async function userSignIn() {
           try {
-            await axios({
+            const response = await axios({
               method: 'post',
               url: '/user/signin',
               data: values
             });
+
+            if (response.data.status === 'unauthorized') {
+              setAuthorized(true);
+            } else {
+              setAuthorized(false);
+            }
           } catch (err) {
             console.log(err);
           }
@@ -60,7 +67,7 @@ const useForm = (callback, validate) => {
     }
   }, [errors, isSubmitting]);
 
-  return { handleChange, handleSubmit, values, errors };
+  return { handleChange, handleSubmit, isAuthorized, values, errors };
 };
 
 export default useForm;
