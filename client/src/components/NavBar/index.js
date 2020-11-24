@@ -38,7 +38,10 @@ function Navbar() {
         alt="Netflix Logo"
       />
       <div className="LanguageSelector">
-        <LanguageSelector />
+        <LanguageSelector
+          accountShow={accountShow}
+          setAccountShow={setAccountShow}
+        />
         {/* <LanguageSelector2 /> */}
       </div>
 

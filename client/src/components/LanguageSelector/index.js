@@ -5,7 +5,7 @@ import i18next from 'i18next';
 
 import classes from './LanguageSelector.module.css';
 
-function LanguageSelector() {
+function LanguageSelector({ accountShow, setAccountShow }) {
   const [showOptions, setShowOptions] = useState(false);
   const [selectedLang, setSelectedLang] = useState('sv');
 
@@ -21,6 +21,7 @@ function LanguageSelector() {
   const handleShowOptions = () => {
     if (showOptions) {
       setShowOptions(false);
+      if (accountShow) setAccountShow(false);
     } else {
       setShowOptions(true);
     }
@@ -35,7 +36,7 @@ function LanguageSelector() {
   return (
     <div className={classes.lang_menu} onClick={handleShowOptions}>
       {selectedElement}
-      {setShowOptions && (
+      {setShowOptions && !accountShow && (
         <ul className={`${showOptions && classes.show_option}`}>
           <li>
             <div className={classes.sv} onClick={() => handleSelection('sv')}>

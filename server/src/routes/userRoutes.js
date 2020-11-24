@@ -13,6 +13,5 @@ router
   .post('/signin', signInUser)
   .get('/signin', fetchUser)
   .get('/signout', signoutUser);
-// .delete('/:userId', authenticateUser, deleteUser);
 
 module.exports = router;

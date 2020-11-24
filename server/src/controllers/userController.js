@@ -67,7 +67,7 @@ exports.signInUser = async (req, res, next) => {
 // Get user based on Token when App refresh
 exports.fetchUser = async (req, res, next) => {
   const token = req.cookies.jwt;
-
+  console.log(token);
   if (!token) {
     res.status(401).json({
       status: 'unauthorized'
