@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './Navbar.css';
 import AccountMenu from '../AccountMenu';
 import LanguageSelector from '../LanguageSelector';
+import movieTimeImg from '../../images/movie-time.png';
 // import LanguageSelector2 from '../LanguageSelector2';
 
 function Navbar() {
@@ -34,7 +35,8 @@ function Navbar() {
     <div className={`nav ${show && 'nav_black'}`}>
       <img
         className="nav_logo"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/250px-Netflix_2015_logo.svg.png"
+        // src="https://img4.apk.tools/img/Bx8tcZ3p9XUut2KgVcj1kCC9qb5mDnz2UiE2nxs9oTtQOAAdsXPMkyDVNjner5c2-zzN=s300"
+        src={movieTimeImg}
         alt="Netflix Logo"
       />
       <div className="LanguageSelector">
