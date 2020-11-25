@@ -17,8 +17,9 @@
 
 .nav_logo {
   position: fixed;
-  top: 1px;
+  top: 9px;
   left: 20px;
+  font-weight: bolder;
   width: 80px;
   object-fit: contain;
 }

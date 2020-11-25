@@ -2,7 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './Navbar.css';
 import AccountMenu from '../AccountMenu';
 import LanguageSelector from '../LanguageSelector';
-import movieTimeImg from '../../images/movie-time.png';
+// import movieTimeImg from '../../images/dream-theater.png';
+import axios from '../../axios';
 
 function Navbar() {
   const [show, handleshow] = useState(false);
@@ -13,6 +14,18 @@ function Navbar() {
       handleshow(true);
     } else handleshow(false);
   }, []);
+
+  // Get user from DB based on Token when App is refreshed
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        await axios.get('/user/signin');
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchUser();
+  });
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -32,7 +45,12 @@ function Navbar() {
 
   return (
     <div className={`nav ${show && 'nav_black'}`}>
-      <img className="nav_logo" src={movieTimeImg} alt="Netflix Logo" />
+      <img
+        className="nav_logo"
+        // src={movieTimeImg}
+        src="https://upload.wikimedia.org/wikipedia/commons/c/c6/The_Red_logo_-_Red_Velvet.png"
+        alt="MovieTime Logo"
+      />
       <div className="LanguageSelector">
         <LanguageSelector
           accountShow={accountShow}
