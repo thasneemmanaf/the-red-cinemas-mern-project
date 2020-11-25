@@ -1,5 +1,6 @@
 {
-  "name": "client",
+  "name": "the-red-client",
+  "description": "This is a movie booking application",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

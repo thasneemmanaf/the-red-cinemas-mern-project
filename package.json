@@ -1,7 +1,7 @@
 {
   "name": "the-red",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a movie booking application",
   "main": "server/src/index.js",
   "scripts": {
     "start": "cd server && npm install && npm start",

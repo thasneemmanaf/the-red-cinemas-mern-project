@@ -1,7 +1,7 @@
 {
-  "name": "mern-starter-kit",
+  "name": "the-red-server",
   "version": "1.0.0",
-  "description": "This is a boiler plate starter kit for mern projects",
+  "description": "This is a movie booking application",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
