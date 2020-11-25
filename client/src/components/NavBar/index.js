@@ -3,7 +3,6 @@ import './Navbar.css';
 import AccountMenu from '../AccountMenu';
 import LanguageSelector from '../LanguageSelector';
 import movieTimeImg from '../../images/movie-time.png';
-// import LanguageSelector2 from '../LanguageSelector2';
 
 function Navbar() {
   const [show, handleshow] = useState(false);
@@ -33,18 +32,12 @@ function Navbar() {
 
   return (
     <div className={`nav ${show && 'nav_black'}`}>
-      <img
-        className="nav_logo"
-        // src="https://img4.apk.tools/img/Bx8tcZ3p9XUut2KgVcj1kCC9qb5mDnz2UiE2nxs9oTtQOAAdsXPMkyDVNjner5c2-zzN=s300"
-        src={movieTimeImg}
-        alt="Netflix Logo"
-      />
+      <img className="nav_logo" src={movieTimeImg} alt="Netflix Logo" />
       <div className="LanguageSelector">
         <LanguageSelector
           accountShow={accountShow}
           setAccountShow={setAccountShow}
         />
-        {/* <LanguageSelector2 /> */}
       </div>
 
       <button
