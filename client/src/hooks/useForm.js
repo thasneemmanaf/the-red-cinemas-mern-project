@@ -1,6 +1,7 @@
 /* eslint-disable no-inner-declarations */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from '../axios';
+import AuthContext from '../Store/AuthContext';
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
@@ -12,6 +13,7 @@ const useForm = (callback, validate) => {
   const [showLoginError, setShowLoginError] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [authStatus, dispatchAuth] = useContext(AuthContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,8 +57,10 @@ const useForm = (callback, validate) => {
 
             if (response.data.status === 'unauthorized') {
               setShowLoginError(true);
+              dispatchAuth({ type: 'LOGOUT_SUCCESS', payload: false });
             } else {
               setShowLoginError(false);
+              dispatchAuth({ type: 'LOGIN_SUCCESS', payload: true });
             }
           } catch (err) {
             console.log(err);

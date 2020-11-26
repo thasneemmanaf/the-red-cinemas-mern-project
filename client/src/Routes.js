@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Loader from './components/Loader';
 
 import ReservationProvider from './Store/ReservationProvider';
+import AuthProvider from './Store/AuthProvider';
 
 import './App.css';
 
@@ -33,35 +34,41 @@ function Routes() {
   return (
     <Suspense fallback={<Loader />}>
       <BrowserRouter>
-        <ReservationProvider>
-          <div className="app">
-            <Route path="/" exact component={Banner} />
-            <Route
-              path="/"
-              exact
-              render={(props) => <Row {...props} type="playingnow" />}
-            />
-            <Route
-              path="/"
-              exact
-              render={(props) => <Row {...props} type="comingsoon" />}
-            />
-            <Switch>
-              <Route path="/playingnow" exact component={ExploreAll} />
-              <Route path="/comingsoon" exact component={ExploreAll} />
-              <Route path="/signin" exact component={Form} />
-              <Route path="/signup" exact component={Form} />
-              <Route path="/booking" exact component={Booking} />
-              <Route path="/payment-success" exact component={PaymentSuccess} />
+        <AuthProvider>
+          <ReservationProvider>
+            <div className="app">
+              <Route path="/" exact component={Banner} />
               <Route
-                path="/showtimings/:movieId"
+                path="/"
                 exact
-                component={ShowTimings}
+                render={(props) => <Row {...props} type="playingnow" />}
               />
-              {/* <Route component={PageNotFound} /> */}
-            </Switch>
-          </div>
-        </ReservationProvider>
+              <Route
+                path="/"
+                exact
+                render={(props) => <Row {...props} type="comingsoon" />}
+              />
+              <Switch>
+                <Route path="/playingnow" exact component={ExploreAll} />
+                <Route path="/comingsoon" exact component={ExploreAll} />
+                <Route path="/signin" exact component={Form} />
+                <Route path="/signup" exact component={Form} />
+                <Route path="/booking" exact component={Booking} />
+                <Route
+                  path="/payment-success"
+                  exact
+                  component={PaymentSuccess}
+                />
+                <Route
+                  path="/showtimings/:movieId"
+                  exact
+                  component={ShowTimings}
+                />
+                {/* <Route component={PageNotFound} /> */}
+              </Switch>
+            </div>
+          </ReservationProvider>
+        </AuthProvider>
       </BrowserRouter>
     </Suspense>
   );

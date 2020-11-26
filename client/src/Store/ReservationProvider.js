@@ -14,7 +14,7 @@ const initialState = {
   totalPrice: 0,
   totalSeats: 0,
   emailId: '',
-  name: 'test user',
+  name: 'Manu',
   selectedSeats: [],
   seatLayout: {},
   shows: [],
