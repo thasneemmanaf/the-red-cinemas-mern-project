@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
-
-import useBookNow from '../../hooks/useBookNow';
 
 import axios from '../../axios';
 import classes from './exploreAll.module.css';
 import NavBar from '../NavBar';
 import TrailerModal from '../TrailerModal';
 import PlayButton from '../PlayButton';
+import BookNowButton from '../BookNowButton';
 
 function ExploreAll(props) {
   const type = props.match.path.replace('/', '');
@@ -16,7 +14,6 @@ function ExploreAll(props) {
   const [trailerUrl, setTrailerUrl] = useState('');
 
   const { t } = useTranslation();
-  const { handleBookNow } = useBookNow();
 
   useEffect(() => {
     async function fetchData() {
@@ -61,18 +58,7 @@ function ExploreAll(props) {
                     setTrailerUrl={setTrailerUrl}
                   />
 
-                  {type === 'playingnow' && (
-                    <NavLink
-                      to={`/showtimings/${movie._id}`}
-                      className={classes.nav_booknow_btn}>
-                      <button
-                        type="button"
-                        className={classes.book_btn}
-                        onClick={() => handleBookNow(movie)}>
-                        {t('book_now')}
-                      </button>
-                    </NavLink>
-                  )}
+                  {type === 'playingnow' && <BookNowButton movie={movie} />}
                 </div>
               </div>
             );
