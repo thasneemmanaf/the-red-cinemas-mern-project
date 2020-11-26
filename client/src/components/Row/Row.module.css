@@ -112,6 +112,10 @@
   background-color: rgb(51, 51, 51, 0.5);
 }
 
+.nav_link {
+  text-decoration: none;
+}
+
 .explore_button:hover {
   color: #000;
   background-color: #e6e6e6;

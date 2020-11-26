@@ -26,7 +26,13 @@ const sendToken = (user, res, statusCode) => {
   res.cookie('jwt', token, cookieOptions);
   // To remove password from response
   user.password = undefined;
-  res.status(statusCode).json({ user });
+  res.status(statusCode).json({
+    status: 'success',
+    token,
+    data: {
+      user
+    }
+  });
 };
 
 // To signup a user

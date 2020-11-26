@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
@@ -69,11 +69,11 @@ function Row({ type }) {
           );
         })}
       </div>
-      <Link to={`/${type}`}>
+      <NavLink to={`/${type}`} className={classes.nav_link}>
         <button type="button" className={classes.explore_button}>
           Explore All
         </button>
-      </Link>
+      </NavLink>
       {trailerUrl && (
         <TrailerModal trailerUrl={trailerUrl} setTrailerUrl={setTrailerUrl} />
       )}

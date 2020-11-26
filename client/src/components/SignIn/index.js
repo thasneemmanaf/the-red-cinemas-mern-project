@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+
 import classes from './SignIn.module.css';
 import validate from '../../utils/validateForm';
 import useForm from '../../hooks/useForm';
@@ -50,6 +51,7 @@ const SignIn = ({ submitForm }) => {
         <button className={classes.form_input_btn} type="submit">
           Sign In
         </button>
+
         <span className={classes.form_input_login}>
           New to MovieTime?
           <a href="/signup"> Sign up now</a>

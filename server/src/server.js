@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const pino = require('pino');
+const cookieParser = require('cookie-parser');
 
 // const expressLogger = require('express-pino-logger');
 
@@ -26,9 +27,11 @@ global.logger = logger;
 
 // Middlewares
 app.use(express.json());
+app.use(cookieParser('my-super-secure-secret-key-for-user-and-ultrea'));
 
 // Implement cors
 app.use(cors());
+app.options('*', cors());
 
 // Routes
 app.use('/api/v1/user', userRoutes);
