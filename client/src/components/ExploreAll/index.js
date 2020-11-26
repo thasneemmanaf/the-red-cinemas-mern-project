@@ -51,8 +51,8 @@ function ExploreAll(props) {
                   alt={movie.name}
                 />
                 <div className={classes.movie_info}>
-                  <h3>TITANIC</h3>
-                  <h4>ENGLISH . ROMANTIC</h4>
+                  <h3>{movie.title}</h3>
+                  <h4>{`${movie.originalLanguage} . ${movie.genre}`}</h4>
                 </div>
                 <div className={classes.poster_actions}>
                   <PlayButton
