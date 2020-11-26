@@ -67,7 +67,7 @@
   bottom: 5rem;
 }
 
-.book_btn {
+/* .book_btn {
   cursor: pointer;
   color: #000;
   outline: none;
@@ -84,7 +84,7 @@
   background-color: #fff;
   width: calc((100% - 3rem) / 2);
   border-radius: 0.4vw;
-}
+} */
 
 .row_poster:hover {
   transform: scale(1.2);

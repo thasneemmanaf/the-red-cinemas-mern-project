@@ -3,10 +3,9 @@ import { NavLink } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
 
-import useBookNow from '../../hooks/useBookNow';
-
 import TrailerModal from '../TrailerModal';
 import PlayButton from '../PlayButton';
+import BookNowButton from '../BookNowButton';
 
 import axios from '../../axios';
 
@@ -17,7 +16,6 @@ function Row({ type }) {
   const [trailerUrl, setTrailerUrl] = useState('');
 
   const { t } = useTranslation();
-  const { handleBookNow } = useBookNow();
 
   // Fetch movies from DB based on type (Now Playing, Coming Soon)
   useEffect(() => {
@@ -54,18 +52,7 @@ function Row({ type }) {
                   setTrailerUrl={setTrailerUrl}
                 />
 
-                {type === 'playingnow' && (
-                  <NavLink
-                    to={`/showtimings/${movie._id}`}
-                    className={classes.nav_booknow_btn}>
-                    <button
-                      type="button"
-                      className={classes.book_btn}
-                      onClick={() => handleBookNow(movie)}>
-                      {t('book_now')}
-                    </button>
-                  </NavLink>
-                )}
+                {type === 'playingnow' && <BookNowButton movie={movie} />}
               </div>
             </div>
           );
