@@ -63,7 +63,9 @@ function Row({ type }) {
                   {t('play')}
                 </button>
                 {type === 'playingnow' && (
-                  <NavLink to={`/showtimings/${movie._id}`}>
+                  <NavLink
+                    to={`/showtimings/${movie._id}`}
+                    className={classes.nav_booknow_btn}>
                     <button
                       type="button"
                       className={classes.book_btn}
