@@ -7,12 +7,14 @@ import axios from '../../axios';
 
 import classes from './BookingCheckout.module.css';
 import ReservationContext from '../../Store/ReservationContext';
+import AuthContext from '../../Store/AuthContext';
 import sendEmail from '../../utils/sendEmail';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
 function BookingCheckout({ setShowModal }) {
   const [reservation] = useContext(ReservationContext);
+  const [authStatus] = useContext(AuthContext);
 
   const handleCheckout = async () => {
     // Check if user has selected seats before checkout
@@ -25,7 +27,7 @@ function BookingCheckout({ setShowModal }) {
       });
     }
     // Check if user is logged in before checkout
-    else if (!reservation.emailId) {
+    else if (!authStatus.isLoggedIn) {
       setShowModal({
         status: true,
         type: 'sign_in',
