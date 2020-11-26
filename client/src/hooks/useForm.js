@@ -1,5 +1,8 @@
+/* eslint-disable react/jsx-indent */
 /* eslint-disable no-inner-declarations */
 import { useState, useEffect, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import axios from '../axios';
 import AuthContext from '../Store/AuthContext';
 
@@ -14,6 +17,7 @@ const useForm = (callback, validate) => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [authStatus, dispatchAuth] = useContext(AuthContext);
+  const history = useHistory();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -61,6 +65,7 @@ const useForm = (callback, validate) => {
             } else {
               setShowLoginError(false);
               dispatchAuth({ type: 'LOGIN_SUCCESS', payload: true });
+              history.push('/');
             }
           } catch (err) {
             console.log(err);
