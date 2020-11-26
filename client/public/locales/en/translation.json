@@ -13,5 +13,12 @@
   "select_min_seat_message": "Please select at least one seat to continue to checkout",
   "available": "Available",
   "selected": "Selected",
-  "unavailable": "Unavailable"
+  "unavailable": "Unavailable",
+  "movie": "MOVIE",
+  "name": "NAME",
+  "date": "DATE",
+  "time": "TIME",
+  "seats": "SEATS",
+  "screen": "Screen",
+  "total": "Total"
 }

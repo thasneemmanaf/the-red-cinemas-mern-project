@@ -13,5 +13,12 @@
   "select_min_seat_message": "Välj minst en plats för att fortsätta till kassan",
   "available": "tillgängliga",
   "selected": "vald",
-  "unavailable": "inte tillgänglig"
+  "unavailable": "inte tillgänglig",
+  "movie": "BIO",
+  "name": "NAMN",
+  "date": "DATUM",
+  "time": "TID",
+  "seats": "PLATS",
+  "screen": "Teater",
+  "total": "Summa"
 }
