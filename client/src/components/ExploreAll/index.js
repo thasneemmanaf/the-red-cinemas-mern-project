@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 import handlePlayTrailer from '../../utils/playTrailer';
 import axios from '../../axios';
 import classes from './exploreAll.module.css';
 import NavBar from '../NavBar';
 import TrailerModal from '../TrailerModal';
+import ReservationContext from '../../Store/ReservationContext';
 
 function ExploreAll(props) {
   const type = props.match.path.replace('/', '');
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
+  const [, dispatch] = useContext(ReservationContext);
 
   const { t } = useTranslation();
 
@@ -24,6 +27,13 @@ function ExploreAll(props) {
     }
     fetchData();
   }, [type]);
+
+  // To handle movie booking and redirect to ShowTimings page
+  const handleBookNow = (movie) => {
+    dispatch({ type: 'ADD_MOVIE_ID', payload: movie._id });
+    dispatch({ type: 'ADD_MOVIE', payload: movie.title });
+    dispatch({ type: 'ADD_MOVIE_IMG', payload: movie.bannerImage });
+  };
 
   // Conditionally render TrailerModal
   let trailerModal = null;
@@ -59,9 +69,17 @@ function ExploreAll(props) {
                     }>
                     {t('play')}
                   </button>
-                  <button type="button" className={classes.book_btn}>
-                    {t('book_now')}
-                  </button>
+
+                  <NavLink
+                    to={`/showtimings/${movie._id}`}
+                    className={classes.nav_booknow_btn}>
+                    <button
+                      type="button"
+                      className={classes.book_btn}
+                      onClick={() => handleBookNow(movie)}>
+                      {t('book_now')}
+                    </button>
+                  </NavLink>
                 </div>
               </div>
             );
