@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
 
+import useBookNow from '../../hooks/useBookNow';
+
 import handlePlayTrailer from '../../utils/playTrailer';
 import TrailerModal from '../TrailerModal';
-import ReservationContext from '../../Store/ReservationContext';
 
 import axios from '../../axios';
 
@@ -14,9 +15,9 @@ import classes from './Row.module.css';
 function Row({ type }) {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
-  const [, dispatch] = useContext(ReservationContext);
 
   const { t } = useTranslation();
+  const { handleBookNow } = useBookNow();
 
   // Fetch movies from DB based on type (Now Playing, Coming Soon)
   useEffect(() => {
@@ -29,13 +30,6 @@ function Row({ type }) {
     }
     fetchData();
   }, [type]);
-
-  // To handle movie booking and redirect to ShowTimings page
-  const handleBookNow = (movie) => {
-    dispatch({ type: 'ADD_MOVIE_ID', payload: movie._id });
-    dispatch({ type: 'ADD_MOVIE', payload: movie.title });
-    dispatch({ type: 'ADD_MOVIE_IMG', payload: movie.bannerImage });
-  };
 
   return (
     <div className={classes.row}>
