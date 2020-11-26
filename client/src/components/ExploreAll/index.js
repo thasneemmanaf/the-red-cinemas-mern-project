@@ -70,16 +70,18 @@ function ExploreAll(props) {
                     {t('play')}
                   </button>
 
-                  <NavLink
-                    to={`/showtimings/${movie._id}`}
-                    className={classes.nav_booknow_btn}>
-                    <button
-                      type="button"
-                      className={classes.book_btn}
-                      onClick={() => handleBookNow(movie)}>
-                      {t('book_now')}
-                    </button>
-                  </NavLink>
+                  {type === 'playingnow' && (
+                    <NavLink
+                      to={`/showtimings/${movie._id}`}
+                      className={classes.nav_booknow_btn}>
+                      <button
+                        type="button"
+                        className={classes.book_btn}
+                        onClick={() => handleBookNow(movie)}>
+                        {t('book_now')}
+                      </button>
+                    </NavLink>
+                  )}
                 </div>
               </div>
             );
