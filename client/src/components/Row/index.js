@@ -56,14 +56,14 @@ function Row({ type }) {
                   onClick={() =>
                     handlePlayTrailer(movie, trailerUrl, setTrailerUrl)
                   }>
-                  PLAY
+                  {t('play')}
                 </button>
                 {type === 'playingnow' && (
                   <button
                     type="button"
                     className={classes.book_btn}
                     onClick={handleBookNow}>
-                    BOOK NOW
+                    {t('book_now')}
                   </button>
                 )}
               </div>
@@ -73,7 +73,7 @@ function Row({ type }) {
       </div>
       <NavLink to={`/${type}`} className={classes.nav_link}>
         <button type="button" className={classes.explore_button}>
-          Explore All
+          {t('explore_all')}
         </button>
       </NavLink>
       {trailerUrl && (
