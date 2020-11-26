@@ -20,5 +20,7 @@
   "time": "TIME",
   "seats": "SEATS",
   "screen": "Screen",
-  "total": "Total"
+  "total": "Total",
+  "cancel": "CANCEL",
+  "checkout": "CHECKOUT"
 }

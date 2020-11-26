@@ -20,5 +20,7 @@
   "time": "TID",
   "seats": "PLATS",
   "screen": "Teater",
-  "total": "Summa"
+  "total": "Summa",
+  "cancel": "AVBOKA",
+  "checkout": "BETALA"
 }

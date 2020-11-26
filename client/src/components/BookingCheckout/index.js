@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { loadStripe } from '@stripe/stripe-js';
 
@@ -15,6 +16,8 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 function BookingCheckout({ setShowModal }) {
   const [reservation] = useContext(ReservationContext);
   const [authStatus] = useContext(AuthContext);
+
+  const { t } = useTranslation();
 
   const handleCheckout = async () => {
     // Check if user has selected seats before checkout
@@ -68,7 +71,7 @@ function BookingCheckout({ setShowModal }) {
       <div className={classes.checkout_buttons}>
         <Link to="/">
           <button className={classes.checkout_button} type="button">
-            CANCEL
+            {t('cancel')}
           </button>
         </Link>
         <Link to="/booking">
@@ -76,7 +79,7 @@ function BookingCheckout({ setShowModal }) {
             className={classes.checkout_button}
             type="button"
             onClick={handleCheckout}>
-            CHECKOUT
+            {t('checkout')}
           </button>
         </Link>
       </div>
