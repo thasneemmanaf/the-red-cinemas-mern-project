@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import TrailerModal from '../TrailerModal';
-import PlayButton from '../PlayButton';
-import BookNowButton from '../BookNowButton';
+
+import MoviePosters from '../MoviePosters';
 
 import axios from '../../axios';
 
@@ -32,32 +32,13 @@ function Row({ type }) {
   return (
     <div className={classes.row}>
       <h2 className={classes.row_title}>{t(type)}</h2>
-      <div className={classes.row_posters}>
-        {movies.map((movie) => {
-          return (
-            <div className={classes.poster_container} key={movie._id}>
-              <img
-                className={classes.row_poster}
-                src={movie.bannerImage}
-                alt={movie.name}
-              />
-              <div className={classes.movie_info}>
-                <h3>{movie.title}</h3>
-                <h4>{`${movie.originalLanguage} . ${movie.genre}`}</h4>
-              </div>
-              <div className={classes.poster_actions}>
-                <PlayButton
-                  movie={movie}
-                  trailerUrl={trailerUrl}
-                  setTrailerUrl={setTrailerUrl}
-                />
+      <MoviePosters
+        type={type}
+        movies={movies}
+        trailerUrl={trailerUrl}
+        setTrailerUrl={setTrailerUrl}
+      />
 
-                {type === 'playingnow' && <BookNowButton movie={movie} />}
-              </div>
-            </div>
-          );
-        })}
-      </div>
       <NavLink to={`/${type}`} className={classes.nav_link}>
         <button type="button" className={classes.explore_button}>
           {t('explore_all')}
