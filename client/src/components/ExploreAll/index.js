@@ -26,13 +26,6 @@ function ExploreAll(props) {
     fetchData();
   }, [type]);
 
-  // Conditionally render TrailerModal
-  let trailerModal = null;
-  if (trailerUrl) {
-    trailerModal = (
-      <TrailerModal trailerUrl={trailerUrl} setTrailerUrl={setTrailerUrl} />
-    );
-  }
   return (
     <>
       <NavBar />
@@ -65,7 +58,9 @@ function ExploreAll(props) {
           })}
         </div>
       </div>
-      {trailerModal}
+      {trailerUrl && (
+        <TrailerModal trailerUrl={trailerUrl} setTrailerUrl={setTrailerUrl} />
+      )}
     </>
   );
 }
