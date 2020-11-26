@@ -36,7 +36,7 @@ function ExploreAll(props) {
     <>
       <NavBar />
       <div className={classes.row}>
-        <h2 className={classes.row_title}>PLAYING NOW</h2>
+        <h2 className={classes.row_title}>{t(type)}</h2>
         <div className={classes.row_posters}>
           {movies.map((movie) => {
             return (
