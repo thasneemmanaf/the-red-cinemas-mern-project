@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -6,19 +6,20 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import useBookNow from '../../hooks/useBookNow';
+
 import NavBar from '../NavBar';
 import handlePlayTrailer from '../../utils/playTrailer';
 import TrailerModal from '../TrailerModal';
 import axios from '../../axios';
 import './Banner.css';
-import ReservationContext from '../../Store/ReservationContext';
 
 export default function Banner() {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
-  const [, dispatch] = useContext(ReservationContext);
 
   const { t } = useTranslation();
+  const { handleBookNow } = useBookNow();
 
   useEffect(() => {
     async function fetchData() {
@@ -35,13 +36,6 @@ export default function Banner() {
   function truncate(str, n) {
     return str.length > n ? `${str.substr(0, n - 1)}...` : str;
   }
-
-  // To handle movie booking
-  const handleBookNow = (movie) => {
-    dispatch({ type: 'ADD_MOVIE_ID', payload: movie._id });
-    dispatch({ type: 'ADD_MOVIE', payload: movie.title });
-    dispatch({ type: 'ADD_MOVIE_IMG', payload: movie.bannerImage });
-  };
 
   // Slick settings
   const settings = {
