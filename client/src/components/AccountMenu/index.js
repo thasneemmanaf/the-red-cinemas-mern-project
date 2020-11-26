@@ -6,12 +6,13 @@ import classes from './AccountMenu.module.css';
 import AuthContext from '../../Store/AuthContext';
 import ReservationContext from '../../Store/ReservationContext';
 
-function AccountMenu() {
+function AccountMenu({ setAccountShow }) {
   const [authStatus, dispatchAuth] = useContext(AuthContext);
   const [reservation] = useContext(ReservationContext);
 
   const handleSignOut = () => {
     dispatchAuth({ type: 'LOGOUT_SUCCESS', payload: false });
+    setAccountShow(false);
   };
   return (
     <div className={classes.nav}>

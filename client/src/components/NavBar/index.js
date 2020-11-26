@@ -68,7 +68,7 @@ function Navbar() {
           alt="Netflix Logo"
         />
       </button>
-      {accountShow && <AccountMenu />}
+      {accountShow && <AccountMenu setAccountShow={setAccountShow} />}
     </div>
   );
 }
