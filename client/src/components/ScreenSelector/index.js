@@ -2,15 +2,17 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import classes from './ScreenSelector.module.css';
 
 function ScreenSelector({ cinemas, setSelectScreen }) {
+  const { t } = useTranslation();
   let cinemaNames = cinemas.map((cinema) => {
     return cinema.name;
   });
 
   // Remove duplicate cinema names and Select screen as placeholder
-  cinemaNames = ['All Screens', ...new Set(cinemaNames)];
+  cinemaNames = [t('all_screens'), ...new Set(cinemaNames)];
 
   const handleOnChange = (e) => {
     setSelectScreen(e.target.value);

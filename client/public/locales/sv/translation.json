@@ -22,5 +22,6 @@
   "screen": "Teater",
   "total": "Summa",
   "cancel": "AVBOKA",
-  "checkout": "BETALA"
+  "checkout": "BETALA",
+  "all_screens": "Alla Teatrar"
 }

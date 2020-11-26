@@ -22,5 +22,6 @@
   "screen": "Screen",
   "total": "Total",
   "cancel": "CANCEL",
-  "checkout": "CHECKOUT"
+  "checkout": "CHECKOUT",
+  "all_screens": "All Screens"
 }
