@@ -9,6 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import useBookNow from '../../hooks/useBookNow';
 
 import NavBar from '../NavBar';
+
 import handlePlayTrailer from '../../utils/playTrailer';
 import TrailerModal from '../TrailerModal';
 import axios from '../../axios';

@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom';
 
 import useBookNow from '../../hooks/useBookNow';
 
-import handlePlayTrailer from '../../utils/playTrailer';
 import axios from '../../axios';
 import classes from './exploreAll.module.css';
 import NavBar from '../NavBar';
 import TrailerModal from '../TrailerModal';
+import PlayButton from '../PlayButton';
 
 function ExploreAll(props) {
   const type = props.match.path.replace('/', '');
@@ -55,14 +55,11 @@ function ExploreAll(props) {
                   <h4>ENGLISH . ROMANTIC</h4>
                 </div>
                 <div className={classes.poster_actions}>
-                  <button
-                    type="button"
-                    className={classes.play_btn}
-                    onClick={() =>
-                      handlePlayTrailer(movie, trailerUrl, setTrailerUrl)
-                    }>
-                    {t('play')}
-                  </button>
+                  <PlayButton
+                    movie={movie}
+                    trailerUrl={trailerUrl}
+                    setTrailerUrl={setTrailerUrl}
+                  />
 
                   {type === 'playingnow' && (
                     <NavLink
