@@ -65,7 +65,7 @@ const useForm = (callback, validate) => {
             } else {
               setShowLoginError(false);
               dispatchAuth({ type: 'LOGIN_SUCCESS', payload: true });
-              history.push('/');
+              history.goBack();
             }
           } catch (err) {
             console.log(err);
