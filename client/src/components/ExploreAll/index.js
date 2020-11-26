@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import handlePlayTrailer from '../../utils/playTrailer';
 import axios from '../../axios';
@@ -10,6 +11,8 @@ function ExploreAll(props) {
   const type = props.match.path.replace('/', '');
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function fetchData() {
@@ -54,10 +57,10 @@ function ExploreAll(props) {
                     onClick={() =>
                       handlePlayTrailer(movie, trailerUrl, setTrailerUrl)
                     }>
-                    PLAY
+                    {t('play')}
                   </button>
                   <button type="button" className={classes.book_btn}>
-                    BOOK NOW
+                    {t('book_now')}
                   </button>
                 </div>
               </div>
