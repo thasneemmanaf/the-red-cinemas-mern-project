@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-
 import Slider from 'react-slick';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import useBookNow from '../../hooks/useBookNow';
-
 import NavBar from '../NavBar';
-
 import handlePlayTrailer from '../../utils/playTrailer';
 import TrailerModal from '../TrailerModal';
 import axios from '../../axios';

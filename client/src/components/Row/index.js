@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-
 import { useTranslation } from 'react-i18next';
 
 import TrailerModal from '../TrailerModal';
-
 import MoviePosters from '../MoviePosters';
-
 import axios from '../../axios';
-
 import classes from './Row.module.css';
 
 function Row({ type }) {
@@ -38,7 +34,6 @@ function Row({ type }) {
         trailerUrl={trailerUrl}
         setTrailerUrl={setTrailerUrl}
       />
-
       <NavLink to={`/${type}`} className={classes.nav_link}>
         <button type="button" className={classes.explore_button}>
           {t('explore_all')}

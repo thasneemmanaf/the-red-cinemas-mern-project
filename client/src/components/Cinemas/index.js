@@ -1,17 +1,20 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import classes from './Cinemas.module.css';
 import ReservationContext from '../../Store/ReservationContext';
 
-function Cinemas({ cinemas }) {
-  const [reservation, dispatch] = useContext(ReservationContext);
+function Cinemas({ cinemas, selectScreen }) {
+  const [, dispatch] = useContext(ReservationContext);
   let newCinemas = [...cinemas];
 
+  const { t } = useTranslation();
+
   // Filter cinemas based on user cinema selection
-  if (reservation.selectedCinema !== 'Select screen') {
+  if (selectScreen !== 'All Screens') {
     newCinemas = cinemas.filter((cinema) => {
-      return reservation.selectedCinema === cinema.name;
+      return selectScreen === cinema.name;
     });
   }
 
@@ -36,8 +39,8 @@ function Cinemas({ cinemas }) {
                 alt={cinema.name}
               />
               <div className={classes.movie_info}>
-                <h3>{cinema.name}</h3>
-                <h4>{`Show Time:${cinema.startAt}`}</h4>
+                <h3>{`${cinema.name}, ${cinema.city} `}</h3>
+                <h4>{`${t('show_time')}:${cinema.startAt}`}</h4>
               </div>
               <Link to="/booking">
                 <div className={classes.poster_actions}>
@@ -45,7 +48,7 @@ function Cinemas({ cinemas }) {
                     type="button"
                     className={classes.book_btn}
                     onClick={() => handleBookNow(cinema)}>
-                    BOOK NOW
+                    {t('book_now')}
                   </button>
                 </div>
               </Link>

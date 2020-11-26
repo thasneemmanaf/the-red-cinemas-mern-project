@@ -11,6 +11,7 @@ import { setLocalStorage } from '../../utils/localStorage';
 function ShowTimings(props) {
   const [reservation] = useContext(ReservationContext);
   const [cinemas, setCinemas] = useState([]);
+  const [selectScreen, setSelectScreen] = useState('All Screens');
 
   const { movieId } = props.match.params;
 
@@ -71,9 +72,9 @@ function ShowTimings(props) {
       </div>
       <div className={classes.selectors}>
         <BookingCalendar />
-        <ScreenSelector cinemas={cinemas} />
+        <ScreenSelector cinemas={cinemas} setSelectScreen={setSelectScreen} />
       </div>
-      <Cinemas cinemas={cinemas} />
+      <Cinemas cinemas={cinemas} selectScreen={selectScreen} />
     </div>
   );
 }
