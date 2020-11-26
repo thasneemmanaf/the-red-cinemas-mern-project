@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
-import i18next from 'i18next';
 
 import handlePlayTrailer from '../../utils/playTrailer';
 import TrailerModal from '../TrailerModal';
+import ReservationContext from '../../Store/ReservationContext';
 
 import axios from '../../axios';
 
@@ -14,6 +14,7 @@ import classes from './Row.module.css';
 function Row({ type }) {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
+  const [, dispatch] = useContext(ReservationContext);
 
   const { t } = useTranslation();
 
@@ -29,10 +30,11 @@ function Row({ type }) {
     fetchData();
   }, [type]);
 
-  // Handle book now
-  const handleBookNow = () => {
-    // i18next.changeLanguage('sv');
-    console.log('book now');
+  // To handle movie booking and redirect to ShowTimings page
+  const handleBookNow = (movie) => {
+    dispatch({ type: 'ADD_MOVIE_ID', payload: movie._id });
+    dispatch({ type: 'ADD_MOVIE', payload: movie.title });
+    dispatch({ type: 'ADD_MOVIE_IMG', payload: movie.bannerImage });
   };
 
   return (
@@ -61,12 +63,14 @@ function Row({ type }) {
                   {t('play')}
                 </button>
                 {type === 'playingnow' && (
-                  <button
-                    type="button"
-                    className={classes.book_btn}
-                    onClick={handleBookNow}>
-                    {t('book_now')}
-                  </button>
+                  <NavLink to={`/showtimings/${movie._id}`}>
+                    <button
+                      type="button"
+                      className={classes.book_btn}
+                      onClick={() => handleBookNow(movie)}>
+                      {t('book_now')}
+                    </button>
+                  </NavLink>
                 )}
               </div>
             </div>
