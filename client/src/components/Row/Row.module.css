@@ -67,19 +67,6 @@
   bottom: 5rem;
 }
 
-.play_btn {
-  cursor: pointer;
-  color: #000;
-  outline: none;
-  border: none;
-  font-size: xx-small;
-  font-weight: bolder;
-  border-radius: 0.4vw;
-  padding: 0.7rem 1rem;
-  width: calc((100% - 3rem) / 2);
-  background-color: #fff;
-}
-
 .book_btn {
   cursor: pointer;
   color: #000;

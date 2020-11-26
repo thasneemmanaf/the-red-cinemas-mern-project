@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 
 import useBookNow from '../../hooks/useBookNow';
 
-import handlePlayTrailer from '../../utils/playTrailer';
 import TrailerModal from '../TrailerModal';
+import PlayButton from '../PlayButton';
 
 import axios from '../../axios';
 
@@ -48,14 +48,12 @@ function Row({ type }) {
                 <h4>{`${movie.originalLanguage} . ${movie.genre}`}</h4>
               </div>
               <div className={classes.poster_actions}>
-                <button
-                  type="button"
-                  className={classes.play_btn}
-                  onClick={() =>
-                    handlePlayTrailer(movie, trailerUrl, setTrailerUrl)
-                  }>
-                  {t('play')}
-                </button>
+                <PlayButton
+                  movie={movie}
+                  trailerUrl={trailerUrl}
+                  setTrailerUrl={setTrailerUrl}
+                />
+
                 {type === 'playingnow' && (
                   <NavLink
                     to={`/showtimings/${movie._id}`}
