@@ -58,12 +58,14 @@ function Row({ type }) {
                   }>
                   PLAY
                 </button>
-                <button
-                  type="button"
-                  className={classes.book_btn}
-                  onClick={handleBookNow}>
-                  BOOK NOW
-                </button>
+                {type === 'playingnow' && (
+                  <button
+                    type="button"
+                    className={classes.book_btn}
+                    onClick={handleBookNow}>
+                    BOOK NOW
+                  </button>
+                )}
               </div>
             </div>
           );
