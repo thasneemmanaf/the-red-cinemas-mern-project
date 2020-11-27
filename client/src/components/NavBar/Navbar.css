@@ -37,9 +37,7 @@
   width: 30px;
   object-fit: contain;
 }
-/* 
-.account_btn {
-  position: fixed;
-  top: 3%;
-  right: 6%;
-} */
+
+.account_style :hover {
+  cursor: pointer;
+}

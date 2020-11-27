@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+
 import './Navbar.css';
 import AccountMenu from '../AccountMenu';
 import LanguageSelector from '../LanguageSelector';
@@ -19,7 +20,7 @@ function Navbar() {
   useEffect(() => {
     async function fetchUser() {
       try {
-        await axios.get('/user/signin');
+        await axios.get('user/signin');
       } catch (err) {
         console.log(err);
       }
@@ -61,11 +62,12 @@ function Navbar() {
       <button
         type="button"
         style={{ background: 'none', border: 'none' }}
-        onClick={onclickAccount}>
+        onClick={onclickAccount}
+        className="account_style">
         <img
           className="nav_avatar"
           src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/366be133850498.56ba69ac36858.png"
-          alt="Netflix Logo"
+          alt="Account Logo"
         />
       </button>
       {accountShow && <AccountMenu setAccountShow={setAccountShow} />}
