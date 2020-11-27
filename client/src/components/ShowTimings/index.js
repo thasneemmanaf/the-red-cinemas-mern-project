@@ -6,12 +6,19 @@ import ScreenSelector from '../ScreenSelector';
 import BookingCalendar from '../BookingCalendar';
 import classes from './ShowTimings.module.css';
 import Cinemas from '../Cinemas';
+import Modal from '../Modal';
 import { setLocalStorage } from '../../utils/localStorage';
 
 function ShowTimings(props) {
   const [reservation] = useContext(ReservationContext);
   const [cinemas, setCinemas] = useState([]);
   const [selectScreen, setSelectScreen] = useState('All Screens');
+  const [showModal, setShowModal] = useState({
+    status: false,
+    type: '',
+    subject: '',
+    message: ''
+  });
 
   const { movieId } = props.match.params;
 
@@ -29,6 +36,16 @@ function ShowTimings(props) {
             selectedDate: reservation.date.format('YYYY-MM-DD')
           }
         });
+
+        // Error modal if there are no shows available
+        if (response.data.showTimings.length === 0) {
+          setShowModal({
+            status: true,
+            type: 'close',
+            subject: 'Info',
+            message: 'no_shows'
+          });
+        }
 
         response.data.showTimings.forEach((show) => {
           setCinemas((prevCinemas) => [
@@ -75,6 +92,9 @@ function ShowTimings(props) {
         <ScreenSelector cinemas={cinemas} setSelectScreen={setSelectScreen} />
       </div>
       <Cinemas cinemas={cinemas} selectScreen={selectScreen} />
+      {showModal.status && (
+        <Modal showModal={showModal} setShowModal={setShowModal} />
+      )}
     </div>
   );
 }

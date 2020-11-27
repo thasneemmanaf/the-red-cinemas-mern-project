@@ -14,6 +14,7 @@ const useForm = (callback, validate) => {
     password: '',
     confirmPassword: ''
   });
+
   const [showLoginError, setShowLoginError] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
