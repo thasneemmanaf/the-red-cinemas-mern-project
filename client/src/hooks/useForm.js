@@ -42,11 +42,17 @@ const useForm = (callback, validate) => {
       if (values.name) {
         async function userSignUp() {
           try {
-            await axios({
+            const response = await axios({
               method: 'post',
               url: '/user/signup',
               data: values
             });
+            dispatch({
+              type: 'ADD_EMAIL_ID',
+              payload: response.data.data.user.emailId
+            });
+            dispatchAuth({ type: 'SIGNUP_SUCCESS', payload: true });
+            history.goBack();
           } catch (err) {
             console.log(err);
           }
