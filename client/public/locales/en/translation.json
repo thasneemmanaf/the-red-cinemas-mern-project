@@ -12,6 +12,7 @@
   "seat_limit_message": "You cannot select more than 5 seats at a time",
   "select_min_seat_message": "Please select at least one seat to continue to checkout",
   "no_shows": "There are no shows available for this movie. Please select a different date",
+  "something_wrong": "Something went wrong! Please try after sometime",
   "available": "Available",
   "selected": "Selected",
   "unavailable": "Unavailable",

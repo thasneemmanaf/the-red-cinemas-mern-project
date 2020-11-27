@@ -63,8 +63,13 @@ function ShowTimings(props) {
             }
           ]);
         });
-      } catch (err) {
-        console.log(err);
+      } catch {
+        setShowModal({
+          status: true,
+          type: 'close',
+          subject: 'Error',
+          message: 'something_wrong'
+        });
       }
     }
     fetchData();

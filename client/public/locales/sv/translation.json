@@ -12,6 +12,7 @@
   "seat_limit_message": "Du kan inte välja mer än fem platser åt gången",
   "select_min_seat_message": "Välj minst en plats för att fortsätta till kassan",
   "no_shows": "Det finns inga teatrar tillgängliga för den här filmen. Välj ett annat datum",
+  "something_wrong": "Något gick fel! Försök efter någon gång",
   "available": "tillgängliga",
   "selected": "vald",
   "unavailable": "inte tillgänglig",
