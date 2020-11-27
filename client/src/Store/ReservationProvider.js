@@ -29,6 +29,11 @@ const localReservation = getLocalStorage('reservation', initialState);
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case 'ADD_EMAIL_ID':
+      return {
+        ...state,
+        emailId: action.payload
+      };
     case 'ADD_MOVIE_ID':
       return {
         ...state,

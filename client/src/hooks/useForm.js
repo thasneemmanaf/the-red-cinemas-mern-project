@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import axios from '../axios';
+import ReservationContext from '../Store/ReservationContext';
 import AuthContext from '../Store/AuthContext';
 
 const useForm = (callback, validate) => {
@@ -16,7 +17,8 @@ const useForm = (callback, validate) => {
   const [showLoginError, setShowLoginError] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [authStatus, dispatchAuth] = useContext(AuthContext);
+  const [, dispatch] = useContext(ReservationContext);
+  const [, dispatchAuth] = useContext(AuthContext);
   const history = useHistory();
 
   const handleChange = (e) => {
@@ -58,12 +60,15 @@ const useForm = (callback, validate) => {
               url: '/user/signin',
               data: values
             });
-
             if (response.data.status === 'unauthorized') {
               setShowLoginError(true);
               dispatchAuth({ type: 'LOGOUT_SUCCESS', payload: false });
             } else {
               setShowLoginError(false);
+              dispatch({
+                type: 'ADD_EMAIL_ID',
+                payload: response.data.data.user.emailId
+              });
               dispatchAuth({ type: 'LOGIN_SUCCESS', payload: true });
               history.goBack();
             }

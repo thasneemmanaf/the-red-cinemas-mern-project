@@ -41,7 +41,7 @@ function BookingCheckout({ setShowModal }) {
       // await sendEmail();
 
       const stripe = await stripePromise;
-
+      console.log(reservation);
       // Create a session on server and reserve seats
       try {
         const response = await axios({

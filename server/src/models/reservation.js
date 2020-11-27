@@ -35,7 +35,7 @@ const reservationSchema = new Schema({
   },
   emailId: {
     type: String,
-    required: [true, 'Please provide phone number']
+    required: [true, 'Please provide email-id']
   },
   name: {
     type: String,
