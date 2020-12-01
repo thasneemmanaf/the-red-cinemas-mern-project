@@ -18,3 +18,8 @@ export const getLocalStorage = (key, initialValue) => {
   }
   return reservationValue || initialValue;
 };
+
+// Remove information from local storage
+export const removeLocalStorage = (key) => {
+  localStorage.removeItem(key);
+};
