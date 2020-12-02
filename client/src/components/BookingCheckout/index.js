@@ -10,6 +10,7 @@ import classes from './BookingCheckout.module.css';
 import ReservationContext from '../../Store/ReservationContext';
 import AuthContext from '../../Store/AuthContext';
 import sendEmail from '../../utils/sendEmail';
+import { removeLocalStorage } from '../../utils/localStorage';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
@@ -51,6 +52,11 @@ function BookingCheckout({ setShowModal }) {
 
         const { reservationId, sessionId } = response.data;
 
+        // Remove reservation and selected seats from local storage
+        if (reservationId) {
+          removeLocalStorage('reservation');
+          removeLocalStorage('reservedSeats');
+        }
         // Redirect to stripe hosted checkout page
         const result = await stripe.redirectToCheckout({
           sessionId

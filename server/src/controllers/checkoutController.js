@@ -45,10 +45,11 @@ exports.createCheckoutSession = async (req, res, next) => {
 // Stripe payment event handler
 exports.stripeEventHandler = async (req, res) => {
   const eventType = req.body.type;
-
+  console.log(eventType);
   // Handle the payment successfull event and update payment status to 'Success'
   if (eventType === 'checkout.session.completed') {
     const reservationId = req.body.data.object.client_reference_id;
+    console.log(reservationId);
     try {
       await Reservation.updateOne(
         { _id: ObjectId(reservationId) },
