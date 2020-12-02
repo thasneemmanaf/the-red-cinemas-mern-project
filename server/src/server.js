@@ -25,6 +25,13 @@ global.logger = logger;
 //   app.use(expressLogger({ logger }));
 // }
 
+// Stripe webhook
+app.use(
+  '/webhook',
+  express.raw({ type: 'application/json' }),
+  stripeEventRoutes
+);
+
 // Middlewares
 app.use(express.json());
 app.use(cookieParser());
@@ -40,7 +47,6 @@ app.use('/api/v1/screen', screenRoutes);
 app.use('/api/v1/show-timing', showTimingRoutes);
 app.use('/api/v1/reservation', reservationRoutes);
 app.use('/api/v1/checkout', checkoutRoutes);
-app.use('/webhook', stripeEventRoutes);
 
 // app.get('/', (req, res) => {
 //   logger.debug('hi there');

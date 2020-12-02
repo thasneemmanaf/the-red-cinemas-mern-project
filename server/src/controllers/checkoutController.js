@@ -1,7 +1,10 @@
+/* eslint-disable consistent-return */
 /* eslint-disable object-curly-newline */
+const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+const app = express();
 const { ObjectId } = mongoose.Types;
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -36,29 +39,38 @@ exports.createCheckoutSession = async (req, res, next) => {
       reservationId,
       sessionId: session.id
     });
-  } catch (err) {
-    console.log(err);
+  } catch {
     next(new AppError('Unable to create movie at the moment', 400));
   }
 };
 
-// Stripe payment event handler
-exports.stripeEventHandler = async (req, res) => {
-  const eventType = req.body.type;
-  console.log(eventType);
+// Stripe payment event handler - Check checkout.session.completed event
+exports.stripeEventHandler = async (req, res, next) => {
+  const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+  const sig = req.headers['stripe-signature'];
+  let event;
+
+  // Verify stripe signature
+  try {
+    event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+  } catch (err) {
+    return res.status(400).send(`Webhook error: ${err.message}`);
+  }
+
   // Handle the payment successfull event and update payment status to 'Success'
-  if (eventType === 'checkout.session.completed') {
-    const reservationId = req.body.data.object.client_reference_id;
-    console.log(reservationId);
+  if (event.type === 'checkout.session.completed') {
+    const reservationId = event.data.object.client_reference_id;
+
     try {
       await Reservation.updateOne(
         { _id: ObjectId(reservationId) },
         { $set: { paymentStatus: 'Success' } }
       );
-    } catch (error) {
-      console.log(error);
+    } catch {
+      return next(new AppError('Unable to create movie at the moment', 400));
     }
   }
 
-  res.status(200);
+  res.status(200).json({ received: true });
 };
