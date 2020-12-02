@@ -2,7 +2,7 @@ const express = require('express');
 const {
   createReservation,
   getAllReservations,
-  updateReservation
+  getReservation
 } = require('../controllers/reservationController');
 
 const router = express.Router();
@@ -10,6 +10,6 @@ const router = express.Router();
 router
   .get('/', getAllReservations)
   .post('/', createReservation)
-  .patch('/:reservationId', updateReservation);
+  .get('/:sessionId', getReservation);
 
 module.exports = router;

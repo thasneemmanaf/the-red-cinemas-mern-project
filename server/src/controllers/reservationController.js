@@ -1,3 +1,8 @@
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const mongoose = require('mongoose');
+
+const { ObjectId } = mongoose.Types;
+const { findById } = require('../models/reservation');
 const Reservation = require('../models/reservation');
 const AppError = require('../utils/appError');
 const { updateShowTiming } = require('./showTimingController');
@@ -36,15 +41,16 @@ exports.getAllReservations = async (req, res, next) => {
   }
 };
 
-// To update a reservation
-exports.updateReservation = async (req, res, next) => {
+// To get reservation based on checkout session id
+exports.getReservation = async (req, res, next) => {
+  const session = await stripe.checkout.sessions.retrieve(req.params.sessionId);
+
   try {
-    await Reservation.updateOne(
-      { _id: req.params.reservationId },
-      { $set: req.body }
+    const reservation = await Reservation.findById(
+      ObjectId(session.client_reference_id)
     );
     res.status(200).json({
-      status: 'success'
+      reservation
     });
   } catch {
     next(new AppError('Unable to update the reservation at the moment', 400));

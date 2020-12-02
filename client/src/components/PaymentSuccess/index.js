@@ -13,22 +13,18 @@ function PaymentSuccess() {
   console.log(sessionId);
 
   useEffect(() => {
-    const updatePaymentStatus = async () => {
+    const getReservation = async () => {
       try {
         const response = await axios({
-          method: 'patch',
-          url: `/reservation/5fabcaaebbcdcb4cdc3457b0`,
-          data: {
-            paymentStatus: 'Succeeded'
-          }
+          method: 'get',
+          url: `/reservation/${sessionId}`
         });
         console.log(response);
-        console.log(reservation.reservationId);
       } catch (err) {
         console.log(err);
       }
     };
-    updatePaymentStatus();
+    getReservation();
   }, []);
 
   return (
