@@ -6,6 +6,7 @@ import classes from './exploreAll.module.css';
 import NavBar from '../NavBar';
 import TrailerModal from '../TrailerModal';
 import MoviePosters from '../MoviePosters';
+import Footer from '../Footer';
 
 function ExploreAll(props) {
   const type = props.match.path.replace('/', '');
@@ -37,6 +38,7 @@ function ExploreAll(props) {
           setTrailerUrl={setTrailerUrl}
         />
       </div>
+      <Footer />
       {trailerUrl && (
         <TrailerModal trailerUrl={trailerUrl} setTrailerUrl={setTrailerUrl} />
       )}
