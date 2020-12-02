@@ -7,6 +7,11 @@ import classes from './PaymentSuccess.module.css';
 function PaymentSuccess() {
   const [reservation] = useContext(ReservationContext);
 
+  // Extract sessionId from url
+  const urlParams = new URLSearchParams(window.location.search);
+  const sessionId = urlParams.get('session_id');
+  console.log(sessionId);
+
   useEffect(() => {
     const updatePaymentStatus = async () => {
       try {
@@ -26,7 +31,11 @@ function PaymentSuccess() {
     updatePaymentStatus();
   }, []);
 
-  return <div className={classes.container}>Payment success</div>;
+  return (
+    <div className={classes.container}>
+      Your ticket has been successfully booked
+    </div>
+  );
 }
 
 export default PaymentSuccess;

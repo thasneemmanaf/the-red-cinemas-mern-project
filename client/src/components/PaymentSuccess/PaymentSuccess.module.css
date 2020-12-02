@@ -1,3 +1,9 @@
 .container {
   color: white;
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 20%;
 }
