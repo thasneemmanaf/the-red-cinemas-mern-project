@@ -6,14 +6,14 @@ import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import axios from '../../axios';
 import MovieTicket from '../MovieTicket';
-// import ReservationContext from '../../Store/ReservationContext';
+
 import classes from './PaymentSuccess.module.css';
 
 function PaymentSuccess() {
-  // const [reservation] = useContext(ReservationContext);
   const [reservation, setReservation] = useState();
 
   const { t } = useTranslation();
+
   // Extract sessionId from url
   const urlParams = new URLSearchParams(window.location.search);
   const sessionId = urlParams.get('session_id');
@@ -29,7 +29,6 @@ function PaymentSuccess() {
           ...response.data.reservation,
           date: moment(response.data.reservation.date)
         });
-        console.log(response.data.reservation);
       } catch (err) {
         console.log(err);
       }
