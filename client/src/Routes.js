@@ -30,6 +30,9 @@ const PaymentSuccess = lazy(() => import('./components/PaymentSuccess'));
 // Page not found 404 page
 // const PageNotFound = lazy(() => import('./pages/PageNotFound'));
 
+// Footer page
+const Footer = lazy(() => import('./components/Footer'));
+
 function Routes() {
   return (
     <Suspense fallback={<Loader />}>
@@ -64,6 +67,7 @@ function Routes() {
                   exact
                   component={ShowTimings}
                 />
+                <Route path="/" component={Footer} />
                 {/* <Route component={PageNotFound} /> */}
               </Switch>
             </div>
