@@ -28,10 +28,18 @@ const reservationSchema = new Schema({
     ref: 'Movie',
     required: [true, 'Please provide movie id']
   },
+  movie: {
+    type: String,
+    required: [true, 'Please provide movie name']
+  },
   screenId: {
     type: Schema.Types.ObjectId,
     ref: 'Screen',
     required: [true, 'Please provide screen id']
+  },
+  selectedCinema: {
+    type: String,
+    required: [true, 'Please provide movie screen name']
   },
   emailId: {
     type: String,
