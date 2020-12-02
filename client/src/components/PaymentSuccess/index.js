@@ -35,8 +35,23 @@ function PaymentSuccess() {
 
   return (
     <div className={classes.container}>
-      Your ticket has been successfully booked
-      {reservation && <MovieTicket reservation={reservation} />}
+      {reservation && (
+        <div className={classes.message}>
+          <h4>
+            Hi
+            <span>{`${reservation.name}`}</span>
+          </h4>
+          <p>
+            Your movie ticket has been successfully booked. Please note the
+            Reservation id:
+            <span>{`${reservation._id}`}</span>
+          </p>
+          <p>Thanks for choosing The RED Cinemas. Enjoy the movie</p>
+        </div>
+      )}
+      <div className={classes.movie_ticket}>
+        {reservation && <MovieTicket reservation={reservation} />}
+      </div>
     </div>
   );
 }
