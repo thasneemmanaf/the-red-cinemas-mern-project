@@ -52,6 +52,10 @@ const useForm = (callback, validate) => {
               type: 'ADD_EMAIL_ID',
               payload: response.data.data.user.emailId
             });
+            dispatch({
+              type: 'ADD_NAME',
+              payload: response.data.data.user.name
+            });
             dispatchAuth({ type: 'SIGNUP_SUCCESS', payload: true });
             history.goBack();
           } catch (err) {
@@ -75,6 +79,11 @@ const useForm = (callback, validate) => {
               dispatch({
                 type: 'ADD_EMAIL_ID',
                 payload: response.data.data.user.emailId
+              });
+
+              dispatch({
+                type: 'ADD_NAME',
+                payload: response.data.data.user.name
               });
               dispatchAuth({ type: 'LOGIN_SUCCESS', payload: true });
               history.goBack();

@@ -34,6 +34,11 @@ const reducer = (state, action) => {
         ...state,
         emailId: action.payload
       };
+    case 'ADD_NAME':
+      return {
+        ...state,
+        name: action.payload
+      };
     case 'ADD_MOVIE_ID':
       return {
         ...state,
