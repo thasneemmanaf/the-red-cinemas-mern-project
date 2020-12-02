@@ -7,6 +7,7 @@ import BookingCalendar from '../BookingCalendar';
 import classes from './ShowTimings.module.css';
 import Cinemas from '../Cinemas';
 import Modal from '../Modal';
+import Footer from '../Footer';
 import { setLocalStorage } from '../../utils/localStorage';
 
 function ShowTimings(props) {
@@ -97,6 +98,7 @@ function ShowTimings(props) {
         <ScreenSelector cinemas={cinemas} setSelectScreen={setSelectScreen} />
       </div>
       <Cinemas cinemas={cinemas} selectScreen={selectScreen} />
+      <Footer />
       {showModal.status && (
         <Modal showModal={showModal} setShowModal={setShowModal} />
       )}

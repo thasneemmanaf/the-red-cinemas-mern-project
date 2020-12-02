@@ -51,6 +51,7 @@ function Routes() {
                 exact
                 render={(props) => <Row {...props} type="comingsoon" />}
               />
+              <Route path="/" exact component={Footer} />
               <Switch>
                 <Route path="/playingnow" exact component={ExploreAll} />
                 <Route path="/comingsoon" exact component={ExploreAll} />
@@ -67,7 +68,7 @@ function Routes() {
                   exact
                   component={ShowTimings}
                 />
-                <Route path="/" component={Footer} />
+
                 {/* <Route component={PageNotFound} /> */}
               </Switch>
             </div>
