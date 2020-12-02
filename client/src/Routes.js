@@ -9,8 +9,8 @@ import AuthProvider from './Store/AuthProvider';
 import './App.css';
 
 // Home page
-const Banner = lazy(() => import('./components/Banner'));
-const Row = lazy(() => import('./components/Row'));
+const HomePage = lazy(() => import('./pages/HomePage'));
+// const Row = lazy(() => import('./components/Row'));
 
 // Explore all page
 const ExploreAll = lazy(() => import('./components/ExploreAll'));
@@ -30,9 +30,6 @@ const PaymentSuccess = lazy(() => import('./components/PaymentSuccess'));
 // Page not found 404 page
 const PageNotFound = lazy(() => import('./pages/PageNotFound'));
 
-// Footer page
-const Footer = lazy(() => import('./components/Footer'));
-
 function Routes() {
   return (
     <Suspense fallback={<Loader />}>
@@ -40,20 +37,8 @@ function Routes() {
         <AuthProvider>
           <ReservationProvider>
             <div className="app">
-              <Route path="/" exact component={Banner} />
-              <Route
-                path="/"
-                exact
-                render={(props) => <Row {...props} type="playingnow" />}
-              />
-              <Route
-                path="/"
-                exact
-                render={(props) => <Row {...props} type="comingsoon" />}
-              />
-
               <Switch>
-                <Route path="/" exact component={Footer} />
+                <Route path="/" exact component={HomePage} />
                 <Route path="/playingnow" exact component={ExploreAll} />
                 <Route path="/comingsoon" exact component={ExploreAll} />
                 <Route path="/signin" exact component={Form} />
@@ -70,7 +55,7 @@ function Routes() {
                   component={ShowTimings}
                 />
 
-                <Route path="/" component={PageNotFound} />
+                <Route path="*" component={PageNotFound} />
               </Switch>
             </div>
           </ReservationProvider>
