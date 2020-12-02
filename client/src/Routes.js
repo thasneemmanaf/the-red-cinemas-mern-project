@@ -28,7 +28,7 @@ const Form = lazy(() => import('./components/Form'));
 const PaymentSuccess = lazy(() => import('./components/PaymentSuccess'));
 
 // Page not found 404 page
-// const PageNotFound = lazy(() => import('./pages/PageNotFound'));
+const PageNotFound = lazy(() => import('./pages/PageNotFound'));
 
 // Footer page
 const Footer = lazy(() => import('./components/Footer'));
@@ -51,8 +51,9 @@ function Routes() {
                 exact
                 render={(props) => <Row {...props} type="comingsoon" />}
               />
-              <Route path="/" exact component={Footer} />
+
               <Switch>
+                <Route path="/" exact component={Footer} />
                 <Route path="/playingnow" exact component={ExploreAll} />
                 <Route path="/comingsoon" exact component={ExploreAll} />
                 <Route path="/signin" exact component={Form} />
@@ -69,7 +70,7 @@ function Routes() {
                   component={ShowTimings}
                 />
 
-                {/* <Route component={PageNotFound} /> */}
+                <Route path="/" component={PageNotFound} />
               </Switch>
             </div>
           </ReservationProvider>
