@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classes from './MovieTicket.module.css';
-import ReservationContext from '../../Store/ReservationContext';
+// import ReservationContext from '../../Store/ReservationContext';
 
-function MovieTicket() {
-  const [reservation] = useContext(ReservationContext);
-
+function MovieTicket({ reservation }) {
+  // const [reservation] = useContext(ReservationContext);
+  console.log(reservation);
   const { t } = useTranslation();
 
   return (

@@ -68,7 +68,7 @@ function Booking() {
           <Showcase />
         </div>
         <div className={classes.movie_ticket}>
-          <MovieTicket />
+          <MovieTicket reservation={reservation} />
         </div>
         <div className={classes.checkout_panel}>
           <BookingCheckout setShowModal={setShowModal} />

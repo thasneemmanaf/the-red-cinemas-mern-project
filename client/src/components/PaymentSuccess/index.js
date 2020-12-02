@@ -1,12 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 import axios from '../../axios';
-import ReservationContext from '../../Store/ReservationContext';
+import MovieTicket from '../MovieTicket';
+// import ReservationContext from '../../Store/ReservationContext';
 import classes from './PaymentSuccess.module.css';
 
 function PaymentSuccess() {
-  const [reservation] = useContext(ReservationContext);
-
+  // const [reservation] = useContext(ReservationContext);
+  const [reservation, setReservation] = useState();
   // Extract sessionId from url
   const urlParams = new URLSearchParams(window.location.search);
   const sessionId = urlParams.get('session_id');
@@ -19,7 +21,11 @@ function PaymentSuccess() {
           method: 'get',
           url: `/reservation/${sessionId}`
         });
-        console.log(response);
+        setReservation({
+          ...response.data.reservation,
+          date: moment(response.data.reservation.date)
+        });
+        console.log(response.data.reservation);
       } catch (err) {
         console.log(err);
       }
@@ -30,6 +36,7 @@ function PaymentSuccess() {
   return (
     <div className={classes.container}>
       Your ticket has been successfully booked
+      {reservation && <MovieTicket reservation={reservation} />}
     </div>
   );
 }
