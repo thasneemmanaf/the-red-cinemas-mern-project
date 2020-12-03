@@ -1,14 +1,18 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useContext, useEffect, useCallback } from 'react';
 
 import './Navbar.css';
 import AccountMenu from '../AccountMenu';
 import LanguageSelector from '../LanguageSelector';
 // import movieTimeImg from '../../images/dream-theater.png';
 import axios from '../../axios';
+import ReservationContext from '../../Store/ReservationContext';
+import AuthContext from '../../Store/AuthContext';
 
 function Navbar() {
   const [show, handleshow] = useState(false);
   const [accountShow, setAccountShow] = useState(false);
+  const [, dispatch] = useContext(ReservationContext);
+  const [, dispatchAuth] = useContext(AuthContext);
 
   const handleScroll = useCallback(() => {
     if (window.scrollY > 100) {
@@ -20,7 +24,18 @@ function Navbar() {
   useEffect(() => {
     async function fetchUser() {
       try {
-        await axios.get('user/signin');
+        const response = await axios.get('user/signin');
+        console.log(response);
+        dispatch({
+          type: 'ADD_EMAIL_ID',
+          payload: response.data.data.user.emailId
+        });
+
+        dispatch({
+          type: 'ADD_NAME',
+          payload: response.data.data.user.name
+        });
+        dispatchAuth({ type: 'LOGIN_SUCCESS', payload: true });
       } catch (err) {
         console.log(err);
       }

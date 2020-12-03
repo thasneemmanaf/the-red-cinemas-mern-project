@@ -3,7 +3,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import authAxios from '../authAxios';
+import axios from '../axios';
 import ReservationContext from '../Store/ReservationContext';
 import AuthContext from '../Store/AuthContext';
 
@@ -43,7 +43,7 @@ const useForm = (callback, validate) => {
       if (values.name) {
         async function userSignUp() {
           try {
-            const response = await authAxios({
+            const response = await axios({
               method: 'post',
               url: '/user/signup',
               data: values
@@ -66,7 +66,7 @@ const useForm = (callback, validate) => {
       } else {
         async function userSignIn() {
           try {
-            const response = await authAxios({
+            const response = await axios({
               method: 'post',
               url: '/user/signin',
               data: values
