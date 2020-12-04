@@ -23,6 +23,26 @@
   padding-bottom: 0.3rem;
 }
 
+.movie_info {
+  width: 45rem;
+  line-height: 1.3;
+  font-size: 0.5rem;
+  font-weight: bolder;
+  max-width: 360px;
+  height: 80px;
+  text-align: justify;
+}
+
+.movie_description {
+  width: 45rem;
+  line-height: 1.3;
+  font-size: 0.8rem;
+  font-weight: bolder;
+  max-width: 360px;
+  height: 80px;
+  text-align: justify;
+}
+
 .banner_fadeBottom {
   height: 7.4rem;
   background-image: linear-gradient(

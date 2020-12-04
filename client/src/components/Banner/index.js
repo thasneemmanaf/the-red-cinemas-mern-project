@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import useBookNow from '../../hooks/useBookNow';
+import truncate from '../../utils/truncate';
 import NavBar from '../NavBar';
 import handlePlayTrailer from '../../utils/playTrailer';
 import TrailerModal from '../TrailerModal';
@@ -30,11 +31,6 @@ export default function Banner() {
     }
     fetchData();
   }, []);
-
-  // To truncate movie description in the banner
-  function truncate(str, n) {
-    return str.length > n ? `${str.substr(0, n - 1)}...` : str;
-  }
 
   // Slick settings
   const settings = {
