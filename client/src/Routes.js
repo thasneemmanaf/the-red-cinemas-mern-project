@@ -16,7 +16,7 @@ const HomePage = lazy(() => import('./pages/HomePage'));
 const ExploreAll = lazy(() => import('./pages/ExploreAll'));
 
 // Showtimings page
-const ShowTimings = lazy(() => import('./components/ShowTimings'));
+const ShowTimings = lazy(() => import('./pages/ShowTimings'));
 
 // Booking page
 const Booking = lazy(() => import('./pages/Booking'));

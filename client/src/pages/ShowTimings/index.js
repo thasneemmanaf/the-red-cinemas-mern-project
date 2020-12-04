@@ -2,12 +2,12 @@ import React, { useEffect, useContext, useState } from 'react';
 
 import axios from '../../axios';
 import ReservationContext from '../../Store/ReservationContext';
-import ScreenSelector from '../ScreenSelector';
-import BookingCalendar from '../BookingCalendar';
+import ScreenSelector from '../../components/ScreenSelector';
+import BookingCalendar from '../../components/BookingCalendar';
 import classes from './ShowTimings.module.css';
-import Cinemas from '../Cinemas';
-import Modal from '../Modal';
-import Footer from '../Footer';
+import Cinemas from '../../components/Cinemas';
+import Modal from '../../components/Modal';
+import Footer from '../../components/Footer';
 import { setLocalStorage } from '../../utils/localStorage';
 
 function ShowTimings(props) {
