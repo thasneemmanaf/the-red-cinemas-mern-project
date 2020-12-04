@@ -52,7 +52,7 @@ function BookingCheckout({ setShowModal }) {
 
         const { reservationId, sessionId } = response.data;
 
-        // Remove reservation and selected seats from local storage
+        // Remove reservation and selected seats from local storage before proceeding to sripe payment
         if (reservationId) {
           removeLocalStorage('reservation');
           removeLocalStorage('reservedSeats');
