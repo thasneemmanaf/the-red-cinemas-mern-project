@@ -106,7 +106,7 @@ function ShowTimings(props) {
             <h1 className={classes.banner_title}>{reservation.movie}</h1>
             <div className={classes.movie_info}>
               <h1 className={classes.movie_description}>
-                {movie.description.en}
+                {movie.description && truncate(movie.description.en, 150)}
               </h1>
               <h1>{`Director: ${movie.director}`}</h1>
               <h1>{`Genre: ${movie.genre}`}</h1>
