@@ -17,7 +17,7 @@
 
 .banner_title {
   position: absolute;
-  top: 0;
+  top: 4rem;
   font-size: 3rem;
   font-weight: 800;
   padding-bottom: 0.3rem;
@@ -41,8 +41,8 @@
   font-size: 0.8rem;
   font-weight: bolder;
   max-width: 400px;
-  margin-bottom: 0.5rem;
-  height: 80px;
+  margin-top: 4rem;
+  height: 60px;
   text-align: justify;
 }
 
