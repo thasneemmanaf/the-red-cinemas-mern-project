@@ -37,7 +37,11 @@ function ScreenSelector({ cinemas, setSelectScreen }) {
 
 // Generate options dynamically
 const Option = ({ value }) => {
-  return <option value={value}>{value}</option>;
+  return (
+    <option className={classes.options} value={value}>
+      {value}
+    </option>
+  );
 };
 
 export default ScreenSelector;
