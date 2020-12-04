@@ -86,6 +86,11 @@ const reducer = (state, action) => {
           ...state.selectedSeats.filter((seat) => seat !== action.payload)
         ]
       };
+    case 'RESET_SEATS':
+      return {
+        ...state,
+        selectedSeats: action.payload
+      };
     case 'ADD_TICKET_PRICE':
       return {
         ...state,
@@ -95,6 +100,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         totalPrice: state.totalPrice + action.payload
+      };
+    case 'RESET_TOTAL_PRICE':
+      return {
+        ...state,
+        totalPrice: action.payload
       };
     case 'DECREMENT_TOTAL_PRICE':
       return {

@@ -34,6 +34,10 @@ const useForm = (callback, validate) => {
     e.preventDefault();
     setErrors(validate(values, e.target.id));
     setIsSubmitting(true);
+
+    // Reset seats and total Price when user redirect to login from booking page
+    dispatch({ type: 'RESET_SEATS', payload: [] });
+    dispatch({ type: 'RESET_TOTAL_PRICE', payload: 0 });
   };
 
   useEffect(() => {
