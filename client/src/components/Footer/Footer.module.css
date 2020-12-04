@@ -2,7 +2,7 @@
   padding: 1rem 0;
 }
 .footer {
-  background: hsl(209, 61%, 16%);
+  background: rgb(2, 15, 26);
   text-align: center;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -29,16 +29,16 @@
   transition: all 0.3s linear;
 }
 .footer_link:hover {
-  color: hsl(185, 62%, 45%);
+  color: rgb(255, 38, 0);
 }
 .footer_icon {
   font-size: 2rem;
   margin-right: 1rem;
-  color: hsl(184, 80%, 74%);
+  color: rgb(255, 38, 0);
   transition: all 0.3s linear;
 }
 .footer_icon:hover {
-  color: hsl(185, 61%, 49%);
+  color: rgb(199, 126, 113);
 }
 .copyright {
   text-transform: capitalize;
