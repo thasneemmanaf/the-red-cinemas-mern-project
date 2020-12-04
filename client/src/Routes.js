@@ -19,7 +19,7 @@ const ExploreAll = lazy(() => import('./components/ExploreAll'));
 const ShowTimings = lazy(() => import('./components/ShowTimings'));
 
 // Booking page
-const Booking = lazy(() => import('./components/Booking'));
+const Booking = lazy(() => import('./pages/Booking'));
 
 // Sign Ip and sign In page
 const Form = lazy(() => import('./components/Form'));

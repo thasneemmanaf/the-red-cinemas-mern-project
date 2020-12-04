@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 import axios from '../../axios';
-import BookingCheckout from '../BookingCheckout';
-import MovieTicket from '../MovieTicket';
-import SeatLayout from '../SeatLayout';
+import BookingCheckout from '../../components/BookingCheckout';
+import MovieTicket from '../../components/MovieTicket';
+import SeatLayout from '../../components/SeatLayout';
 
 import classes from './Booking.module.css';
-import Showcase from '../Showcase';
-import Modal from '../Modal';
+import Showcase from '../../components/Showcase';
+import Modal from '../../components/Modal';
 import ReservationContext from '../../Store/ReservationContext';
 import { setLocalStorage, getLocalStorage } from '../../utils/localStorage';
 
