@@ -25,7 +25,8 @@ function Navbar() {
     async function fetchUser() {
       try {
         const response = await axios.get('user/signin');
-        console.log(response);
+
+        // Persist login state if user is already logged in and has valid token
         dispatch({
           type: 'ADD_EMAIL_ID',
           payload: response.data.data.user.emailId
