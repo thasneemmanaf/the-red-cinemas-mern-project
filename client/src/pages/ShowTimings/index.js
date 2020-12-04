@@ -9,6 +9,7 @@ import Cinemas from '../../components/Cinemas';
 import Modal from '../../components/Modal';
 import Footer from '../../components/Footer';
 import { setLocalStorage } from '../../utils/localStorage';
+import truncate from '../../utils/truncate';
 
 function ShowTimings(props) {
   const [reservation] = useContext(ReservationContext);
@@ -20,12 +21,23 @@ function ShowTimings(props) {
     subject: '',
     message: ''
   });
+  const [movie, setMovie] = useState();
 
   const { movieId } = props.match.params;
 
   // Set local storage with banner image
   useEffect(() => {
     setLocalStorage('reservation', reservation);
+
+    async function fetchMovie() {
+      try {
+        const response = await axios.get(`/movie/${movieId}`);
+        setMovie(response.data.movie);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchMovie();
   }, []);
 
   // Fetch Show timing based on user's date selection
@@ -92,13 +104,13 @@ function ShowTimings(props) {
           <h1 className={classes.banner_title}>{reservation.movie}</h1>
           <div className={classes.movie_info}>
             <h1 className={classes.movie_description}>
-              Tessa finds herself struggling with her complicated relationship
-              with Hardin; she faces a dilemma that could change their lives
-              forever
+              {movie.description.en}
             </h1>
-            <h1>Director: James Cameron</h1>
-            <h1>Genre: James Cameron</h1>
-            <h1>Cast: James Cameron, leo</h1>
+            <h1>{`Director: ${movie.director}`}</h1>
+            <h1>{`Genre: ${movie.genre}`}</h1>
+            <h1>{`Cast: ${movie.cast}`}</h1>
+            <h1>{`Language: ${movie.originalLanguage}`}</h1>
+            <h1>{`Duration: ${movie.duration}`}</h1>
           </div>
         </div>
         <div className={classes.banner_fadeBottom} />

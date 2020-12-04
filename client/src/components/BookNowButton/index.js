@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import useBookNow from '../../hooks/useBookNow';
 
@@ -10,8 +10,10 @@ function BookNowButton({ movie }) {
   const { handleBookNow } = useBookNow();
 
   return (
-    <NavLink
-      to={`/showtimings/${movie._id}`}
+    <Link
+      to={{
+        pathname: `/showtimings/${movie._id}`
+      }}
       className={classes.nav_booknow_btn}>
       <button
         type="button"
@@ -19,7 +21,7 @@ function BookNowButton({ movie }) {
         onClick={() => handleBookNow(movie)}>
         {t('book_now')}
       </button>
-    </NavLink>
+    </Link>
   );
 }
 

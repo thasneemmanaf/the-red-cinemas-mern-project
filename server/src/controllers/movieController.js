@@ -52,3 +52,16 @@ exports.updateMovie = async (req, res, next) => {
     next(new AppError('Unable to update movie at the moment', 400));
   }
 };
+
+// To update a movie
+exports.getMovie = async (req, res, next) => {
+  try {
+    const movie = await Movie.findById({ _id: req.params.movieId });
+    res.status(200).json({
+      status: 'success',
+      movie
+    });
+  } catch {
+    next(new AppError('Unable to fetch movie at the moment', 400));
+  }
+};
