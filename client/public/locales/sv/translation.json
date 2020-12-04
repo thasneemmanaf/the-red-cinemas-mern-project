@@ -25,5 +25,7 @@
   "total": "Summa",
   "cancel": "AVBOKA",
   "checkout": "BETALA",
-  "all_screens": "Alla Teatrar"
+  "all_screens": "Alla Teatrar",
+  "payment_failed": "Din betalningshantering misslyckades.",
+  "try_again": "Försök igen!"
 }

@@ -25,5 +25,7 @@
   "total": "Total",
   "cancel": "CANCEL",
   "checkout": "CHECKOUT",
-  "all_screens": "All Screens"
+  "all_screens": "All Screens",
+  "payment_failed": "Your payment processing has failed.",
+  "try_again": "Please try again!"
 }

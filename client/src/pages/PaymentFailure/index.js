@@ -10,8 +10,8 @@ function PaymentFailure() {
   return (
     <div className={classes.container}>
       <div className={classes.message}>
-        <p>Your payment processing has failed.</p>
-        <p>Please try again.</p>
+        <p>{t('payment_failed')}</p>
+        <p>{t('try_again')}</p>
       </div>
 
       <div className={classes.close_button}>
