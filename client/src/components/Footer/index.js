@@ -1,65 +1,84 @@
 import React from 'react';
-import {
-  FaFacebook,
-  FaInstagram,
-  FaYoutube,
-  FaTwitter,
-  FaLinkedin
-} from 'react-icons/fa';
-import {
-  FooterContainer,
-  FooterWrap,
-  SocialMedia,
-  SocialMediaWrap,
-  SocialLogo,
-  SocialIcons,
-  SocialIconLink
-} from './style';
+import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import classes from './Footer.module.css';
 
 const Footer = () => {
   return (
-    <FooterContainer>
-      <FooterWrap>
-        <SocialMedia>
-          <SocialMediaWrap>
-            <SocialLogo to="/">The RED Cinemas</SocialLogo>
-            <SocialIcons>
-              <SocialIconLink
-                href="//www.facebook.com"
-                target="_blank"
-                aria-label="Facebook">
-                <FaFacebook />
-              </SocialIconLink>
-              <SocialIconLink
-                href="//www.instagram.com"
-                target="_blank"
-                aria-label="Instagram">
-                <FaInstagram />
-              </SocialIconLink>
-              <SocialIconLink
-                href="//www.youtube.com"
-                target="_blank"
-                aria-label="Youtube">
-                <FaYoutube />
-              </SocialIconLink>
-              <SocialIconLink
-                href="//www.twitter.com"
-                target="_blank"
-                aria-label="Twitter"
-                rel="noopener noreferrer">
-                <FaTwitter />
-              </SocialIconLink>
-              <SocialIconLink
-                href="//www.linkedin.com"
-                target="_blank"
-                aria-label="Linkedin">
-                <FaLinkedin />
-              </SocialIconLink>
-            </SocialIcons>
-          </SocialMediaWrap>
-        </SocialMedia>
-      </FooterWrap>
-    </FooterContainer>
+    <div className={`${classes.section} ${classes.footer}`}>
+      <ul className={classes.footer_links}>
+        <a href="/" className={`${classes.footer_link} ${classes.scroll_link}`}>
+          Home
+        </a>
+
+        <a
+          href="#about"
+          className={`${classes.footer_link} ${classes.scroll_link}`}>
+          About Us
+        </a>
+
+        <a
+          href="#career"
+          className={`${classes.footer_link} ${classes.scroll_link}`}>
+          Career
+        </a>
+
+        <a
+          href="#faq"
+          className={`${classes.footer_link} ${classes.scroll_link}`}>
+          FAQ
+        </a>
+
+        <a
+          href="#news"
+          className={`${classes.footer_link} ${classes.scroll_link}`}>
+          News
+        </a>
+      </ul>
+
+      <ul className={classes.footer_icons}>
+        <li>
+          <a
+            href="https://www.facebook.com"
+            target="-blank"
+            className={classes.footer_icon}>
+            <FaFacebook />
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.twitter.com"
+            target="-blank"
+            className={classes.footer_icon}>
+            <FaTwitter />
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.instagram.com"
+            target="-blank"
+            className={classes.footer_icon}>
+            <FaInstagram />
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.linkedin.com"
+            target="-blank"
+            className={classes.footer_icon}>
+            <FaLinkedin />
+          </a>
+        </li>
+      </ul>
+
+      <p className={classes.copyright}>
+        copyright &copy; The RED Cinemas
+        <span />
+        .all rights reserved
+      </p>
+    </div>
   );
 };
 
