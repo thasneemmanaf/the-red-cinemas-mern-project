@@ -13,7 +13,7 @@ const HomePage = lazy(() => import('./pages/HomePage'));
 // const Row = lazy(() => import('./components/Row'));
 
 // Explore all page
-const ExploreAll = lazy(() => import('./components/ExploreAll'));
+const ExploreAll = lazy(() => import('./pages/ExploreAll'));
 
 // Showtimings page
 const ShowTimings = lazy(() => import('./components/ShowTimings'));

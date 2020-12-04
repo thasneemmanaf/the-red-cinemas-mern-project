@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 
 import axios from '../../axios';
 import classes from './exploreAll.module.css';
-import NavBar from '../NavBar';
-import TrailerModal from '../TrailerModal';
-import MoviePosters from '../MoviePosters';
-import Footer from '../Footer';
+import NavBar from '../../components/NavBar';
+import TrailerModal from '../../components/TrailerModal';
+import MoviePosters from '../../components/MoviePosters';
+import Footer from '../../components/Footer';
 
 function ExploreAll(props) {
   const type = props.match.path.replace('/', '');
