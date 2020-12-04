@@ -40,8 +40,7 @@ exports.signUpUser = async (req, res, next) => {
   try {
     const newUser = await User.create(req.body);
     sendToken(newUser, res, 201);
-  } catch (err) {
-    console.log(err);
+  } catch {
     next(new AppError('Unable to Signup at the moment', 400));
   }
 };

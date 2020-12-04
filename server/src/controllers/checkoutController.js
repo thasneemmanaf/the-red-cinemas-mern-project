@@ -1,10 +1,8 @@
 /* eslint-disable consistent-return */
 /* eslint-disable object-curly-newline */
-const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const app = express();
 const { ObjectId } = mongoose.Types;
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);

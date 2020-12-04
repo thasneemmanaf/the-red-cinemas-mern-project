@@ -2,7 +2,6 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const mongoose = require('mongoose');
 
 const { ObjectId } = mongoose.Types;
-const { findById } = require('../models/reservation');
 const Reservation = require('../models/reservation');
 const AppError = require('../utils/appError');
 const { updateShowTiming } = require('./showTimingController');
@@ -17,8 +16,7 @@ exports.createReservation = async (req, res, next) => {
     // Update reserved seats in showTiming collection for this specific show
     req.body.reservationId = reservation._id.toString();
     updateShowTiming(req, res, next);
-  } catch (err) {
-    console.log(err);
+  } catch {
     next(new AppError('Unable to reserve at the moment', 400));
   }
 };
