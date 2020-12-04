@@ -27,5 +27,8 @@
   "checkout": "BETALA",
   "all_screens": "Alla Teatrar",
   "payment_failed": "Din betalningshantering misslyckades.",
-  "try_again": "Försök igen!"
+  "try_again": "Försök igen!",
+  "hi": "Hej",
+  "payment_success": "Din filmbiljett har bokats.",
+  "thanks_RED_Cinemas": "Tack för att du valde The RED Cinemas. Njut av filmen!"
 }

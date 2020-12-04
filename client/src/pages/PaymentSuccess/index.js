@@ -41,11 +41,11 @@ function PaymentSuccess() {
       {reservation && (
         <div className={classes.message}>
           <h4>
-            Hi
+            {t('hi')}
             <span>{` ${reservation.name}`}</span>
           </h4>
-          <p>Your movie ticket has been successfully booked.</p>
-          <p>Thanks for choosing The RED Cinemas. Enjoy the movie</p>
+          <p>{t('payment_success')}</p>
+          <p>{t('thanks_RED_Cinemas')}</p>
         </div>
       )}
       <div className={classes.movie_ticket}>

@@ -27,5 +27,8 @@
   "checkout": "CHECKOUT",
   "all_screens": "All Screens",
   "payment_failed": "Your payment processing has failed.",
-  "try_again": "Please try again!"
+  "try_again": "Please try again!",
+  "hi": "Hi",
+  "payment_success": "Your movie ticket has been successfully booked.",
+  "thanks_RED_Cinemas": "Thanks for choosing The RED Cinemas. Enjoy the movie!"
 }
