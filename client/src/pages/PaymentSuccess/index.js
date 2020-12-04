@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import moment from 'moment';
 import axios from '../../axios';
-import MovieTicket from '../MovieTicket';
+import MovieTicket from '../../components/MovieTicket';
 
 import classes from './PaymentSuccess.module.css';
 
