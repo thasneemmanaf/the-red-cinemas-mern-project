@@ -24,6 +24,7 @@ function ShowTimings(props) {
   const [movie, setMovie] = useState();
 
   const { movieId } = props.match.params;
+  console.log(movieId);
 
   // Set local storage with banner image
   useEffect(() => {
@@ -100,19 +101,21 @@ function ShowTimings(props) {
         )`,
           backgroundPosition: 'center cover'
         }}>
-        <div className={classes.banner_contents}>
-          <h1 className={classes.banner_title}>{reservation.movie}</h1>
-          <div className={classes.movie_info}>
-            <h1 className={classes.movie_description}>
-              {movie.description.en}
-            </h1>
-            <h1>{`Director: ${movie.director}`}</h1>
-            <h1>{`Genre: ${movie.genre}`}</h1>
-            <h1>{`Cast: ${movie.cast}`}</h1>
-            <h1>{`Language: ${movie.originalLanguage}`}</h1>
-            <h1>{`Duration: ${movie.duration}`}</h1>
+        {movie && (
+          <div className={classes.banner_contents}>
+            <h1 className={classes.banner_title}>{reservation.movie}</h1>
+            <div className={classes.movie_info}>
+              <h1 className={classes.movie_description}>
+                {movie.description.en}
+              </h1>
+              <h1>{`Director: ${movie.director}`}</h1>
+              <h1>{`Genre: ${movie.genre}`}</h1>
+              <h1>{`Cast: ${movie.cast}`}</h1>
+              <h1>{`Language: ${movie.originalLanguage}`}</h1>
+              <h1>{`Duration: ${movie.duration}`}</h1>
+            </div>
           </div>
-        </div>
+        )}
         <div className={classes.banner_fadeBottom} />
       </div>
       <div className={classes.selectors}>
