@@ -2,10 +2,9 @@
   color: white;
   text-align: center;
   margin: auto;
-  text-align: left;
-  width: 70%;
   position: absolute;
   left: 30%;
+  top: 20%;
 }
 
 .close_button {
