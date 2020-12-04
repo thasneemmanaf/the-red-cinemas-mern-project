@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './Form.module.css';
-import FormSignup from '../SignUp';
-import FormSignin from '../SignIn';
-import FormSuccess from './FormSuccess';
+import FormSignup from '../../components/SignUp';
+import FormSignin from '../../components/SignIn';
 import formImage from '../../images/formImg.jpg';
 
 const Form = (props) => {

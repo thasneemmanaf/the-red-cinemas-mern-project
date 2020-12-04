@@ -21,8 +21,8 @@ const ShowTimings = lazy(() => import('./pages/ShowTimings'));
 // Booking page
 const Booking = lazy(() => import('./pages/Booking'));
 
-// Sign Ip and sign In page
-const Form = lazy(() => import('./components/Form'));
+// Sign In and sign Up Form page
+const Form = lazy(() => import('./pages/Form'));
 
 // Payment success page
 const PaymentSuccess = lazy(() => import('./pages/PaymentSuccess'));
