@@ -74,7 +74,7 @@ const Footer = () => {
       </ul>
 
       <p className={classes.copyright}>
-        copyright &copy; The RED Cinemas
+        copyright &copy; The RED Cinemas 2020
         <span />
         .all rights reserved
       </p>
