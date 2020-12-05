@@ -43,8 +43,13 @@ function Booking() {
           response.data.reservedSeats[0].reservedSeats
         );
         setReservedSeats(response.data.reservedSeats[0].reservedSeats);
-      } catch (err) {
-        console.log(err);
+      } catch {
+        setShowModal({
+          status: true,
+          type: 'close',
+          subject: 'error',
+          message: 'something_wrong'
+        });
       }
     }
     fetchData();

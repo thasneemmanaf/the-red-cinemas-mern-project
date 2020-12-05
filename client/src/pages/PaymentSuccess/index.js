@@ -5,11 +5,18 @@ import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import axios from '../../axios';
 import MovieTicket from '../../components/MovieTicket';
+import Modal from '../../components/Modal';
 
 import classes from './PaymentSuccess.module.css';
 
 function PaymentSuccess() {
   const [reservation, setReservation] = useState();
+  const [showModal, setShowModal] = useState({
+    status: false,
+    type: '',
+    subject: '',
+    message: ''
+  });
 
   const { t } = useTranslation();
 
@@ -28,8 +35,13 @@ function PaymentSuccess() {
           ...response.data.reservation,
           date: moment(response.data.reservation.date)
         });
-      } catch (err) {
-        console.log(err);
+      } catch {
+        setShowModal({
+          status: true,
+          type: 'close',
+          subject: 'error',
+          message: 'something_wrong'
+        });
       }
     };
     getReservation();
@@ -57,6 +69,9 @@ function PaymentSuccess() {
           </button>
         </Link>
       </div>
+      {showModal.status && (
+        <Modal showModal={showModal} setShowModal={setShowModal} />
+      )}
     </div>
   );
 }

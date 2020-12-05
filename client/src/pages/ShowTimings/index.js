@@ -24,7 +24,6 @@ function ShowTimings(props) {
   const [movie, setMovie] = useState();
 
   const { movieId } = props.match.params;
-  console.log(movieId);
 
   // Set local storage with banner image
   useEffect(() => {
