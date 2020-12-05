@@ -15,7 +15,7 @@ const StyledDatePickerWrapper = styled.div`
     color: #fff;
     border-radius: 12px;
     .DateInput {
-      width: 40%;
+      width: 45%;
       height: 45px;
       display: flex;
 
