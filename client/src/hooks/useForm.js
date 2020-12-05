@@ -60,8 +60,8 @@ const useForm = (callback, validate) => {
             });
             dispatchAuth({ type: 'SIGNUP_SUCCESS', payload: true });
             history.goBack();
-          } catch (err) {
-            console.log(err);
+          } catch {
+            dispatchAuth({ type: 'SIGNUP_SUCCESS', payload: false });
           }
         }
         userSignUp();
@@ -90,8 +90,8 @@ const useForm = (callback, validate) => {
               dispatchAuth({ type: 'LOGIN_SUCCESS', payload: true });
               history.goBack();
             }
-          } catch (err) {
-            console.log(err);
+          } catch {
+            dispatchAuth({ type: 'LOGIN_SUCCESS', payload: false });
           }
         }
         userSignIn();

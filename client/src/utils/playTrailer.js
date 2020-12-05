@@ -10,7 +10,7 @@ const handlePlayTrailer = (movie, trailerUrl, setTrailerUrl) => {
         const urlParams = new URLSearchParams(new URL(url).search);
         setTrailerUrl(urlParams.get('v'));
       })
-      .catch((err) => console.log(err));
+      .catch(() => setTrailerUrl(''));
   }
 };
 

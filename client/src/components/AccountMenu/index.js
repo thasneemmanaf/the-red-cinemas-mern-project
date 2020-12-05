@@ -27,8 +27,8 @@ function AccountMenu({ setAccountShow }) {
         });
         dispatchAuth({ type: 'LOGOUT_SUCCESS', payload: false });
         setAccountShow(false);
-      } catch (err) {
-        console.log(err);
+      } catch {
+        dispatchAuth({ type: 'LOGOUT_SUCCESS', payload: true });
       }
     }
     userSignOut();
