@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classes from './ScreenSelector.module.css';
@@ -22,13 +19,7 @@ function ScreenSelector({ cinemas, setSelectScreen }) {
     <div className={classes.box}>
       <select onChange={handleOnChange}>
         {cinemaNames.map((cinemaName) => {
-          return (
-            <Option
-              key={cinemaName}
-              value={cinemaName}
-              // selected={selectScreen}
-            />
-          );
+          return <Option key={cinemaName} value={cinemaName} />;
         })}
       </select>
     </div>

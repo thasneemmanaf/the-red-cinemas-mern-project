@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import classes from './SignUp.module.css';
 import validate from '../../utils/validateForm';

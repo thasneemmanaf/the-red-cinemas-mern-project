@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable object-curly-newline */
 const mongoose = require('mongoose');
 require('dotenv').config();
 

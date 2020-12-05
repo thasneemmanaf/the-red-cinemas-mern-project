@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './AccountMenu.module.css';

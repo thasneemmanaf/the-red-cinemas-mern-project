@@ -1,6 +1,4 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-
 import classes from './SignIn.module.css';
 import validate from '../../utils/validateForm';
 import useForm from '../../hooks/useForm';

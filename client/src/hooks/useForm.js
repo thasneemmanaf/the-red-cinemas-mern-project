@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-indent */
-/* eslint-disable no-inner-declarations */
 import { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 

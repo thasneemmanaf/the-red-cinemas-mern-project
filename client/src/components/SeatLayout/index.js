@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useContext, useEffect } from 'react';
 import './SeatLayout.css';
 import ReservationContext from '../../Store/ReservationContext';
@@ -7,10 +5,6 @@ import { getLocalStorage } from '../../utils/localStorage';
 
 function SeatLayout({ reservedSeats, setShowModal }) {
   const [reservation, dispatch] = useContext(ReservationContext);
-
-  // if (!reservedSeats) {
-  //   setReservedSeats(getLocalStorage('reservedSeats'));
-  // }
 
   useEffect(() => {
     const localReservation = getLocalStorage('reservation', {});
