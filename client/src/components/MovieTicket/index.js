@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import truncate from '../../utils/truncate';
 import classes from './MovieTicket.module.css';
 
 function MovieTicket({ reservation }) {
@@ -10,7 +11,7 @@ function MovieTicket({ reservation }) {
       <div className={`${classes.card} ${classes.cardLeft}`}>
         <h1>The RED Cinemas</h1>
         <div className={classes.title}>
-          <h2>{reservation.movie}</h2>
+          <h2>{truncate(reservation.movie, 30)}</h2>
           <span>{t('movie')}</span>
         </div>
         <div className={classes.name}>
