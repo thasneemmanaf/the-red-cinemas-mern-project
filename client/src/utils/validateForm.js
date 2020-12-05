@@ -1,12 +1,8 @@
 export default function validateInfo(values, type) {
   const errors = {};
-
   if (!values.name.trim() && type === 'signup') {
     errors.name = 'Username required';
   }
-  // else if (!/^[A-Za-z]+/.test(values.name.trim())) {
-  //   errors.name = 'Enter a valid name';
-  // }
 
   if (!values.emailId) {
     errors.emailId = 'Email required';

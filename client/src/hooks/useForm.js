@@ -40,8 +40,6 @@ const useForm = (callback, validate) => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      // callback();
-
       if (values.name) {
         async function userSignUp() {
           try {

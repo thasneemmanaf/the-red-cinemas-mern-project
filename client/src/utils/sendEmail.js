@@ -1,6 +1,6 @@
 import emailjs from 'emailjs-com';
 
-const sendEmail = async () => {
+const sendEmail = async (setShowModal) => {
   try {
     await emailjs.send(
       'service_1yybzln',
@@ -11,7 +11,12 @@ const sendEmail = async () => {
       'user_unZVLPqrU43eqBVNf5Hp4'
     );
   } catch (err) {
-    console.log(err);
+    setShowModal({
+      status: true,
+      type: 'close',
+      subject: 'error',
+      message: 'something_wrong'
+    });
   }
 };
 

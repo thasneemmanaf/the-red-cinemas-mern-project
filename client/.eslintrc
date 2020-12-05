@@ -38,7 +38,7 @@
     ],
     "react/destructuring-assignment": [0],
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": 0,
     "react/jsx-curly-newline": 0,
     "no-unused-vars": 1,
     "jsx-a11y/click-events-have-key-events": 0,

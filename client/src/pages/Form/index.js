@@ -22,9 +22,9 @@ const Form = (props) => {
           <img className={classes.form_img} src={formImage} alt="spaceship" />
         </div>
         {props.match.path === '/signup' ? (
-          <FormSignup submitForm={submitForm} />
+          <FormSignup submitForm={submitForm} isSubmitted={isSubmitted} />
         ) : (
-          <FormSignin />
+          <FormSignin isSubmitted={isSubmitted} />
         )}
       </div>
     </>

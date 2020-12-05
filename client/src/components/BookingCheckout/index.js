@@ -39,7 +39,7 @@ function BookingCheckout({ setShowModal }) {
         message: 'not_signedin_message'
       });
     } else {
-      await sendEmail();
+      await sendEmail(setShowModal);
 
       const stripe = await stripePromise;
       // Create a session on server and reserve seats

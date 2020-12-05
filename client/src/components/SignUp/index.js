@@ -3,7 +3,7 @@ import classes from './SignUp.module.css';
 import validate from '../../utils/validateForm';
 import useForm from '../../hooks/useForm';
 
-const SignUp = ({ submitForm }) => {
+const SignUp = ({ submitForm, isSubmitted }) => {
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,
     validate
@@ -65,7 +65,10 @@ const SignUp = ({ submitForm }) => {
           />
           {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
         </div>
-        <button className={classes.form_input_btn} type="submit">
+        <button
+          className={classes.form_input_btn}
+          type="submit"
+          disabled={isSubmitted}>
           Sign Up
         </button>
         <span className={classes.form_input_login}>
