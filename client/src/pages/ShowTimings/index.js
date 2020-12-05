@@ -33,8 +33,13 @@ function ShowTimings(props) {
       try {
         const response = await axios.get(`/movie/${movieId}`);
         setMovie(response.data.movie);
-      } catch (err) {
-        console.log(err);
+      } catch {
+        setShowModal({
+          status: true,
+          type: 'close',
+          subject: 'Error',
+          message: 'something_wrong'
+        });
       }
     }
     fetchMovie();
