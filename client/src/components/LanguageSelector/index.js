@@ -28,7 +28,6 @@ function LanguageSelector({ accountShow, setAccountShow }) {
   const handleSelection = (language) => {
     i18next.changeLanguage(language);
     setSelectedLang(language);
-    console.log(language);
   };
 
   return (

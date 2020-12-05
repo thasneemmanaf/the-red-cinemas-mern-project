@@ -1,11 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classes from './MovieTicket.module.css';
-// import ReservationContext from '../../Store/ReservationContext';
 
 function MovieTicket({ reservation }) {
-  // const [reservation] = useContext(ReservationContext);
-  console.log(reservation);
   const { t } = useTranslation();
 
   return (

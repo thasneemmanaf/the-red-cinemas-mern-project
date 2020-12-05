@@ -74,7 +74,7 @@ exports.signInUser = async (req, res, next) => {
 exports.fetchUser = async (req, res, next) => {
   const token = req.cookies.jwt;
   if (!token) {
-    res.status(401).json({
+    res.status(200).json({
       status: 'unauthorized'
     });
   } else {

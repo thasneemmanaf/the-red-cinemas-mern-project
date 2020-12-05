@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect, useCallback } from 'react';
 import './Navbar.css';
 import AccountMenu from '../AccountMenu';
 import LanguageSelector from '../LanguageSelector';
-// import movieTimeImg from '../../images/dream-theater.png';
+import Modal from '../Modal';
 import axios from '../../axios';
 import ReservationContext from '../../Store/ReservationContext';
 import AuthContext from '../../Store/AuthContext';
@@ -13,6 +13,12 @@ function Navbar() {
   const [accountShow, setAccountShow] = useState(false);
   const [, dispatch] = useContext(ReservationContext);
   const [, dispatchAuth] = useContext(AuthContext);
+  const [showModal, setShowModal] = useState({
+    status: false,
+    type: '',
+    subject: '',
+    message: ''
+  });
 
   const handleScroll = useCallback(() => {
     if (window.scrollY > 100) {
@@ -37,8 +43,8 @@ function Navbar() {
           payload: response.data.data.user.name
         });
         dispatchAuth({ type: 'LOGIN_SUCCESS', payload: true });
-      } catch (err) {
-        console.log(err);
+      } catch {
+        dispatchAuth({ type: 'LOGIN_SUCCESS', payload: false });
       }
     }
     fetchUser();
@@ -87,6 +93,9 @@ function Navbar() {
         />
       </button>
       {accountShow && <AccountMenu setAccountShow={setAccountShow} />}
+      {showModal.status && (
+        <Modal showModal={showModal} setShowModal={setShowModal} />
+      )}
     </div>
   );
 }

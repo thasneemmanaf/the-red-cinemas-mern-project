@@ -39,7 +39,7 @@ function BookingCheckout({ setShowModal }) {
         message: 'not_signedin_message'
       });
     } else {
-      // await sendEmail();
+      await sendEmail();
 
       const stripe = await stripePromise;
       // Create a session on server and reserve seats
@@ -58,15 +58,16 @@ function BookingCheckout({ setShowModal }) {
           removeLocalStorage('reservedSeats');
         }
         // Redirect to stripe hosted checkout page
-        const result = await stripe.redirectToCheckout({
+        await stripe.redirectToCheckout({
           sessionId
         });
-
-        if (result.error) {
-          console.log('payment failed');
-        }
-      } catch (error) {
-        console.log(error);
+      } catch {
+        setShowModal({
+          status: true,
+          type: 'close',
+          subject: 'error',
+          message: 'something_wrong'
+        });
       }
     }
   };
