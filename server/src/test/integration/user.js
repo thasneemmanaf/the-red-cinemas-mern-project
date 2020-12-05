@@ -1,5 +1,4 @@
 const supertest = require('supertest');
-const { expect } = require('chai');
 const mongoose = require('mongoose');
 const app = require('../../server');
 const { connect } = require('../../config/database');
@@ -30,7 +29,7 @@ describe('Testing Users Endpoints ', () => {
 
   describe('POST /api/v1/user/signup', () => {
     it('should save user to the databse', async () => {
-      const response = await supertest(app)
+      await supertest(app)
         .post('/api/v1/user/signup')
         .send({
           name: 'Jane Doe',
@@ -39,17 +38,6 @@ describe('Testing Users Endpoints ', () => {
           confirmPassword: '123456789'
         })
         .expect(201);
-      // console.log(response);
-      // const foundUser = await User.findOne({
-      //   _id: response.body.data.user._id
-      // });
-      // const foundUserId = foundUser._id.toString();
-
-      // expect(response.body._id).to.equal(foundUserId);
-      // expect(response.body.data).to.;
-      // expect(response.body.emailId).to.equal(foundUser.emailId);
-      // expect(response.body.password).to.equal(foundUser.password);
-      // expect(response.body.confirmPassword).to.equal(foundUser.confirmPassword);
     });
   });
 });
