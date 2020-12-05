@@ -4,8 +4,10 @@ import classes from './Footer.module.css';
 
 const Footer = () => {
   return (
-    <div className={`${classes.section} ${classes.footer}`}>
-      <ul className={classes.footer_links}>
+    <div
+      className={`${classes.section} ${classes.footer}`}
+      data-testid="footer">
+      <ul className={classes.footer_links} data-testid="footer-links">
         <a href="/" className={`${classes.footer_link} ${classes.scroll_link}`}>
           Home
         </a>

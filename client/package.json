@@ -5,8 +5,9 @@
   "private": true,
   "dependencies": {
     "@stripe/stripe-js": "^1.11.0",
-    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.0",
+    "@testing-library/react-hooks": "^3.4.2",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
     "dotenv": "^8.2.0",
@@ -14,6 +15,7 @@
     "i18next": "^19.8.3",
     "i18next-browser-languagedetector": "^6.0.1",
     "i18next-http-backend": "^1.0.21",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "moment": "^2.29.1",
     "movie-trailer": "^2.0.6",
     "react": "^17.0.1",
