@@ -12,10 +12,16 @@ function Cinemas({ cinemas, selectScreen }) {
   const { t } = useTranslation();
 
   // Filter cinemas based on user cinema selection
-  if (selectScreen !== 'All Screens') {
+  if (
+    selectScreen !== 'All Screens' &&
+    selectScreen !== 'Alla Teatrar' &&
+    selectScreen !== 'തിയേറ്ററുകൾ'
+  ) {
     newCinemas = cinemas.filter((cinema) => {
       return selectScreen === cinema.name;
     });
+  } else {
+    newCinemas = [...cinemas];
   }
 
   const handleBookNow = (cinema) => {
