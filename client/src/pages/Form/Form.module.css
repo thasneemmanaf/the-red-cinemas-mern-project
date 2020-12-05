@@ -1,10 +1,10 @@
 .form_container {
   margin: 20px auto;
-  width: 1000px;
+  width: 70%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 10px;
-  height: 600px;
+  height: 32rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
