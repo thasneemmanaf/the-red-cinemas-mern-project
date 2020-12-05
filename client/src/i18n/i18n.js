@@ -12,7 +12,7 @@ i18n
   .init({
     lng: 'sv',
     fallbackLng: 'sv',
-    debug: true,
+    debug: false,
     whitelist: availableLanguages,
 
     interpolation: {
