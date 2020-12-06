@@ -2,7 +2,7 @@
 The RED Cinemas -A place to feel immersive movie experience
 </h1>
 <p align="center">
- React, Nodejs, MongoDB, Expressjs, Stripe, i18n 
+ React, Nodejs, MongoDB, Expressjs, Stripe, i18Next
 </p>
 
 [![Lint Workflow](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/workflows/Run%20Lint%20-%20The%20RED%20Cinemas/badge.svg)](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/actions)
