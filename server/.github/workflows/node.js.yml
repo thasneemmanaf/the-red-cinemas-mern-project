@@ -1,4 +1,4 @@
-name: The RED Cinemas server side
+name: TheREDCinemas server
 
 on:
   push:

@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/client/workflows/TheREDCinemas%20client/badge.svg)](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/client/actions)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,4 +1,4 @@
-name: The RED Cinemas client side
+name: TheREDCinemas client
 
 on:
   push:
