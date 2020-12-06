@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const pino = require('pino');
 const cookieParser = require('cookie-parser');
@@ -20,10 +21,6 @@ const app = express();
 
 const logger = pino({ level: process.env.LOG_LEVEL || 'info' });
 global.logger = logger;
-
-// if (['development', 'production'].includes(process.env.NODE_ENV)) {
-//   app.use(expressLogger({ logger }));
-// }
 
 // Stripe webhook
 app.use(
@@ -48,15 +45,23 @@ app.use('/api/v1/show-timing', showTimingRoutes);
 app.use('/api/v1/reservation', reservationRoutes);
 app.use('/api/v1/checkout', checkoutRoutes);
 
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
   logger.debug('hi there');
   res.json({
     message: 'it works'
   });
 });
 
+// Sending static files requests to the client
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+//  Sending the main index.html file back to the client
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
+
 // Handle all unhandled routes
-app.use('*', (req, res, next) => {
+app.use('*', (req, _res, next) => {
   next(new AppError(`Requested url ${req.originalUrl} doesn't exist`, 404));
 });
 

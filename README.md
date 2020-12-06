@@ -23,15 +23,21 @@ The RED Cinemas -A place to feel immersive movie experience
 ![Test](https://img.shields.io/badge/-Mocha-333333?style=flat)&nbsp;
 
 The RED Cinemas is an online movie booking multi-language application created using MERN stack. It is a modern and responsive web application with complete stripe payment checkout solution.
-[Click here to check out The RED Cinemas](https://cakey.netlify.app/)
+
+Showtimings are added for below two movies and you can either create new account or use below test account to book movies.
+
+- Movies:- Holidate, The Princess Switch, Road Dahl's The Witches
+- Test Account:- Email: janedoe@test.com , Password: janedoe123
+  [Click here to check out The RED Cinemas](https://cakey.netlify.app/)
 
 # Available Features!
 
 ### - Public Features
 
-- Customer login and Registration
-- Check playing now and coming soon movies
+- Customer Registration and login
+- Check Playing now and Coming soon movies
 - Book movies
+- Play trailers
 
 ### - Admin Features
 
@@ -49,8 +55,13 @@ The RED Cinemas is an online movie booking multi-language application created us
 - [ReactJS](https://reactjs.org/) - A JavaScript library for building user interfaces.
 - [Stripe](https://stripe.com/en-se) - A complete payment solution.
 - [React Router](https://reactrouter.com/) - A tool that allows you to handle routes in a web app, using dynamic routing.
+- [i18Next](https://www.i18next.com/) - An internationalization-framework.
+- [EmailJS](https://www.emailjs.com/) - Send email from Javascript.
 - [React Icons](https://react-icons.github.io/react-icons/) - Popular icons for React projects.
 - [styled-components](https://styled-components.com/) - A Modern way to write CSS in Javascript.
+- [Node.js](https://nodejs.org/en/) - JavaScript runtime built on Chrome's V8 JavaScript engine.
+- [Express.js](https://expressjs.com/) - Back-end web application framework for Node.js.
+- [MongoDB](https://www.mongodb.com/) - MongoDB is a cross-platform document-oriented database program.
 
 ### Installation
 

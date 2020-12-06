@@ -1,5 +1,5 @@
 {
-  "name": "the-red-server",
+  "name": "the-red-cinemas-server",
   "version": "1.0.0",
   "description": "This is a movie booking application",
   "main": "index.js",

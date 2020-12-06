@@ -27,8 +27,10 @@ exports.createCheckoutSession = async (req, res, next) => {
         }
       ],
       mode: 'payment',
-      success_url: `${req.protocol}://127.0.0.1:3000/payment-success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.protocol}://127.0.0.1:3000/payment-failure`
+      success_url: `${req.protocol}://${req.get(
+        'host'
+      )}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${req.protocol}://${req.get('host')}/payment-failure`
     });
     res.status(201).json({
       reservationId,
