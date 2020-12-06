@@ -1,1 +1,2 @@
-[![Actions Status](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/workflows/TheREDCinemas/badge.svg)](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/actions)
+[![Lint Workflow](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/workflows/Run%20Lint%20-%20The%20RED%20Cinemas/badge.svg)](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/actions)
+[![Test Workflow](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/workflows/Run%20Test%20-%20The%20RED%20Cinemas/badge.svg)](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/actions)

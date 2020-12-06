@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "mocha --recursive src/test/ --timeout 100000",
+    "test": "mocha --recursive src/test/ --timeout 1000000",
     "lint": "eslint src/**/*.js"
   },
   "author": "Thasneem Manaf",
