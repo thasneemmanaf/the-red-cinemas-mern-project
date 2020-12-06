@@ -10,6 +10,7 @@
     "lint-client": "cd client && npm run lint",
     "lint-server": "cd server && npm run lint",
     "lint-client-action": "cd client && npm install && npm run lint",
+    "lint-server-action": "cd server && npm install && npm run lint",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
