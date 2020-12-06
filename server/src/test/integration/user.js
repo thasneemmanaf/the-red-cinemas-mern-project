@@ -7,15 +7,13 @@ const User = require('../../models/user');
 describe('GET /', () => {
   it('it should has status code 200', (done) => {
     supertest(app)
-      .get('/')
-      .expect(200, {
-        message: 'it works'
-      })
+      .get('/api/v1/screen')
+      .expect(200)
       .end((err) => {
         if (err) done(err);
         done();
       });
-  });
+  }).catch();
 });
 describe('Testing Users Endpoints ', () => {
   beforeEach(() => {
