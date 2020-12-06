@@ -53,11 +53,11 @@ app.get('/', (_req, res) => {
 });
 
 // Sending static files requests to the client
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname, '/../../client', 'build')));
 
 //  Sending the main index.html file back to the client
 app.get('*', (_req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '/../../client', 'build', 'index.html'));
 });
 
 // Handle all unhandled routes
