@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: TheREDCinemas
+=======
+name: TheREDCinemas client
+>>>>>>> 07d42df9f35b3b4de8bae8e75b56a8c24227c224
 
 on:
   push:
