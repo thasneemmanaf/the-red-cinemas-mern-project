@@ -1,4 +1,4 @@
-name: TheREDCinemas client
+name: TheREDCinemas
 
 on:
   push:
