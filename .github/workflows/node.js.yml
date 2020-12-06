@@ -13,20 +13,21 @@ jobs:
     strategy:
       matrix:
         node-version: [10.x]
+        mongodb-version: [4.2]
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-        
+
       - name: Set up Node.js
-        uses: actions/setup-node@v1   
+        uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Start MongoDB
         uses: supercharge/mongodb-github-action@1.3.0
-      with:
-        mongodb-version: ${{ matrix.mongodb-version }}
+        with:
+          mongodb-version: ${{ matrix.mongodb-version }}
 
       - name: Test both client and server code
         run: |
@@ -34,5 +35,4 @@ jobs:
           npm run test-client-action
           npm run test-server-action
         env:
-        MONGO_URI: mongodb://localhost:27017/movie-test
-        
+          MONGO_URI: mongodb://localhost:27017/movie-test
