@@ -45,13 +45,6 @@ app.use('/api/v1/show-timing', showTimingRoutes);
 app.use('/api/v1/reservation', reservationRoutes);
 app.use('/api/v1/checkout', checkoutRoutes);
 
-app.get('/', (_req, res) => {
-  logger.debug('hi there');
-  res.json({
-    message: 'it works'
-  });
-});
-
 // Sending static files requests to the client
 app.use(express.static(path.join(__dirname, '/../../client', 'build')));
 

@@ -78,11 +78,11 @@ $ npm client-start
 
 # Screenshots!
 
-- Home Page
-  <img width="950" alt="homepage" src="https://user-images.githubusercontent.com/63189207/101284608-361d6f00-37e1-11eb-9c97-6a5bf5caefe3.PNG">
+Home Page
+<img width="950" alt="homepage" src="https://user-images.githubusercontent.com/63189207/101284608-361d6f00-37e1-11eb-9c97-6a5bf5caefe3.PNG">
 
-- View all movies Page
-  <img width="948" alt="viewallpage" src="https://user-images.githubusercontent.com/63189207/101284614-3ae22300-37e1-11eb-86d8-c1789f6cad48.PNG">
+View all movies Page
+<img width="948" alt="viewallpage" src="https://user-images.githubusercontent.com/63189207/101284614-3ae22300-37e1-11eb-86d8-c1789f6cad48.PNG">
 
 - Show Timings Page
   <img width="947" alt="showtimings" src="https://user-images.githubusercontent.com/63189207/101284617-3ddd1380-37e1-11eb-820c-397012461391.PNG">

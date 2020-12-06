@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import classes from './Form.module.css';
 import FormSignup from '../../components/SignUp';
 import FormSignin from '../../components/SignIn';
-// import formImage from '../../images/formImg.jpg';
 
 const Form = (props) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
