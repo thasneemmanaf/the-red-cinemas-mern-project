@@ -28,7 +28,7 @@ Showtimings are added for below two movies and you can either create new account
 
 - Movies:- Holidate, The Princess Switch, Road Dahl's The Witches
 - Test Account:- Email: janedoe@test.com , Password: janedoe123
-  [Click here to check out The RED Cinemas](https://cakey.netlify.app/)
+  [Click here to check out The RED Cinemas](https://theredcinemas.herokuapp.com/)
 
 # Available Features!
 
@@ -84,17 +84,17 @@ Home Page
 View all movies Page
 <img width="948" alt="viewallpage" src="https://user-images.githubusercontent.com/63189207/101284614-3ae22300-37e1-11eb-86d8-c1789f6cad48.PNG">
 
-- Show Timings Page
-  <img width="947" alt="showtimings" src="https://user-images.githubusercontent.com/63189207/101284617-3ddd1380-37e1-11eb-820c-397012461391.PNG">
+Show Timings Page
+<img width="947" alt="showtimings" src="https://user-images.githubusercontent.com/63189207/101284617-3ddd1380-37e1-11eb-820c-397012461391.PNG">
 
-- Booking Page
-  <img width="773" alt="bookingpage" src="https://user-images.githubusercontent.com/63189207/101284622-42093100-37e1-11eb-86a3-60b77823bdf5.PNG">
+Booking Page
+<img width="773" alt="bookingpage" src="https://user-images.githubusercontent.com/63189207/101284622-42093100-37e1-11eb-86a3-60b77823bdf5.PNG">
 
-- Payment Page
-  <img width="910" alt="paymentform" src="https://user-images.githubusercontent.com/63189207/101284626-47ff1200-37e1-11eb-82a1-fe3f3c614270.PNG">
+Payment Page
+<img width="910" alt="paymentform" src="https://user-images.githubusercontent.com/63189207/101284626-47ff1200-37e1-11eb-82a1-fe3f3c614270.PNG">
 
-- Payment Confirmation Page
-  <img width="960" alt="Payment-Success" src="https://user-images.githubusercontent.com/63189207/101284628-4b929900-37e1-11eb-8f8c-c9e713ca626e.PNG">
+Payment Confirmation Page
+<img width="960" alt="Payment-Success" src="https://user-images.githubusercontent.com/63189207/101284628-4b929900-37e1-11eb-8f8c-c9e713ca626e.PNG">
 
 ## License
 
