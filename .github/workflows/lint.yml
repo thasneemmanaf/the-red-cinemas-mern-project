@@ -23,5 +23,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: |
           npm ci
-          npm install
-          npm run lint-client
+          npm run lint-client-action
