@@ -9,17 +9,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    name: lint client and server code
     strategy:
       matrix:
         node-version: [10.x]
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        name: Check out repository
+      - uses: actions/setup-node@v1
+        name: Set up Node.js
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - name: lint client
-      - run: npm run lint-client
+      - run: |
+          npm ci
+          npm run lint-client
