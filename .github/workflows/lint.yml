@@ -25,4 +25,4 @@ jobs:
           npm ci
           npm run lint-client-action
           npm run lint-server-action
-        name: lint both client and server code
+        name: Lint both client and server code

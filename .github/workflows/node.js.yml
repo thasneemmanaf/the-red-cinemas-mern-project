@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-name: TheREDCinemas
-=======
-name: TheREDCinemas client
->>>>>>> 07d42df9f35b3b4de8bae8e75b56a8c24227c224
+name: Run Test - The RED Cinemas
 
 on:
   push:
@@ -13,19 +9,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    name: lint client and server code
     strategy:
       matrix:
         node-version: [10.x]
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        name: Check out repository
+      - uses: actions/setup-node@v1
+        name: Set up Node.js
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - name: Start installing
-      - run: npm install
-      - name: Start Testing
-      - run: npm test
+      - run: |
+          npm ci
+          npm run test-client-action
+          npm run test-server-action
+        name: Test both client and server code
