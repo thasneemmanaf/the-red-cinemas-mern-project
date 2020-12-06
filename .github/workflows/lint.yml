@@ -1,4 +1,4 @@
-name: Run Lint - The RED Cinemas server side
+name: Run Lint - The RED Cinemas
 
 on:
   push:
