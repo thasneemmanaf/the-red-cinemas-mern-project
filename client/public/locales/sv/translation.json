@@ -31,5 +31,13 @@
   "try_again": "Försök igen!",
   "hi": "Hej",
   "payment_success": "Din filmbiljett har bokats.",
-  "thanks_RED_Cinemas": "Tack för att du valde The RED Cinemas. Njut av filmen!"
+  "thanks_RED_Cinemas": "Tack för att du valde The RED Cinemas. Njut av filmen!",
+  "home": "Hem",
+  "about_us": "Om oss",
+  "career": "Karriär",
+  "faq": "FAQ",
+  "news": "Nyheter",
+  "page_not_found": "Sidan kan inte hittas.",
+  "page_not_found_msg": "Vi kan inte hitta sidan du letar efter.",
+  "go_back_home": "Hemsida"
 }

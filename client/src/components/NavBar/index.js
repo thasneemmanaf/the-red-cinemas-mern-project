@@ -74,6 +74,7 @@ function Navbar() {
         src="https://upload.wikimedia.org/wikipedia/commons/c/c6/The_Red_logo_-_Red_Velvet.png"
         alt="The-RED Cinemas Logo"
       />
+
       <div className="LanguageSelector">
         <LanguageSelector
           accountShow={accountShow}

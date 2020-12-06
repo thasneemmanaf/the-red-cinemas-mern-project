@@ -1,39 +1,41 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 import classes from './Footer.module.css';
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <div
       className={`${classes.section} ${classes.footer}`}
       data-testid="footer">
       <ul className={classes.footer_links} data-testid="footer-links">
         <a href="/" className={`${classes.footer_link} ${classes.scroll_link}`}>
-          Home
+          {t('home')}
         </a>
 
         <a
           href="#about"
           className={`${classes.footer_link} ${classes.scroll_link}`}>
-          About Us
+          {t('about_us')}
         </a>
 
         <a
           href="#career"
           className={`${classes.footer_link} ${classes.scroll_link}`}>
-          Career
+          {t('career')}
         </a>
 
         <a
           href="#faq"
           className={`${classes.footer_link} ${classes.scroll_link}`}>
-          FAQ
+          {t('faq')}
         </a>
 
         <a
           href="#news"
           className={`${classes.footer_link} ${classes.scroll_link}`}>
-          News
+          {t('news')}
         </a>
       </ul>
 

@@ -10,7 +10,6 @@ import './App.css';
 
 // Home page
 const HomePage = lazy(() => import('./pages/HomePage'));
-// const Row = lazy(() => import('./components/Row'));
 
 // Explore all page
 const ExploreAll = lazy(() => import('./pages/ExploreAll'));
@@ -62,7 +61,6 @@ function Routes() {
                   exact
                   component={ShowTimings}
                 />
-
                 <Route path="*" component={PageNotFound} />
               </Switch>
             </div>

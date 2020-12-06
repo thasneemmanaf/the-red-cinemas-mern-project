@@ -31,5 +31,13 @@
   "try_again": "Please try again!",
   "hi": "Hi",
   "payment_success": "Your movie ticket has been successfully booked.",
-  "thanks_RED_Cinemas": "Thanks for choosing The RED Cinemas. Enjoy the movie!"
+  "thanks_RED_Cinemas": "Thanks for choosing The RED Cinemas. Enjoy the movie!",
+  "home": "Home",
+  "about_us": "About Us",
+  "career": "Career",
+  "faq": "FAQ",
+  "news": "News",
+  "page_not_found": "Oops! Page not found.",
+  "page_not_found_msg": "We cannot find the page you are looking for.",
+  "go_back_home": "Go back home"
 }
