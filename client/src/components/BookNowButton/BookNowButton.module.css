@@ -9,10 +9,11 @@
   padding: 0.7rem;
   width: 100%;
   background-color: #fff;
+  border-radius: 10px;
 }
 
 .nav_booknow_btn {
   background-color: #fff;
   width: calc((100% - 3rem) / 2);
-  border-radius: 0.4vw;
+  border-radius: 10px;
 }

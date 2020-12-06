@@ -20,9 +20,9 @@
 .lang_menu .selected_sv {
   content: '';
   display: inline-block;
-  width: 32px;
+  width: 36px;
   height: 32px;
-  background-image: url(https://www.countryflags.io/se/flat/32.png);
+  background-image: url(https://flagcdn.com/w40/se.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -30,9 +30,9 @@
 .lang_menu .selected_en {
   content: '';
   display: inline-block;
-  width: 32px;
+  width: 36px;
   height: 32px;
-  background-image: url(https://www.countryflags.io/us/flat/32.png);
+  background-image: url(https://flagcdn.com/w40/us.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -40,9 +40,9 @@
 .lang_menu .selected_ml {
   content: '';
   display: inline-block;
-  width: 125px;
+  width: 36px;
   height: 32px;
-  background-image: url(https://www.countryflags.io/in/flat/32.png);
+  background-image: url(https://flagcdn.com/w40/in.png);
   background-size: contain;
   background-repeat: no-repeat;
 }

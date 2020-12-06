@@ -28,6 +28,7 @@ Showtimings are added for below two movies and you can either create new account
 
 - Movies:- Holidate, The Princess Switch, Road Dahl's The Witches
 - Test Account:- Email: janedoe@test.com , Password: janedoe123
+- Credit Card:- Number: 4242 4242 4242 4242 4242, Exp date: Any future date, CVV: Any number
   [Click here to check out The RED Cinemas](https://theredcinemas.herokuapp.com/)
 
 # Available Features!
@@ -94,7 +95,7 @@ Payment Page
 <img width="910" alt="paymentform" src="https://user-images.githubusercontent.com/63189207/101284626-47ff1200-37e1-11eb-82a1-fe3f3c614270.PNG">
 
 Payment Confirmation Page
-<img width="960" alt="Payment-Success" src="https://user-images.githubusercontent.com/63189207/101284628-4b929900-37e1-11eb-8f8c-c9e713ca626e.PNG">
+<img width="813" alt="Payment-Success" src="https://user-images.githubusercontent.com/63189207/101287293-b054f000-37ef-11eb-8e25-3088d3fb48fc.PNG">
 
 ## License
 
