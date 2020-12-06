@@ -2,12 +2,25 @@
 The RED Cinemas -A place to feel immersive movie experience
 </h1>
 <p align="center">
+ React, Nodejs, MongoDB, Expressjs, Stripe, i18n 
+</p>
+
 [![Lint Workflow](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/workflows/Run%20Lint%20-%20The%20RED%20Cinemas/badge.svg)](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/actions)
 [![Test Workflow](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/workflows/Run%20Test%20-%20The%20RED%20Cinemas/badge.svg)](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/actions)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react)
-</p>
 
-The RED Cinemas is an online movie booking application created using MERN stack. It is a modern and responsive web application with complete stripe payment checkout solution.
+<br />
+![React](https://img.shields.io/badge/-React-333333?style=flat&logo=react)&nbsp;
+![Stripe](https://img.shields.io/badge/-Stripe-333333?style=flat&logo=stripe)&nbsp;
+![Node.js](https://img.shields.io/badge/-Node.js-333333?style=flat&logo=node.js)&nbsp;
+![Express.JS](https://img.shields.io/badge/-Express.JS-333333?style=flat&logo=Express.JS)&nbsp;
+![MongoDB](https://img.shields.io/badge/-MongoDB-333333?style=flat&logo=mongodb)&nbsp;
+![Heroku](https://img.shields.io/badge/-Heroku-333333?style=flat&logo=heroku)&nbsp;
+![Test](https://img.shields.io/badge/-SuperTest-333333?style=flat)&nbsp;
+![Test](https://img.shields.io/badge/-Chai-333333?style=flat)&nbsp;
+![Test](https://img.shields.io/badge/-Mocha-333333?style=flat)&nbsp;
+
+The RED Cinemas is an online movie booking multi-language application created using MERN stack. It is a modern and responsive web application with complete stripe payment checkout solution.
 [Click here to check out The RED Cinemas](https://cakey.netlify.app/)
 
 # Available Features!
@@ -29,10 +42,10 @@ The RED Cinemas is an online movie booking application created using MERN stack.
 - Create an Admin dashboard for Admin
 - Create a My Account page for customers
 
-### Tech
+### ⚙️ Tech
 
 - [ReactJS](https://reactjs.org/) - A JavaScript library for building user interfaces.
-- ![Stripe](https://img.shields.io/badge/-Stripe-333333?style=flat&logo=stripe) - A complete payment solution.
+- [Stripe](https://stripe.com/en-se) - A complete payment solution.
 - [React Router](https://reactrouter.com/) - A tool that allows you to handle routes in a web app, using dynamic routing.
 - [React Icons](https://react-icons.github.io/react-icons/) - Popular icons for React projects.
 - [styled-components](https://styled-components.com/) - A Modern way to write CSS in Javascript.
