@@ -2,24 +2,24 @@
 The RED Cinemas -A place to feel immersive movie experience
 </h1>
 <p align="center">
- ReactJS, styled-components, React Router
-</p>
-
 [![Lint Workflow](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/workflows/Run%20Lint%20-%20The%20RED%20Cinemas/badge.svg)](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/actions)
 [![Test Workflow](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/workflows/Run%20Test%20-%20The%20RED%20Cinemas/badge.svg)](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/actions)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react)
+</p>
 
 The RED Cinemas is an online movie booking application created using MERN stack. It is a modern and responsive web application with complete stripe payment checkout solution.
 [Click here to check out The RED Cinemas](https://cakey.netlify.app/)
 
 # Available Features!
 
-- Public Features
+### Public Features
+
 - Customer login and Registration
 - Check playing now and coming soon movies
 - Book movies
 
-- Admin Features
+### Admin Features
+
 - Integration for adding playing now and coming soon movies to the App
 - Add new screens/cinemas to the App
 - Add showtiming for movies
