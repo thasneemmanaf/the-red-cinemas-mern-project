@@ -4,16 +4,16 @@ The RED Cinemas -A place to feel immersive movie experience
 <p align="center">
  React, Nodejs, MongoDB, Expressjs, Stripe, i18n 
 </p>
-<div text-align="center">
+
 [![Lint Workflow](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/workflows/Run%20Lint%20-%20The%20RED%20Cinemas/badge.svg)](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/actions)
 [![Test Workflow](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/workflows/Run%20Test%20-%20The%20RED%20Cinemas/badge.svg)](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/actions)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react)
-</div>
 
 ![React](https://img.shields.io/badge/-React-333333?style=flat&logo=react)&nbsp;
 ![Stripe](https://img.shields.io/badge/-Stripe-333333?style=flat&logo=stripe)&nbsp;
-![i18n](https://img.shields.io/badge/-I18n-333333?style=flat)&nbsp;
-![EmailJS](https://img.shields.io/badge/-Minutemailer-333333?style=flat&logo=minutemailer)&nbsp;
+![i18Next](https://img.shields.io/badge/-I18Next-333333?style=flat)&nbsp;
+![EmailJS](https://img.shields.io/badge/-EmailJS-333333?style=flat&logo=minutemailer)&nbsp;
+![styled-components](https://img.shields.io/badge/-StyledComponents-333333?style=flat&logo=styled-components)&nbsp;
 ![Node.js](https://img.shields.io/badge/-Node.js-333333?style=flat&logo=node.js)&nbsp;
 ![Express.JS](https://img.shields.io/badge/-Express.JS-333333?style=flat&logo=Express.JS)&nbsp;
 ![MongoDB](https://img.shields.io/badge/-MongoDB-333333?style=flat&logo=mongodb)&nbsp;
