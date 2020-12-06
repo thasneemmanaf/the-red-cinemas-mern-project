@@ -25,6 +25,9 @@
     "stripe": "^8.120.0",
     "validator": "^13.1.17"
   },
+  "engines": {
+    "node": "14.4.0"
+  },
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.2.1",
