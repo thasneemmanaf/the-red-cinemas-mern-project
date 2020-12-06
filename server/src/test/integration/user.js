@@ -26,18 +26,4 @@ describe('Testing Users Endpoints ', () => {
     await User.deleteMany();
     mongoose.connection.close();
   });
-
-  describe('POST /api/v1/user/signup', () => {
-    it('should save user to the databse', async () => {
-      await supertest(app)
-        .post('/api/v1/user/signup')
-        .send({
-          name: 'Jane Doe',
-          emailId: 'jdoe@example.com',
-          password: '123456789',
-          confirmPassword: '123456789'
-        })
-        .expect(201);
-    });
-  });
 });
