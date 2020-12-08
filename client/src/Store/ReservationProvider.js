@@ -18,7 +18,7 @@ const initialState = {
   selectedSeats: [],
   seatLayout: {},
   shows: [],
-  selectedCinema: 'Select screen',
+  selectedCinema: '',
   screenId: '',
   showTimeId: '',
   paymentStatus: 'Incomplete'

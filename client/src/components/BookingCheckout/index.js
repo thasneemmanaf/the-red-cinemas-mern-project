@@ -39,10 +39,8 @@ function BookingCheckout({ setShowModal }) {
         message: 'not_signedin_message'
       });
     } else {
-      await sendEmail(setShowModal);
-
       const stripe = await stripePromise;
-      // Create a session on server and reserve seats
+      // Create a Stripe session on server and reserve seats
       try {
         const response = await axios({
           method: 'post',
@@ -57,6 +55,9 @@ function BookingCheckout({ setShowModal }) {
           removeLocalStorage('reservation');
           removeLocalStorage('reservedSeats');
         }
+        // Send email to user after ticket has been booked
+        await sendEmail(setShowModal);
+
         // Redirect to stripe hosted checkout page
         await stripe.redirectToCheckout({
           sessionId

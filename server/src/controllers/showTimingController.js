@@ -91,12 +91,12 @@ exports.getShowTimings = async (req, res, next) => {
 
 // To update a showTiming
 exports.updateShowTiming = async (req, res, next) => {
-  // const { reservationId } = req.body;
   try {
     await ShowTiming.updateOne(
       { _id: req.body.showTimeId },
       { $push: { reservedSeats: req.body.selectedSeats } }
     );
+    // Go to next middleware for creating stripe checkout seesion
     createCheckoutSession(req, res, next);
   } catch {
     next(new AppError('Unable to update showTiming at the moment', 400));
