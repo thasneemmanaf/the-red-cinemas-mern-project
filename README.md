@@ -5,6 +5,8 @@ The RED Cinemas -A place to feel immersive movie experience
  React, Nodejs, MongoDB, Expressjs, Stripe, i18Next
 </p>
 
+<div align="center">
+
 [![Lint Workflow](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/workflows/Run%20Lint%20-%20The%20RED%20Cinemas/badge.svg)](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/actions)
 [![Test Workflow](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/workflows/Run%20Test%20-%20The%20RED%20Cinemas/badge.svg)](https://github.com/thasneemmanaf/the-red-cinemas-mern-project/actions)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react)
@@ -22,6 +24,7 @@ The RED Cinemas -A place to feel immersive movie experience
 ![Test](https://img.shields.io/badge/-Chai-333333?style=flat)&nbsp;
 ![Test](https://img.shields.io/badge/-Mocha-333333?style=flat)&nbsp;
 
+</div>
 The RED Cinemas is an online movie booking multi-language application created using MERN stack. It is a modern and responsive web application with complete stripe payment checkout solution.
 
 Showtimings are added for below three movies and you can either create new account or use below test account to book movies.
